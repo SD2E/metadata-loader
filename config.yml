@@ -13,7 +13,7 @@ catalogstore:
   batch: 1000
   collection: samplesfiles
   collections:
-    files: files
+    files: datafiles
     samples: samples
     measurements: measurements
 mongodb:

@@ -4,6 +4,7 @@ import pytz
 import json
 import uuid
 import copy
+import collections
 from slugify import slugify
 from pymongo import MongoClient, ReturnDocument
 from bson.binary import Binary, UUID_SUBTYPE
@@ -17,7 +18,8 @@ from .constants import *
 from .posixhelpers import *
 from .constants import *
 
-# TODO The *Store classes are not DRY at all. Bring a towel.
+# FIXME The *Store classes are not DRY at all. Bring a towel.
+# FIXME Code relies too much on hard-coded reference integrity
 
 class CatalogError(Exception):
     pass
@@ -34,6 +36,14 @@ class CatalogDatabaseError(CatalogError):
     # Errors reading to or writing from backing store
     pass
 
+class FileUpdateFailure(CatalogUpdateFailure):
+    pass
+
+class SampleUpdateFailure(CatalogUpdateFailure):
+    pass
+
+class MeasurementUpdateFailure(CatalogUpdateFailure):
+    pass
 
 class MeasurementStore(object):
     def __init__(self, mongodb, config):
@@ -59,7 +69,7 @@ class MeasurementStore(object):
                                  'revision': 0},
                   'uuid': uid,
                   'id': meas_id}
-        return {**copy.deepcopy(measurement), **extras}
+        return dict_merge(copy.deepcopy(measurement), extras)
 
     def update_record(self, measurement):
         # Update properties
@@ -156,7 +166,7 @@ class SampleStore(object):
                                  'modified_date': ts,
                                  'revision': 0},
                   'uuid': uid}
-        return {**copy.deepcopy(sample), **extras}
+        return dict_merge(copy.deepcopy(sample), extras)
 
     # FIXME use generated uuid for database lookups
     def update_record(self, sample):
@@ -227,88 +237,106 @@ class SampleStore(object):
 class CatalogStore(object):
     def __init__(self, mongodb, config):
         self.db = db_connection(mongodb)
-        self.files = self.db[config['collection']]
+        coll = config['collections']['files']
+        if config['debug']:
+            coll = coll + str(int(datetime.datetime.utcnow().timestamp()))
+        self.coll = self.db[coll]
+        self.coll.uuid_subtype = UUID_SUBTYPE
         self.base = config['base']
-        self.store = config['store']
+        self.store = config['root']
 
-    def new_record(self, filename):
+    def get_fixity_properties(self, filename):
         absfilename = self.abspath(filename)
+        properties = {}
+        # file type
         try:
-            uid = catalog_uuid(filename)
-            ts = datetime.datetime.utcnow()
             ftype = get_filetype(absfilename)
-            cksum = compute_checksum(absfilename)
-            size = get_size_in_bytes(absfilename)
-            lab = lab_from_path(filename)
-        except Exception as exc:
-            raise CatalogDataError('Failed to compute values for record', exc)
-
-        return {'properties': {'originator_id': None, 'checksum': cksum,
-                            'size_in_bytes': size, 'original_filename': filename,
-                            'file_type': ftype, 'created_date': ts,
-                            'modified_date': ts, 'revision': 0},
-                'filename': filename,
-                'uuid': uid,
-                'attributes': {'lab': lab},
-                'variables': [],
-                'annotations': []}
-
-    def update_record(self, filename, record):
-        # Update properties
-        absfilename = self.abspath(filename)
+            properties['inferred_file_type'] = ftype
+        except Exception:
+            pass
+        # checksum
         try:
-            uid = catalog_uuid(filename)
-            ts = datetime.datetime.utcnow()
-            ftype = get_filetype(absfilename)
             cksum = compute_checksum(absfilename)
+            properties['checksum'] = cksum
+        except Exception:
+            pass
+        # size in bytes
+        try:
             size = get_size_in_bytes(absfilename)
-            lab = lab_from_path(filename)
+            properties['size_in_bytes'] = size
+        except Exception:
+            pass
+        return properties
 
-        except Exception as exc:
-            raise CatalogDataError('Failed to compute values for record', exc)
+    def new_record(self, record):
+        filename = record['filename']
+        ts = datetime.datetime.utcnow()
 
-        record['properties']['size_in_bytes'] = size
-        record['properties']['checksum'] = cksum
-        record['properties']['file_type'] = ftype
-        record['properties']['modified_date'] = ts
-        record['properties']['revision'] += 1
-        record['attributes']['lab'] = lab
+        record['uuid'] = catalog_uuid(filename)
+        # update attributes
+        record['attributes'] = dict_merge(record.get('attributes', {}), {'lab': lab_from_path(filename)})
+        # build up properties set if possible
+        file_extras = {'created_date': ts, 'modified_date': ts, 'revision': 0, 'original_filename': filename}
+        file_props = self.get_fixity_properties(filename)
+        extras = dict_merge(file_extras, file_props)
+        # amend existing properties
+        props = dict_merge(record.get('properties', {}), extras)
+        record['properties'] = props
         return record
 
-    def create_update_record(self, filename):
+    def update_record(self, record):
+        # Update revision and timestamp
+        filename = record['filename']
+        record['uuid'] = catalog_uuid(filename)
+        ts = datetime.datetime.utcnow()
+        rev = record['properties'].get('revision', 0) + 1
+        # build up properties if possible
+        file_extras = {'modified_date': ts,
+                       'revision': rev}
+        # If updating a stub record, which means it might not have a created date
+        if 'created_date' not in record['properties']:
+            file_extras['created_date'] = ts
+        # update fixity properties (in case they've changed due to re-upload etc)
+        file_props = self.get_fixity_properties(filename)
+        extras = dict_merge(file_extras, file_props)
+        props = dict_merge(record.get('properties', {}), extras)
+        record['properties'] = props
+        return record
+
+    def create_update_record(self, record):
         # Does the record exist under the current filename
         # If yes, fetch it and update it
         #   Increment the revision and modified date
         # Otherwise, create a new instance
         #
         # Returns the record on success
-        filename = self.normalize(filename)
-        filerec = self.files.find_one({'filename': filename})
+        filename = self.normalize(record['filename'])
+        filerec = self.coll.find_one({'filename': filename})
         if filerec is None:
             try:
-                newrec = self.new_record(filename)
-                self.files.insert_one(newrec)
+                newrec = self.new_record(record)
+                self.coll.insert_one(newrec)
                 return newrec
             except Exception:
-                raise CatalogUpdateFailure('Failed to create new record')
+                raise FileUpdateFailure('Create failed')
         else:
             try:
-                filerec = self.update_record(filename, filerec)
-                updated =  self.files.find_one_and_replace(
+                filerec = self.update_record(filerec)
+                updated = self.coll.find_one_and_replace(
                     {'_id': filerec['_id']},
                     filerec,
                     return_document=ReturnDocument.AFTER)
                 return updated
             except Exception:
-                raise CatalogUpdateFailure('Failed to update existing record')
+                raise FileUpdateFailure('Update failed')
 
     def delete_record(self, filename):
         '''Delete record by filename'''
         filename = self.normalize(filename)
         try:
-            return self.files.remove({'filename': filename})
+            return self.coll.remove({'filename': filename})
         except Exception:
-            raise CatalogUpdateFailure('Failed to remove record')
+            raise FileUpdateFailure('Delete failed')
 
     def normalize(self, filename):
         # Strip leading / and any combination of
@@ -331,7 +359,6 @@ class CatalogStore(object):
         '''Check if a filepath exists and is believed by the OS to be a file'''
         full_path = self.abspath(filepath)
         return os.path.isfile(full_path)
-
 
 def dictcompare(a, b, section=None):
     # Used to compare database records as dicts
@@ -366,12 +393,21 @@ def lab_from_path(filename):
     if filename.startswith('/'):
         raise CatalogDataError('"{}" is not a normalized path')
     path_els = splitall(filename)
-    # presently a 1:1 mapping but could be extended to support
-    # transforming from path(s) to lab name
-    if path_els[0].lower() in Enumerations.LABS:
+    if path_els[0].lower() in Enumerations.LABPATHS:
         return path_els[0].lower()
-    raise CatalogDataError('"{}" is not a known lab'.format(path_els[0]))
+    else:
+        raise CatalogDataError('"{}" is not a known uploads path'.format(path_els[0]))
 
+def labname_from_path(filename):
+    '''Infer experimental lab from a normalized upload path'''
+    if filename.startswith('/'):
+        raise CatalogDataError('"{}" is not a normalized path')
+    path_els = splitall(filename)
+    if path_els[0].lower() in Enumerations.LABPATHS:
+        return Mappings.LABPATHS.get(path_els[0].lower(), 'Unknown')
+    else:
+        raise CatalogDataError(
+            '"{}" is not a known uploads path'.format(path_els[0]))
 
 def measurement_id_from_properties(measurement, prefix=None):
     '''Returns a unique measurement identifier'''
@@ -390,3 +426,37 @@ def measurement_id_from_properties(measurement, prefix=None):
             kvlist.append(k + ':' + slugify(meas[k]))
     joined = '|'.join(kvlist)
     return joined
+
+# Reference: https://gist.github.com/angstwad/bf22d1822c38a92ec0a9#gistcomment-1986197
+# FIXME: Does not merge lists
+def dict_merge(dct, merge_dct, add_keys=True):
+    """ Recursive dict merge. Inspired by :meth:``dict.update()``, instead of
+    updating only top-level keys, dict_merge recurses down into dicts nested
+    to an arbitrary depth, updating keys. The ``merge_dct`` is merged into
+    ``dct``.
+    This version will return a copy of the dictionary and leave the original
+    arguments untouched.
+    The optional argument ``add_keys``, determines whether keys which are
+    present in ``merge_dict`` but not ``dct`` should be included in the
+    new dict.
+    Args:
+        dct (dict) onto which the merge is executed
+        merge_dct (dict): dct merged into dct
+        add_keys (bool): whether to add new keys
+    Returns:
+        dict: updated dict
+    """
+    #dct = dct.copy()
+    dct = copy.deepcopy(dct)
+    if not add_keys:
+        merge_dct = {
+            k: merge_dct[k]
+            for k in set(dct).intersection(set(merge_dct))
+        }
+    for k, v in merge_dct.items():
+        if (k in dct and isinstance(dct[k], dict)
+                and isinstance(merge_dct[k], collections.Mapping)):
+            dct[k] = dict_merge(dct[k], merge_dct[k], add_keys=add_keys)
+        else:
+            dct[k] = merge_dct[k]
+    return dct

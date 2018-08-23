@@ -6,7 +6,8 @@ import copy
 from attrdict import AttrDict
 from reactors.runtime import Reactor, agaveutils
 from jsonschema import validate, RefResolver
-from datacatalog import SampleStore, MeasurementStore, posixhelpers
+from datacatalog import CatalogStore, SampleStore, MeasurementStore
+from datacatalog import posixhelpers, dict_merge
 
 SCHEMA_FILE = '/schemas/samples-schema.json'
 LOCALFILENAME = '/downloaded.json'
@@ -103,12 +104,19 @@ def main():
     if not r.validate_message(m):
         r.on_failure('Invalid message received', None)
 
-    # Set up Store object
+    # Set up Store objects
+    files_store = CatalogStore(mongodb=r.settings.mongodb,
+                                  config=r.settings.catalogstore)
+
     sample_store = SampleStore(mongodb=r.settings.mongodb,
                                config=r.settings.catalogstore)
 
     meas_store = MeasurementStore(mongodb=r.settings.mongodb,
                                   config=r.settings.catalogstore)
+
+    r.logger.debug(files_store.coll)
+    r.logger.debug(sample_store.coll)
+    r.logger.debug(meas_store.coll)
 
     agave_uri = m.get('uri')
     agave_sys, agave_path, agave_file = from_agave_uri(agave_uri)
@@ -145,24 +153,25 @@ def main():
                 # Change keyname to id since we're already in the samples collection
                 sample['id'] = sample['sample_id']
                 sample.pop('sample_id')
-                if 'measurements' in sample:
-                    samples_with_measurements += 1
-                    for meas in sample['measurements']:
-                        files_copy = copy.deepcopy(meas['files'])
-                        files_resolved = []
-                        for file in files_copy:
-                            try:
-                                # Raises ValueError if path can't rebase
-                                new_filename = posixhelpers.rebase_file_path(
-                                    file['name'], filename_prefix)
-                                file['name'] = new_filename
-                                files_resolved.append(file)
-                            except ValueError as exc:
-                                pass
-                                #r.logger.warn(exc)
-                        meas['files'] = files_resolved
-                else:
-                    r.logger.warning('no measurements found for sample {}'.format(sample['id']))
+        #         if 'measurements' in sample:
+        #             samples_with_measurements += 1
+        #             for meas in sample['measurements']:
+        #                 files_copy = copy.deepcopy(meas['files'])
+        #                 files_resolved = []
+        #                 for file in files_copy:
+        #                     try:
+        #                         # Raises ValueError if path can't rebase
+        #                         new_filename = posixhelpers.rebase_file_path(
+        #                             file['name'], filename_prefix)
+        #                         file['name'] = new_filename
+        #                         files_resolved.append(file)
+        #                     except ValueError as exc:
+        #                         pass
+        #                         #r.logger.warn(exc)
+        #                 meas['files'] = files_resolved
+        #         else:
+        #             pass
+                    #r.logger.warning('no measurements found for sample {}'.format(sample['id']))
 
         # Deal with "chatty" trace dumps that can't be associated with
         # files in the present working directory
@@ -183,22 +192,51 @@ def main():
         #         samples_kept.append(sample)
         # filedata['samples'] = samples_kept
 
-        # Write sample definition record(s)
+        # Write samples, measurement, files record(s)
         samples_set = filedata.pop('samples')
         for s in samples_set:
+            r.logger.info('PROCESSING SAMPLE {}'.format(s['id']))
             try:
                 meas = s.pop('measurements')
                 s['measurement_ids'] = []
                 for m in meas:
+                    r.logger.info('PROCESSING MEASUREMENT {}'.format(m['measurement_id']))
                     if isinstance(m, dict):
                         try:
-                            m.pop('files')
-                        except KeyError:
-                            r.logger.warning('measurement had no files slot')
-                    extra = {}
-                    meas_rec = { **copy.deepcopy(m), **extra}
-                    r.logger.info(
-                        'creating or updating a measurement record for sample {}'.format(s['id']))
+                            # FILES
+                            files = m.pop('files')
+                            r.logger.debug('file count: {}'.format(len(files)))
+                            m['files_id'] = []
+                            for f in files:
+                                r.logger.info(
+                                    'PROCESSING FILE {}'.format(f['name']))
+                                # Transform into a CatalogStore record
+                                file_copy = copy.deepcopy(f)
+                                file_orig_name = file_copy.pop('name')
+                                file_type = file_copy.pop('type')
+                                file_state = file_copy.pop('state')
+                                file_name = files_store.normalize(os.path.join(
+                                    agave_path, file_orig_name))
+                                # TODO Improve file_type when we improve filetype mapping
+                                file_record = {'filename': file_name, 'state': file_state,
+                                               'properties': {'declared_file_type': file_type,
+                                                              'original_filename': file_orig_name}}
+                                r.logger.debug(
+                                    'creating or updating file {}'.format(f['name']))
+                                file_rec_resp = files_store.create_update_record(file_record)
+                                #print(file_rec_resp)
+                                if 'uuid' in file_rec_resp:
+                                    r.logger.info('associating file {} with measurement'.format(
+                                        file_rec_resp['uuid']))
+                                    if file_rec_resp['uuid'] not in m['files_id']:
+                                        m['files_id'].append(file_rec_resp['uuid'])
+                                else:
+                                    raise KeyError('files record cannot be associated with measurement')
+                        except KeyError as kerr:
+                            r.logger.warning('measurement had no files slot', kerr)
+                    meas_extras = {}
+                    meas_rec = dict_merge(copy.deepcopy(m), meas_extras)
+                    #r.logger.info('creating or updating a measurement record for sample {}'.format(s['id']))
                     try:
                         new_meas = meas_store.create_update_measurement(meas_rec)
                         s['measurement_ids'].append(new_meas['uuid'])
@@ -206,14 +244,15 @@ def main():
                         r.on_failure('failed to write measurement record', exc)
             except KeyError:
                 pass
-            srec = { **copy.deepcopy(filedata), **s }
+            srec = dict_merge(copy.deepcopy(filedata), s)
             # add source URI
             srec['filename'] = sample_store.normalize(agave_full_path)
-            r.logger.info('creating or updating sample record for sample {}'.format(srec['id']))
+            #r.logger.info('creating or updating sample record for sample {}'.format(srec['id']))
             try:
                 sample_store.create_update_sample(srec)
             except Exception as exc:
                 r.on_failure('failed to write sample record', exc)
+
 
         r.logger.info('{} samples found with measurements'.format(samples_with_measurements))
 

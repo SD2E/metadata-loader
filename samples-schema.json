@@ -111,7 +111,7 @@
                     "type": "string",
                     "enum": [
                         "FLOW",
-                        "RNA-SEQ",
+                        "RNA_SEQ",
                         "PLATE_READER",
                         "PROTEOMICS"
                     ]
