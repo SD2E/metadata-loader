@@ -1,0 +1,27 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "title": "SamplesJsonMessage",
+    "description": "Trigger processing and re-processing of samples.json files",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "uri": {
+            "type": "string",
+            "format": "uri",
+            "description": "full agave-canonical path to a samples.json file"
+        },
+        "prefix" : {
+            "type": "string",
+            "description": "path prefix relative to the catalog store"
+        },
+        "reprocess": {
+            "type": "array",
+            "uniqueItems": true,
+            "description": "list of file names which remain to be processed",
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "required": ["uri"]
+}
