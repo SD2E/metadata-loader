@@ -5,48 +5,12 @@ import copy
 from attrdict import AttrDict
 from reactors.runtime import Reactor, agaveutils
 
-from jsonschema import validate, RefResolver
 from datacatalog import CatalogStore, SampleStore, MeasurementStore
-from datacatalog import posixhelpers, data_merge
+from datacatalog import posixhelpers, data_merge, validate_file_to_schema
 from datacatalog.agavehelpers import from_agave_uri
 
 SCHEMA_FILE = '/schemas/samples-schema.json'
 LOCALFILENAME = '/downloaded.json'
-
-def validate_file_schema(filename, schema_file=SCHEMA_FILE, permissive=False):
-    '''
-    Validate a JSON document against a JSON schema
-
-    Positional arguments:
-    filename - str - path to the JSON file to validate
-
-    Keyword arguments:
-    schema_file - str - path to the requisite JSON schema file
-    permissive - bool - swallow validation errors [False]
-    '''
-    try:
-        with open(filename) as object_file:
-            object_json = json.loads(object_file.read())
-
-        with open(schema_file) as schema:
-            schema_json = json.loads(schema.read())
-            schema_abs = 'file://' + schema_file
-    except Exception as e:
-        raise Exception("file or schema loading error", e)
-
-    class fixResolver(RefResolver):
-        def __init__(self):
-            RefResolver.__init__(self, base_uri=schema_abs, referrer=None)
-            self.store[schema_abs] = schema_json
-
-    try:
-        validate(object_json, schema_json, resolver=fixResolver())
-        return True
-    except Exception as e:
-        if permissive is False:
-            raise Exception("file validation failed", e)
-        else:
-            pass
 
 def compute_prefix(uri, catalog_root='/', prefix=None):
     new_prefix = ''
@@ -111,7 +75,7 @@ def main():
 
     r.logger.debug('validating file against schema')
     try:
-        validate_file_schema(LOCALFILENAME)
+        validate_file_to_schema(LOCALFILENAME, SCHEMA_FILE)
     except Exception as exc:
         r.on_failure('validation failed', exc)
 

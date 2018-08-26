@@ -5,20 +5,13 @@ from collections import Mapping, MutableMapping
 class DictionaryMergeError(Exception):
     pass
 
-def _dictcompare(a, b, section=None):
-    # Used to compare database records as dicts
-    # https://stackoverflow.com/a/48652830
-    # This was not working for the comparisons I needed to make but am keeping
-    # it around for reference
-    return [(c, d, g, section) if all(not isinstance(i, dict) for i in [d, g]) and d != g else None if all(not isinstance(i, dict) for i in [d, g]) and d == g else _dictcompare(d, g, c) for [c, d], [h, g] in zip(a.items(), b.items())]
-
 def filter_dict(target_dict, keys_to_filter):
     """Filters key(s) from top level of a dict
-    Parameters:
-    target_dict (dict): the dictionary to filter
-    keys_to_filter (list, tuple, str): set of keys to filter
+    Args:
+        target_dict (dict): the dictionary to filter
+        keys_to_filter (list, tuple, str): set of keys to filter
     Returns:
-    Filtered copy of target_dict
+        A filtered copy of target_dict
     """
     assert isinstance(target_dict, dict)
     d = copy.deepcopy(target_dict)
@@ -63,8 +56,8 @@ def flatten(d, parent_key='', sep='_'):
     return dict(items)
 
 def is_primitive(pyobj):
-    '''Determine if the object is one of what other languages would deem a primitive'''
-    if type(pyobj) in (int, float, bool, str):
+    """Determine if pyobj is one of (what other languages would deem) a primitive"""
+    if type(pyobj) in (int, float, bool, str, bytes):
         return True
     else:
         return False
@@ -107,13 +100,12 @@ def list_merge(lst, merge_lst):
 
 
 def data_merge(aa, bb):
-    """merges b into a and return merged result
-    NOTE: tuples and arbitrary objects are not handled as it is totally ambiguous what should happen"""
+    """Merges b into a and returns merged result
+    NOTE: Tuples and arbitrary objects are not handled as it is ambiguous what should happen
+    """
     key = None
     a = copy.deepcopy(aa)
     b = copy.deepcopy(bb)
-    # ## debug output
-    # sys.stderr.write("DEBUG: %s to %s\n" %(b,a))
     try:
         if a is None or isinstance(a, (str, int, float, bool, bytes, datetime.datetime)):
             # border case for first run or if a is a primitive
@@ -122,11 +114,9 @@ def data_merge(aa, bb):
             # lists can be only appended
             if isinstance(b, list):
                 # merge lists
-                #a.extend(b)
                 a = list_merge(a, b)
             else:
                 # append to list
-                # a.append(b)
                 a = list_merge(a, b)
         elif isinstance(a, dict):
             # dicts must be merged
@@ -146,3 +136,11 @@ def data_merge(aa, bb):
         raise DictionaryMergeError(
             'TypeError "%s" in key "%s" when merging "%s" into "%s"' % (e, key, b, a))
     return a
+
+
+def _dictcompare(a, b, section=None):
+    # Used to compare database records as dicts
+    # https://stackoverflow.com/a/48652830
+    # This was not working for the comparisons I needed to make but am keeping
+    # it around for reference
+    return [(c, d, g, section) if all(not isinstance(i, dict) for i in [d, g]) and d != g else None if all(not isinstance(i, dict) for i in [d, g]) and d == g else _dictcompare(d, g, c) for [c, d], [h, g] in zip(a.items(), b.items())]
