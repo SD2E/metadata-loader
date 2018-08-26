@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+
+  mongo:
+    image: mongo:3-jessie
+    container_name: datacatalog
+    restart: always
+    expose:
+      - "27017"
+    ports:
+      - 27017:27017
+    volumes:
+      - datacatalog:/data/db
+      - configdb:/data/configdb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: catalog
+      MONGO_INITDB_ROOT_PASSWORD: catalog
+
+volumes:
+  datacatalog:
+  configdb:

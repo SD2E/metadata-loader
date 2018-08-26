@@ -1,13 +1,14 @@
 import os
 import json
-import re
 import warnings
 import copy
 from attrdict import AttrDict
 from reactors.runtime import Reactor, agaveutils
+
 from jsonschema import validate, RefResolver
 from datacatalog import CatalogStore, SampleStore, MeasurementStore
-from datacatalog import posixhelpers, dict_merge
+from datacatalog import posixhelpers, data_merge
+from datacatalog.agavehelpers import from_agave_uri
 
 SCHEMA_FILE = '/schemas/samples-schema.json'
 LOCALFILENAME = '/downloaded.json'
@@ -47,35 +48,6 @@ def validate_file_schema(filename, schema_file=SCHEMA_FILE, permissive=False):
         else:
             pass
 
-def from_agave_uri(uri=None, Validate=False):
-    '''
-    Parse an Agave URI into a tuple (systemId, directoryPath, fileName)
-    Validation that it points to a real resource is not implemented. The
-    same caveats about validation apply here as in to_agave_uri()
-    '''
-    systemId = None
-    dirPath = None
-    fileName = None
-    proto = re.compile(r'agave:\/\/(.*)$')
-    if uri is None:
-        raise Exception("URI cannot be empty")
-    resourcepath = proto.search(uri)
-    if resourcepath is None:
-        raise Exception("Unable resolve URI")
-    resourcepath = resourcepath.group(1)
-    firstSlash = resourcepath.find('/')
-    if firstSlash is -1:
-        raise Exception("Unable to resolve systemId")
-    try:
-        systemId = resourcepath[0:firstSlash]
-        origDirPath = resourcepath[firstSlash + 1:]
-        dirPath = '/' + os.path.dirname(origDirPath)
-        fileName = os.path.basename(origDirPath)
-        return (systemId, dirPath, fileName)
-    except Exception as e:
-        raise Exception("Error resolving directory path or file name: {}".format(e))
-
-
 def compute_prefix(uri, catalog_root='/', prefix=None):
     new_prefix = ''
     if prefix is not None:
@@ -114,9 +86,8 @@ def main():
     meas_store = MeasurementStore(mongodb=r.settings.mongodb,
                                   config=r.settings.catalogstore)
 
-    r.logger.debug(files_store.coll)
-    r.logger.debug(sample_store.coll)
-    r.logger.debug(meas_store.coll)
+    r.logger.debug('collections: {}, {}, {}'.format(files_store.name,
+                   sample_store.name, meas_store.name))
 
     agave_uri = m.get('uri')
     agave_sys, agave_path, agave_file = from_agave_uri(agave_uri)
@@ -142,10 +113,9 @@ def main():
     try:
         validate_file_schema(LOCALFILENAME)
     except Exception as exc:
-        r.on_failure('schema validation failed', exc)
+        r.on_failure('validation failed', exc)
 
-    r.logger.info('extending file names with catalog-relative path')
-    samples_with_measurements = 0
+    r.logger.debug('extending file names with root path')
     with open(LOCALFILENAME, 'r') as samplesfile:
         filedata = json.load(samplesfile)
         if 'samples' in filedata:
@@ -153,125 +123,101 @@ def main():
                 # Change keyname to id since we're already in the samples collection
                 sample['id'] = sample['sample_id']
                 sample.pop('sample_id')
-        #         if 'measurements' in sample:
-        #             samples_with_measurements += 1
-        #             for meas in sample['measurements']:
-        #                 files_copy = copy.deepcopy(meas['files'])
-        #                 files_resolved = []
-        #                 for file in files_copy:
-        #                     try:
-        #                         # Raises ValueError if path can't rebase
-        #                         new_filename = posixhelpers.rebase_file_path(
-        #                             file['name'], filename_prefix)
-        #                         file['name'] = new_filename
-        #                         files_resolved.append(file)
-        #                     except ValueError as exc:
-        #                         pass
-        #                         #r.logger.warn(exc)
-        #                 meas['files'] = files_resolved
-        #         else:
-        #             pass
-                    #r.logger.warning('no measurements found for sample {}'.format(sample['id']))
 
-        # Deal with "chatty" trace dumps that can't be associated with
-        # files in the present working directory
-        #
-        # 1. Filter measurements where there are no files
-        # for sample in filedata['samples']:
-        #     meas_copy = copy.deepcopy(sample['measurements'])
-        #     meas_kept = []
-        #     for meas in meas_copy:
-        #         if len(meas['files']) > 0:
-        #             meas_kept.append(meas)
-        #     sample['measurements'] = meas_kept
-        # # 2. Filter samples where there are no measurements
-        # samples_copy = copy.deepcopy(filedata['samples'])
-        # samples_kept = []
-        # for sample in samples_copy:
-        #     if len(sample['measurements']) > 0:
-        #         samples_kept.append(sample)
-        # filedata['samples'] = samples_kept
-
+        # set to -1 for no limit
+        max_samples = 1
         # Write samples, measurement, files record(s)
+        samp_meas_assoc = {}
+        meas_file_assoc = {}
         samples_set = filedata.pop('samples')
         for s in samples_set:
             r.logger.info('PROCESSING SAMPLE {}'.format(s['id']))
+            samp_extras = {'filename': sample_store.normalize(agave_full_path)}
+            samp_rec = data_merge(copy.deepcopy(s), samp_extras)
+            r.logger.debug(
+                'writing sample record {}'.format(samp_rec['id']))
+            sid = None
+            try:
+                new_samp = sample_store.create_update_sample(samp_rec)
+                sid = new_samp['uuid']
+                if sid not in samp_meas_assoc:
+                    samp_meas_assoc[sid] = []
+            except Exception as exc:
+                r.on_failure('sample write failed', exc)
+
             try:
                 meas = s.pop('measurements')
-                s['measurement_ids'] = []
                 for m in meas:
                     r.logger.info('PROCESSING MEASUREMENT {}'.format(m['measurement_id']))
-                    if isinstance(m, dict):
-                        try:
-                            # FILES
-                            files = m.pop('files')
-                            r.logger.debug('file count: {}'.format(len(files)))
-                            m['files_id'] = []
-                            for f in files:
-                                r.logger.info(
-                                    'PROCESSING FILE {}'.format(f['name']))
-                                # Transform into a CatalogStore record
-                                file_copy = copy.deepcopy(f)
-                                file_orig_name = file_copy.pop('name')
-                                file_type = file_copy.pop('type')
-                                file_state = file_copy.pop('state')
-                                file_name = files_store.normalize(os.path.join(
-                                    agave_path, file_orig_name))
-                                # TODO Improve file_type when we improve filetype mapping
-                                file_record = {'filename': file_name, 'state': file_state,
-                                               'properties': {'declared_file_type': file_type,
-                                                              'original_filename': file_orig_name}}
-                                r.logger.debug(
-                                    'creating or updating file {}'.format(f['name']))
-                                file_rec_resp = files_store.create_update_record(file_record)
-                                #print(file_rec_resp)
-                                if 'uuid' in file_rec_resp:
-                                    r.logger.info('associating file {} with measurement'.format(
-                                        file_rec_resp['uuid']))
-                                    if file_rec_resp['uuid'] not in m['files_id']:
-                                        m['files_id'].append(file_rec_resp['uuid'])
-                                else:
-                                    raise KeyError('files record cannot be associated with measurement')
-                        except KeyError as kerr:
-                            r.logger.warning('measurement had no files slot', kerr)
                     meas_extras = {}
-                    meas_rec = dict_merge(copy.deepcopy(m), meas_extras)
-                    #r.logger.info('creating or updating a measurement record for sample {}'.format(s['id']))
+                    meas_rec = data_merge(copy.deepcopy(m), meas_extras)
+                    mid = None
                     try:
                         new_meas = meas_store.create_update_measurement(meas_rec)
-                        s['measurement_ids'].append(new_meas['uuid'])
+                        mid = new_meas['uuid']
+                        if new_meas['uuid'] not in samp_meas_assoc[sid]:
+                            r.logger.debug('extending sample.measurement_ids')
+                            samp_meas_assoc[sid].append(new_meas['uuid'])
                     except Exception as exc:
-                        r.on_failure('failed to write measurement record', exc)
-            except KeyError:
-                pass
-            srec = dict_merge(copy.deepcopy(filedata), s)
-            # add source URI
-            srec['filename'] = sample_store.normalize(agave_full_path)
-            #r.logger.info('creating or updating sample record for sample {}'.format(srec['id']))
-            try:
-                sample_store.create_update_sample(srec)
+                        r.on_failure('measurement write failed', exc)
+
+                    # Iterate through file records
+                    try:
+                        files = meas_rec.get('files', [])
+                        r.logger.debug('file count: {}'.format(len(files)))
+                        for f in files:
+                            r.logger.info(
+                                'PROCESSING FILE {}'.format(f['name']))
+                            # Transform into a CatalogStore record
+                            # FIXME Make resilient to missing keys
+                            file_copy = copy.deepcopy(f)
+                            file_orig_name = file_copy.pop('name')
+                            file_type = file_copy.pop('type')
+                            file_state = file_copy.pop('state')
+                            file_name = files_store.normalize(os.path.join(
+                                agave_path, file_orig_name))
+                            # TODO Improve file_type once we've improve filetype mapping
+                            file_record = {'filename': file_name, 'state': file_state,
+                                            'properties': {'declared_file_type': file_type,
+                                                            'original_filename': file_orig_name}}
+
+                            try:
+                                r.logger.debug(
+                                'writing file record for {}'.format(f['name']))
+                                file_rec_resp = files_store.create_update_record(file_record)
+                                if 'uuid' in file_rec_resp:
+                                    if not mid in meas_file_assoc:
+                                        meas_file_assoc[mid] = []
+                                    if file_rec_resp['uuid'] not in meas_file_assoc[mid]:
+                                        r.logger.debug(
+                                            'extending measurement.files_uuids')
+                                        meas_file_assoc[mid].append(file_rec_resp['uuid'])
+                                else:
+                                    r.logger.critical(
+                                        'file uuid-to-measurement association failed')
+                            except Exception as exc:
+                                r.logger.critical('files write failed')
+                    except KeyError as kexc:
+                        r.logger.warning('unable to process files: {}'.format(kexc))
             except Exception as exc:
-                r.on_failure('failed to write sample record', exc)
+                r.logger.critical('unable to process measurements for sample')
 
+            max_samples = max_samples - 1
+            if max_samples == 0:
+                break
 
-        r.logger.info('{} samples found with measurements'.format(samples_with_measurements))
+        try:
+            for si in samp_meas_assoc:
+                sample_store.associate_ids(si, samp_meas_assoc[si])
+        except Exception as exc:
+            r.logger.critical(
+                'failed to associate measurements with samples: {}'.format(exc))
 
-        # Write out measurement sets
-
-
-    # r.logger.debug('output sample records')
-    # with open('samples-transformed.json', 'w+') as st:
-    #     json.dump(filedata, st, indent=4)
-
-
-    # store = CatalogStore(mongodb=r.settings.mongodb,
-    #                      config=r.settings.catalogstore)
-    # try:
-    #     resp = sample_store.create_update_record(agave_full_path)
-    #     r.logger.info('DataFile._id {} created or updated'.format(
-    #         resp.get('uuid', None)))
-    # except Exception as exc:
-    #     r.on_failure('Failed to process file {}'.format(agave_full_path), exc)
+        try:
+            for mi in meas_file_assoc:
+                meas_store.associate_ids(mi, meas_file_assoc[mi])
+        except Exception as exc:
+            r.logger.critical('failed to associate files with measurements: {}'.format(exc))
 
 if __name__ == '__main__':
     main()

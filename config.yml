@@ -1,7 +1,7 @@
 ---
 debug: false
 logs:
-  level: DEBUG
+  level: INFO
   token: ~
 catalogstore:
   debug: true
@@ -17,12 +17,14 @@ catalogstore:
     samples: samples
     measurements: measurements
 mongodb:
-  #host: localhost
-  host: mongodb-staging.sd2e.org
+  # host: 127.0.0.1
+  # username: catalog
+  # password: catalog
   port: 27017
+  database: catalog_dev
+  host: mongodb-staging.sd2e.org
   username: catalog
   password: ~
-  database: catalog_dev
 storagesystems:
   data-sd2e-community:
     posix_path: /work/projects/SD2E-Community/prod/data

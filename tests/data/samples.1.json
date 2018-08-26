@@ -5,7 +5,7 @@
     "lab": "UW_BIOFAB",
     "samples": [
         {
-            "sample_id": "lab.uw_biofab.143042",
+            "sample_id": "sample.uw_biofab.143042",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -16,7 +16,8 @@
                         {
                             "name": "17987/op_92237/jid_71807_item_143042_16hr_07102018_od.csv",
                             "type": "CSV",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25800"
                         }
                     ],
                     "measurement_type": "PLATE_READER"
@@ -24,7 +25,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143042",
+            "sample_id": "sample.uw_biofab.143042",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -35,7 +36,8 @@
                         {
                             "name": "17987/op_92237/jid_71807_item_143042_16hr_07102018_gfp.csv",
                             "type": "CSV",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25801"
                         }
                     ],
                     "measurement_type": "PLATE_READER"
@@ -43,7 +45,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143043",
+            "sample_id": "sample.uw_biofab.143043",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -54,7 +56,8 @@
                         {
                             "name": "17987/op_92238/jid_71833_item_143043_16hr_07102018_od.csv",
                             "type": "CSV",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25803"
                         }
                     ],
                     "measurement_type": "PLATE_READER"
@@ -62,7 +65,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143043",
+            "sample_id": "sample.uw_biofab.143043",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -73,7 +76,8 @@
                         {
                             "name": "17987/op_92238/jid_71833_item_143043_16hr_07102018_gfp.csv",
                             "type": "CSV",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25804"
                         }
                     ],
                     "measurement_type": "PLATE_READER"
@@ -81,7 +85,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143044",
+            "sample_id": "sample.uw_biofab.143044",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -92,7 +96,8 @@
                         {
                             "name": "17987/op_92239/jid_71811_item_143044_16hr_07102018_od.csv",
                             "type": "CSV",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25806"
                         }
                     ],
                     "measurement_type": "PLATE_READER"
@@ -100,7 +105,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143044",
+            "sample_id": "sample.uw_biofab.143044",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -111,7 +116,8 @@
                         {
                             "name": "17987/op_92239/jid_71811_item_143044_16hr_07102018_gfp.csv",
                             "type": "CSV",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25807"
                         }
                     ],
                     "measurement_type": "PLATE_READER"
@@ -119,7 +125,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/C4",
+            "sample_id": "sample.uw_biofab.143184/C4",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -132,7 +138,8 @@
                         {
                             "name": "17987/op_92240/C04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25810"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -140,7 +147,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/A1",
+            "sample_id": "sample.uw_biofab.143184/A1",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -153,7 +160,8 @@
                         {
                             "name": "17987/op_92240/A01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25811"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -161,7 +169,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/F9",
+            "sample_id": "sample.uw_biofab.143184/F9",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -174,7 +182,8 @@
                         {
                             "name": "17987/op_92240/F09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25812"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -182,7 +191,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/D11",
+            "sample_id": "sample.uw_biofab.143184/D11",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -195,7 +204,8 @@
                         {
                             "name": "17987/op_92240/D11.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25813"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -203,7 +213,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/C5",
+            "sample_id": "sample.uw_biofab.143184/C5",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -216,7 +226,8 @@
                         {
                             "name": "17987/op_92240/C05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25814"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -224,7 +235,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/H9",
+            "sample_id": "sample.uw_biofab.143184/H9",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -237,7 +248,8 @@
                         {
                             "name": "17987/op_92240/H09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25815"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -245,7 +257,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/B8",
+            "sample_id": "sample.uw_biofab.143184/B8",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -258,7 +270,8 @@
                         {
                             "name": "17987/op_92240/B08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25816"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -266,7 +279,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/A11",
+            "sample_id": "sample.uw_biofab.143184/A11",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -279,7 +292,8 @@
                         {
                             "name": "17987/op_92240/A11.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25817"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -287,7 +301,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/E4",
+            "sample_id": "sample.uw_biofab.143184/E4",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -300,7 +314,8 @@
                         {
                             "name": "17987/op_92240/E04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25818"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -308,7 +323,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/G12",
+            "sample_id": "sample.uw_biofab.143184/G12",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -321,7 +336,8 @@
                         {
                             "name": "17987/op_92240/G12.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25819"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -329,7 +345,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/G7",
+            "sample_id": "sample.uw_biofab.143184/G7",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -342,7 +358,8 @@
                         {
                             "name": "17987/op_92240/G07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25820"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -350,7 +367,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/A9",
+            "sample_id": "sample.uw_biofab.143184/A9",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -363,7 +380,8 @@
                         {
                             "name": "17987/op_92240/A09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25821"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -371,7 +389,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/H3",
+            "sample_id": "sample.uw_biofab.143184/H3",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -384,7 +402,8 @@
                         {
                             "name": "17987/op_92240/H03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25822"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -392,7 +411,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/D2",
+            "sample_id": "sample.uw_biofab.143184/D2",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -405,7 +424,8 @@
                         {
                             "name": "17987/op_92240/D02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25823"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -413,7 +433,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/B4",
+            "sample_id": "sample.uw_biofab.143184/B4",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -426,7 +446,8 @@
                         {
                             "name": "17987/op_92240/B04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25824"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -434,7 +455,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/A2",
+            "sample_id": "sample.uw_biofab.143184/A2",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -447,7 +468,8 @@
                         {
                             "name": "17987/op_92240/A02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25826"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -455,7 +477,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/A3",
+            "sample_id": "sample.uw_biofab.143184/A3",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -468,7 +490,8 @@
                         {
                             "name": "17987/op_92240/A03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25825"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -476,7 +499,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/B6",
+            "sample_id": "sample.uw_biofab.143184/B6",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -489,7 +512,8 @@
                         {
                             "name": "17987/op_92240/B06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25827"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -497,7 +521,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/C8",
+            "sample_id": "sample.uw_biofab.143184/C8",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -510,7 +534,8 @@
                         {
                             "name": "17987/op_92240/C08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25828"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -518,7 +543,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/A4",
+            "sample_id": "sample.uw_biofab.143184/A4",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -531,7 +556,8 @@
                         {
                             "name": "17987/op_92240/A04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25829"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -539,7 +565,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/A8",
+            "sample_id": "sample.uw_biofab.143184/A8",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -552,7 +578,8 @@
                         {
                             "name": "17987/op_92240/A08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25830"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -560,7 +587,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/A5",
+            "sample_id": "sample.uw_biofab.143184/A5",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -573,7 +600,8 @@
                         {
                             "name": "17987/op_92240/A05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25832"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -581,7 +609,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/A6",
+            "sample_id": "sample.uw_biofab.143184/A6",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -594,7 +622,8 @@
                         {
                             "name": "17987/op_92240/A06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25831"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -602,7 +631,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/A12",
+            "sample_id": "sample.uw_biofab.143184/A12",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -615,7 +644,8 @@
                         {
                             "name": "17987/op_92240/A12.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25833"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -623,7 +653,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/A10",
+            "sample_id": "sample.uw_biofab.143184/A10",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -636,7 +666,8 @@
                         {
                             "name": "17987/op_92240/A10.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25834"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -644,7 +675,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/A7",
+            "sample_id": "sample.uw_biofab.143184/A7",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -657,7 +688,8 @@
                         {
                             "name": "17987/op_92240/A07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25835"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -665,7 +697,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/B2",
+            "sample_id": "sample.uw_biofab.143184/B2",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -678,7 +710,8 @@
                         {
                             "name": "17987/op_92240/B02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25836"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -686,7 +719,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/B3",
+            "sample_id": "sample.uw_biofab.143184/B3",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -699,7 +732,8 @@
                         {
                             "name": "17987/op_92240/B03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25838"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -707,7 +741,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/B1",
+            "sample_id": "sample.uw_biofab.143184/B1",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -720,7 +754,8 @@
                         {
                             "name": "17987/op_92240/B01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25837"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -728,7 +763,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/B7",
+            "sample_id": "sample.uw_biofab.143184/B7",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -741,7 +776,8 @@
                         {
                             "name": "17987/op_92240/B07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25839"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -749,7 +785,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/B5",
+            "sample_id": "sample.uw_biofab.143184/B5",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -762,7 +798,8 @@
                         {
                             "name": "17987/op_92240/B05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25840"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -770,7 +807,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/B11",
+            "sample_id": "sample.uw_biofab.143184/B11",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -783,7 +820,8 @@
                         {
                             "name": "17987/op_92240/B11.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25841"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -791,7 +829,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/B10",
+            "sample_id": "sample.uw_biofab.143184/B10",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -804,7 +842,8 @@
                         {
                             "name": "17987/op_92240/B10.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25842"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -812,7 +851,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/B12",
+            "sample_id": "sample.uw_biofab.143184/B12",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -825,7 +864,8 @@
                         {
                             "name": "17987/op_92240/B12.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25843"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -833,7 +873,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/B9",
+            "sample_id": "sample.uw_biofab.143184/B9",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -846,7 +886,8 @@
                         {
                             "name": "17987/op_92240/B09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25844"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -854,7 +895,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/C1",
+            "sample_id": "sample.uw_biofab.143184/C1",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -867,7 +908,8 @@
                         {
                             "name": "17987/op_92240/C01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25845"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -875,7 +917,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/C3",
+            "sample_id": "sample.uw_biofab.143184/C3",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -888,7 +930,8 @@
                         {
                             "name": "17987/op_92240/C03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25846"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -896,7 +939,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/C2",
+            "sample_id": "sample.uw_biofab.143184/C2",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -909,7 +952,8 @@
                         {
                             "name": "17987/op_92240/C02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25847"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -917,7 +961,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/C9",
+            "sample_id": "sample.uw_biofab.143184/C9",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -930,7 +974,8 @@
                         {
                             "name": "17987/op_92240/C09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25849"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -938,7 +983,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/C6",
+            "sample_id": "sample.uw_biofab.143184/C6",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -951,7 +996,8 @@
                         {
                             "name": "17987/op_92240/C06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25848"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -959,7 +1005,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/C10",
+            "sample_id": "sample.uw_biofab.143184/C10",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -972,7 +1018,8 @@
                         {
                             "name": "17987/op_92240/C10.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25850"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -980,7 +1027,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/C11",
+            "sample_id": "sample.uw_biofab.143184/C11",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -993,7 +1040,8 @@
                         {
                             "name": "17987/op_92240/C11.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25851"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1001,7 +1049,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/C7",
+            "sample_id": "sample.uw_biofab.143184/C7",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1014,7 +1062,8 @@
                         {
                             "name": "17987/op_92240/C07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25852"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1022,7 +1071,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/C12",
+            "sample_id": "sample.uw_biofab.143184/C12",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1035,7 +1084,8 @@
                         {
                             "name": "17987/op_92240/C12.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25853"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1043,7 +1093,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/D3",
+            "sample_id": "sample.uw_biofab.143184/D3",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1056,7 +1106,8 @@
                         {
                             "name": "17987/op_92240/D03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25854"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1064,7 +1115,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/D4",
+            "sample_id": "sample.uw_biofab.143184/D4",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1077,7 +1128,8 @@
                         {
                             "name": "17987/op_92240/D04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25855"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1085,7 +1137,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/D7",
+            "sample_id": "sample.uw_biofab.143184/D7",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1098,7 +1150,8 @@
                         {
                             "name": "17987/op_92240/D07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25856"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1106,7 +1159,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/D5",
+            "sample_id": "sample.uw_biofab.143184/D5",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1119,7 +1172,8 @@
                         {
                             "name": "17987/op_92240/D05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25857"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1127,7 +1181,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/D6",
+            "sample_id": "sample.uw_biofab.143184/D6",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1140,7 +1194,8 @@
                         {
                             "name": "17987/op_92240/D06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25858"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1148,7 +1203,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/D9",
+            "sample_id": "sample.uw_biofab.143184/D9",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1161,7 +1216,8 @@
                         {
                             "name": "17987/op_92240/D09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25859"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1169,7 +1225,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/D10",
+            "sample_id": "sample.uw_biofab.143184/D10",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1182,7 +1238,8 @@
                         {
                             "name": "17987/op_92240/D10.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25860"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1190,7 +1247,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/D8",
+            "sample_id": "sample.uw_biofab.143184/D8",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1203,7 +1260,8 @@
                         {
                             "name": "17987/op_92240/D08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25861"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1211,7 +1269,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/D12",
+            "sample_id": "sample.uw_biofab.143184/D12",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1224,7 +1282,8 @@
                         {
                             "name": "17987/op_92240/D12.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25862"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1232,7 +1291,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/E2",
+            "sample_id": "sample.uw_biofab.143184/E2",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1245,7 +1304,8 @@
                         {
                             "name": "17987/op_92240/E02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25863"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1253,7 +1313,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/E1",
+            "sample_id": "sample.uw_biofab.143184/E1",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1266,7 +1326,8 @@
                         {
                             "name": "17987/op_92240/E01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25864"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1274,7 +1335,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/E5",
+            "sample_id": "sample.uw_biofab.143184/E5",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1287,7 +1348,8 @@
                         {
                             "name": "17987/op_92240/E05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25865"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1295,7 +1357,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/E3",
+            "sample_id": "sample.uw_biofab.143184/E3",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1308,7 +1370,8 @@
                         {
                             "name": "17987/op_92240/E03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25866"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1316,7 +1379,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/E7",
+            "sample_id": "sample.uw_biofab.143184/E7",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1329,7 +1392,8 @@
                         {
                             "name": "17987/op_92240/E07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25867"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1337,7 +1401,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/E8",
+            "sample_id": "sample.uw_biofab.143184/E8",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1350,7 +1414,8 @@
                         {
                             "name": "17987/op_92240/E08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25868"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1358,7 +1423,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/E6",
+            "sample_id": "sample.uw_biofab.143184/E6",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1371,7 +1436,8 @@
                         {
                             "name": "17987/op_92240/E06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25869"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1379,7 +1445,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/D1",
+            "sample_id": "sample.uw_biofab.143184/D1",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1392,7 +1458,8 @@
                         {
                             "name": "17987/op_92240/D01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25870"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1400,7 +1467,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/E9",
+            "sample_id": "sample.uw_biofab.143184/E9",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1413,7 +1480,8 @@
                         {
                             "name": "17987/op_92240/E09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25871"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1421,7 +1489,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/E11",
+            "sample_id": "sample.uw_biofab.143184/E11",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1434,7 +1502,8 @@
                         {
                             "name": "17987/op_92240/E11.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25872"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1442,7 +1511,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/E10",
+            "sample_id": "sample.uw_biofab.143184/E10",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1455,7 +1524,8 @@
                         {
                             "name": "17987/op_92240/E10.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25873"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1463,7 +1533,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/E12",
+            "sample_id": "sample.uw_biofab.143184/E12",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1476,7 +1546,8 @@
                         {
                             "name": "17987/op_92240/E12.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25874"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1484,7 +1555,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/F3",
+            "sample_id": "sample.uw_biofab.143184/F3",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1497,7 +1568,8 @@
                         {
                             "name": "17987/op_92240/F03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25875"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1505,7 +1577,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/F4",
+            "sample_id": "sample.uw_biofab.143184/F4",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1518,7 +1590,8 @@
                         {
                             "name": "17987/op_92240/F04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25876"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1526,7 +1599,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/F2",
+            "sample_id": "sample.uw_biofab.143184/F2",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1539,7 +1612,8 @@
                         {
                             "name": "17987/op_92240/F02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25877"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1547,7 +1621,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/F1",
+            "sample_id": "sample.uw_biofab.143184/F1",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1560,7 +1634,8 @@
                         {
                             "name": "17987/op_92240/F01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25878"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1568,7 +1643,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/F6",
+            "sample_id": "sample.uw_biofab.143184/F6",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1581,7 +1656,8 @@
                         {
                             "name": "17987/op_92240/F06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25879"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1589,7 +1665,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/F5",
+            "sample_id": "sample.uw_biofab.143184/F5",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1602,7 +1678,8 @@
                         {
                             "name": "17987/op_92240/F05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25880"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1610,7 +1687,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/F10",
+            "sample_id": "sample.uw_biofab.143184/F10",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1623,7 +1700,8 @@
                         {
                             "name": "17987/op_92240/F10.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25881"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1631,7 +1709,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/F11",
+            "sample_id": "sample.uw_biofab.143184/F11",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1644,7 +1722,8 @@
                         {
                             "name": "17987/op_92240/F11.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25882"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1652,7 +1731,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/F8",
+            "sample_id": "sample.uw_biofab.143184/F8",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1665,7 +1744,8 @@
                         {
                             "name": "17987/op_92240/F08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25883"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1673,7 +1753,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/F7",
+            "sample_id": "sample.uw_biofab.143184/F7",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1686,7 +1766,8 @@
                         {
                             "name": "17987/op_92240/F07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25884"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1694,7 +1775,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/G1",
+            "sample_id": "sample.uw_biofab.143184/G1",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1707,7 +1788,8 @@
                         {
                             "name": "17987/op_92240/G01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25885"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1715,7 +1797,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/G2",
+            "sample_id": "sample.uw_biofab.143184/G2",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1728,7 +1810,8 @@
                         {
                             "name": "17987/op_92240/G02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25886"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1736,7 +1819,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/F12",
+            "sample_id": "sample.uw_biofab.143184/F12",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1749,7 +1832,8 @@
                         {
                             "name": "17987/op_92240/F12.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25887"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1757,7 +1841,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/G3",
+            "sample_id": "sample.uw_biofab.143184/G3",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1770,7 +1854,8 @@
                         {
                             "name": "17987/op_92240/G03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25888"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1778,7 +1863,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/G5",
+            "sample_id": "sample.uw_biofab.143184/G5",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1791,7 +1876,8 @@
                         {
                             "name": "17987/op_92240/G05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25889"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1799,7 +1885,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/G6",
+            "sample_id": "sample.uw_biofab.143184/G6",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1812,7 +1898,8 @@
                         {
                             "name": "17987/op_92240/G06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25891"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1820,7 +1907,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/G4",
+            "sample_id": "sample.uw_biofab.143184/G4",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1833,7 +1920,8 @@
                         {
                             "name": "17987/op_92240/G04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25890"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1841,7 +1929,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/G10",
+            "sample_id": "sample.uw_biofab.143184/G10",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1854,7 +1942,8 @@
                         {
                             "name": "17987/op_92240/G10.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25892"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1862,7 +1951,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/G9",
+            "sample_id": "sample.uw_biofab.143184/G9",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1875,7 +1964,8 @@
                         {
                             "name": "17987/op_92240/G09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25893"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1883,7 +1973,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/G8",
+            "sample_id": "sample.uw_biofab.143184/G8",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1896,7 +1986,8 @@
                         {
                             "name": "17987/op_92240/G08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25894"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1904,7 +1995,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/G11",
+            "sample_id": "sample.uw_biofab.143184/G11",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1917,7 +2008,8 @@
                         {
                             "name": "17987/op_92240/G11.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25895"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1925,7 +2017,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/H5",
+            "sample_id": "sample.uw_biofab.143184/H5",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1938,7 +2030,8 @@
                         {
                             "name": "17987/op_92240/H05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25896"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1946,7 +2039,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/H2",
+            "sample_id": "sample.uw_biofab.143184/H2",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1959,7 +2052,8 @@
                         {
                             "name": "17987/op_92240/H02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25897"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1967,7 +2061,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/H6",
+            "sample_id": "sample.uw_biofab.143184/H6",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -1980,7 +2074,8 @@
                         {
                             "name": "17987/op_92240/H06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25898"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -1988,7 +2083,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/H7",
+            "sample_id": "sample.uw_biofab.143184/H7",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -2001,7 +2096,8 @@
                         {
                             "name": "17987/op_92240/H07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25899"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2009,7 +2105,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/H1",
+            "sample_id": "sample.uw_biofab.143184/H1",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -2022,7 +2118,8 @@
                         {
                             "name": "17987/op_92240/H01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25900"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2030,7 +2127,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/H4",
+            "sample_id": "sample.uw_biofab.143184/H4",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -2043,7 +2140,8 @@
                         {
                             "name": "17987/op_92240/H04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25901"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2051,7 +2149,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143184/H8",
+            "sample_id": "sample.uw_biofab.143184/H8",
             "temperature": "30:celsius",
             "contents": [
                 "Synthetic_Complete"
@@ -2064,7 +2162,8 @@
                         {
                             "name": "17987/op_92240/H08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25902"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2072,7 +2171,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/E6",
+            "sample_id": "sample.uw_biofab.143222/E6",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2085,7 +2184,8 @@
                         {
                             "name": "17987/op_92241/E06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25905"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2093,7 +2193,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/F12",
+            "sample_id": "sample.uw_biofab.143222/F12",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2106,7 +2206,8 @@
                         {
                             "name": "17987/op_92241/F12.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25906"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2114,7 +2215,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/B6",
+            "sample_id": "sample.uw_biofab.143222/B6",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2127,7 +2228,8 @@
                         {
                             "name": "17987/op_92241/B06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25907"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2135,7 +2237,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/C5",
+            "sample_id": "sample.uw_biofab.143222/C5",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2148,7 +2250,8 @@
                         {
                             "name": "17987/op_92241/C05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25908"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2156,7 +2259,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/A6",
+            "sample_id": "sample.uw_biofab.143222/A6",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2169,7 +2272,8 @@
                         {
                             "name": "17987/op_92241/A06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25909"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2177,7 +2281,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/H6",
+            "sample_id": "sample.uw_biofab.143222/H6",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2190,7 +2294,8 @@
                         {
                             "name": "17987/op_92241/H06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25910"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2198,7 +2303,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/H5",
+            "sample_id": "sample.uw_biofab.143222/H5",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2211,7 +2316,8 @@
                         {
                             "name": "17987/op_92241/H05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25911"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2219,7 +2325,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/A8",
+            "sample_id": "sample.uw_biofab.143222/A8",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2232,7 +2338,8 @@
                         {
                             "name": "17987/op_92241/A08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25912"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2240,7 +2347,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/C6",
+            "sample_id": "sample.uw_biofab.143222/C6",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2253,7 +2360,8 @@
                         {
                             "name": "17987/op_92241/C06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25913"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2261,7 +2369,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/G11",
+            "sample_id": "sample.uw_biofab.143222/G11",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2274,7 +2382,8 @@
                         {
                             "name": "17987/op_92241/G11.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25914"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2282,7 +2391,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/G9",
+            "sample_id": "sample.uw_biofab.143222/G9",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2295,7 +2404,8 @@
                         {
                             "name": "17987/op_92241/G09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25915"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2303,7 +2413,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/A4",
+            "sample_id": "sample.uw_biofab.143222/A4",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2316,7 +2426,8 @@
                         {
                             "name": "17987/op_92241/A04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25916"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2324,7 +2435,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/A12",
+            "sample_id": "sample.uw_biofab.143222/A12",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2337,7 +2448,8 @@
                         {
                             "name": "17987/op_92241/A12.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25917"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2345,7 +2457,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/C10",
+            "sample_id": "sample.uw_biofab.143222/C10",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2358,7 +2470,8 @@
                         {
                             "name": "17987/op_92241/C10.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25918"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2366,7 +2479,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/H2",
+            "sample_id": "sample.uw_biofab.143222/H2",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2379,7 +2492,8 @@
                         {
                             "name": "17987/op_92241/H02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25919"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2387,7 +2501,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/B7",
+            "sample_id": "sample.uw_biofab.143222/B7",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2400,7 +2514,8 @@
                         {
                             "name": "17987/op_92241/B07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25920"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2408,7 +2523,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/F8",
+            "sample_id": "sample.uw_biofab.143222/F8",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2421,7 +2536,8 @@
                         {
                             "name": "17987/op_92241/F08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25921"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2429,7 +2545,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/A2",
+            "sample_id": "sample.uw_biofab.143222/A2",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2442,7 +2558,8 @@
                         {
                             "name": "17987/op_92241/A02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25922"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2450,7 +2567,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/B12",
+            "sample_id": "sample.uw_biofab.143222/B12",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2463,7 +2580,8 @@
                         {
                             "name": "17987/op_92241/B12.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25923"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2471,7 +2589,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/A9",
+            "sample_id": "sample.uw_biofab.143222/A9",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2484,7 +2602,8 @@
                         {
                             "name": "17987/op_92241/A09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25924"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2492,7 +2611,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/A7",
+            "sample_id": "sample.uw_biofab.143222/A7",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2505,7 +2624,8 @@
                         {
                             "name": "17987/op_92241/A07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25925"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2513,7 +2633,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/A10",
+            "sample_id": "sample.uw_biofab.143222/A10",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2526,7 +2646,8 @@
                         {
                             "name": "17987/op_92241/A10.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25926"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2534,7 +2655,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/D5",
+            "sample_id": "sample.uw_biofab.143222/D5",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2547,7 +2668,8 @@
                         {
                             "name": "17987/op_92241/D05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25927"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2555,7 +2677,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/F1",
+            "sample_id": "sample.uw_biofab.143222/F1",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2568,7 +2690,8 @@
                         {
                             "name": "17987/op_92241/F01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25928"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2576,7 +2699,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/A3",
+            "sample_id": "sample.uw_biofab.143222/A3",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2589,7 +2712,8 @@
                         {
                             "name": "17987/op_92241/A03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25929"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2597,7 +2721,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/A1",
+            "sample_id": "sample.uw_biofab.143222/A1",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2610,7 +2734,8 @@
                         {
                             "name": "17987/op_92241/A01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25930"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2618,7 +2743,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/A11",
+            "sample_id": "sample.uw_biofab.143222/A11",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2631,7 +2756,8 @@
                         {
                             "name": "17987/op_92241/A11.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25931"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2639,7 +2765,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/A5",
+            "sample_id": "sample.uw_biofab.143222/A5",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2652,7 +2778,8 @@
                         {
                             "name": "17987/op_92241/A05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25932"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2660,7 +2787,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/B2",
+            "sample_id": "sample.uw_biofab.143222/B2",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2673,7 +2800,8 @@
                         {
                             "name": "17987/op_92241/B02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25933"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2681,7 +2809,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/B1",
+            "sample_id": "sample.uw_biofab.143222/B1",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2694,7 +2822,8 @@
                         {
                             "name": "17987/op_92241/B01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25934"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2702,7 +2831,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/B5",
+            "sample_id": "sample.uw_biofab.143222/B5",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2715,7 +2844,8 @@
                         {
                             "name": "17987/op_92241/B05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25935"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2723,7 +2853,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/B4",
+            "sample_id": "sample.uw_biofab.143222/B4",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2736,7 +2866,8 @@
                         {
                             "name": "17987/op_92241/B04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25936"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2744,7 +2875,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/B8",
+            "sample_id": "sample.uw_biofab.143222/B8",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2757,7 +2888,8 @@
                         {
                             "name": "17987/op_92241/B08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25937"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2765,7 +2897,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/B3",
+            "sample_id": "sample.uw_biofab.143222/B3",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2778,7 +2910,8 @@
                         {
                             "name": "17987/op_92241/B03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25938"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2786,7 +2919,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/B10",
+            "sample_id": "sample.uw_biofab.143222/B10",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2799,7 +2932,8 @@
                         {
                             "name": "17987/op_92241/B10.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25939"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2807,7 +2941,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/B9",
+            "sample_id": "sample.uw_biofab.143222/B9",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2820,7 +2954,8 @@
                         {
                             "name": "17987/op_92241/B09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25940"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2828,7 +2963,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/B11",
+            "sample_id": "sample.uw_biofab.143222/B11",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2841,7 +2976,8 @@
                         {
                             "name": "17987/op_92241/B11.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25941"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2849,7 +2985,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/C2",
+            "sample_id": "sample.uw_biofab.143222/C2",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2862,7 +2998,8 @@
                         {
                             "name": "17987/op_92241/C02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25942"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2870,7 +3007,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/C1",
+            "sample_id": "sample.uw_biofab.143222/C1",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2883,7 +3020,8 @@
                         {
                             "name": "17987/op_92241/C01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25943"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2891,7 +3029,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/C8",
+            "sample_id": "sample.uw_biofab.143222/C8",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2904,7 +3042,8 @@
                         {
                             "name": "17987/op_92241/C08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25944"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2912,7 +3051,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/C4",
+            "sample_id": "sample.uw_biofab.143222/C4",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2925,7 +3064,8 @@
                         {
                             "name": "17987/op_92241/C04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25946"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2933,7 +3073,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/C3",
+            "sample_id": "sample.uw_biofab.143222/C3",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2946,7 +3086,8 @@
                         {
                             "name": "17987/op_92241/C03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25945"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2954,7 +3095,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/C7",
+            "sample_id": "sample.uw_biofab.143222/C7",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2967,7 +3108,8 @@
                         {
                             "name": "17987/op_92241/C07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25947"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2975,7 +3117,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/C11",
+            "sample_id": "sample.uw_biofab.143222/C11",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -2988,7 +3130,8 @@
                         {
                             "name": "17987/op_92241/C11.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25948"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -2996,7 +3139,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/C9",
+            "sample_id": "sample.uw_biofab.143222/C9",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3009,7 +3152,8 @@
                         {
                             "name": "17987/op_92241/C09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25949"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3017,7 +3161,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/D1",
+            "sample_id": "sample.uw_biofab.143222/D1",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3030,7 +3174,8 @@
                         {
                             "name": "17987/op_92241/D01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25950"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3038,7 +3183,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/D3",
+            "sample_id": "sample.uw_biofab.143222/D3",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3051,7 +3196,8 @@
                         {
                             "name": "17987/op_92241/D03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25951"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3059,7 +3205,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/C12",
+            "sample_id": "sample.uw_biofab.143222/C12",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3072,7 +3218,8 @@
                         {
                             "name": "17987/op_92241/C12.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25952"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3080,7 +3227,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/D2",
+            "sample_id": "sample.uw_biofab.143222/D2",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3093,7 +3240,8 @@
                         {
                             "name": "17987/op_92241/D02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25953"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3101,7 +3249,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/D4",
+            "sample_id": "sample.uw_biofab.143222/D4",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3114,7 +3262,8 @@
                         {
                             "name": "17987/op_92241/D04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25954"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3122,7 +3271,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/D6",
+            "sample_id": "sample.uw_biofab.143222/D6",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3135,7 +3284,8 @@
                         {
                             "name": "17987/op_92241/D06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25955"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3143,7 +3293,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/D9",
+            "sample_id": "sample.uw_biofab.143222/D9",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3156,7 +3306,8 @@
                         {
                             "name": "17987/op_92241/D09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25956"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3164,7 +3315,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/D8",
+            "sample_id": "sample.uw_biofab.143222/D8",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3177,7 +3328,8 @@
                         {
                             "name": "17987/op_92241/D08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25957"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3185,7 +3337,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/D12",
+            "sample_id": "sample.uw_biofab.143222/D12",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3198,7 +3350,8 @@
                         {
                             "name": "17987/op_92241/D12.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25958"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3206,7 +3359,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/E1",
+            "sample_id": "sample.uw_biofab.143222/E1",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3219,7 +3372,8 @@
                         {
                             "name": "17987/op_92241/E01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25959"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3227,7 +3381,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/D7",
+            "sample_id": "sample.uw_biofab.143222/D7",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3240,7 +3394,8 @@
                         {
                             "name": "17987/op_92241/D07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25961"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3248,7 +3403,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/D11",
+            "sample_id": "sample.uw_biofab.143222/D11",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3261,7 +3416,8 @@
                         {
                             "name": "17987/op_92241/D11.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25960"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3269,7 +3425,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/D10",
+            "sample_id": "sample.uw_biofab.143222/D10",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3282,7 +3438,8 @@
                         {
                             "name": "17987/op_92241/D10.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25962"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3290,7 +3447,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/E5",
+            "sample_id": "sample.uw_biofab.143222/E5",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3303,7 +3460,8 @@
                         {
                             "name": "17987/op_92241/E05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25963"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3311,7 +3469,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/E4",
+            "sample_id": "sample.uw_biofab.143222/E4",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3324,7 +3482,8 @@
                         {
                             "name": "17987/op_92241/E04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25964"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3332,7 +3491,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/E7",
+            "sample_id": "sample.uw_biofab.143222/E7",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3345,7 +3504,8 @@
                         {
                             "name": "17987/op_92241/E07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25965"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3353,7 +3513,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/E2",
+            "sample_id": "sample.uw_biofab.143222/E2",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3366,7 +3526,8 @@
                         {
                             "name": "17987/op_92241/E02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25966"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3374,7 +3535,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/E8",
+            "sample_id": "sample.uw_biofab.143222/E8",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3387,7 +3548,8 @@
                         {
                             "name": "17987/op_92241/E08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25967"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3395,7 +3557,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/E12",
+            "sample_id": "sample.uw_biofab.143222/E12",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3408,7 +3570,8 @@
                         {
                             "name": "17987/op_92241/E12.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25968"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3416,7 +3579,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/E3",
+            "sample_id": "sample.uw_biofab.143222/E3",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3429,7 +3592,8 @@
                         {
                             "name": "17987/op_92241/E03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25969"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3437,7 +3601,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/E9",
+            "sample_id": "sample.uw_biofab.143222/E9",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3450,7 +3614,8 @@
                         {
                             "name": "17987/op_92241/E09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25970"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3458,7 +3623,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/E11",
+            "sample_id": "sample.uw_biofab.143222/E11",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3471,7 +3636,8 @@
                         {
                             "name": "17987/op_92241/E11.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25971"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3479,7 +3645,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/E10",
+            "sample_id": "sample.uw_biofab.143222/E10",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3492,7 +3658,8 @@
                         {
                             "name": "17987/op_92241/E10.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25972"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3500,7 +3667,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/F3",
+            "sample_id": "sample.uw_biofab.143222/F3",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3513,7 +3680,8 @@
                         {
                             "name": "17987/op_92241/F03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25973"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3521,7 +3689,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/F4",
+            "sample_id": "sample.uw_biofab.143222/F4",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3534,7 +3702,8 @@
                         {
                             "name": "17987/op_92241/F04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25974"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3542,7 +3711,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/F5",
+            "sample_id": "sample.uw_biofab.143222/F5",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3555,7 +3724,8 @@
                         {
                             "name": "17987/op_92241/F05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25975"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3563,7 +3733,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/F2",
+            "sample_id": "sample.uw_biofab.143222/F2",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3576,7 +3746,8 @@
                         {
                             "name": "17987/op_92241/F02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25976"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3584,7 +3755,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/F6",
+            "sample_id": "sample.uw_biofab.143222/F6",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3597,7 +3768,8 @@
                         {
                             "name": "17987/op_92241/F06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25977"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3605,7 +3777,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/F11",
+            "sample_id": "sample.uw_biofab.143222/F11",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3618,7 +3790,8 @@
                         {
                             "name": "17987/op_92241/F11.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25978"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3626,7 +3799,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/F10",
+            "sample_id": "sample.uw_biofab.143222/F10",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3639,7 +3812,8 @@
                         {
                             "name": "17987/op_92241/F10.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25980"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3647,7 +3821,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/G2",
+            "sample_id": "sample.uw_biofab.143222/G2",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3660,7 +3834,8 @@
                         {
                             "name": "17987/op_92241/G02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25979"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3668,7 +3843,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/F7",
+            "sample_id": "sample.uw_biofab.143222/F7",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3681,7 +3856,8 @@
                         {
                             "name": "17987/op_92241/F07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25981"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3689,7 +3865,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/G1",
+            "sample_id": "sample.uw_biofab.143222/G1",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3702,7 +3878,8 @@
                         {
                             "name": "17987/op_92241/G01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25982"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3710,7 +3887,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/F9",
+            "sample_id": "sample.uw_biofab.143222/F9",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3723,7 +3900,8 @@
                         {
                             "name": "17987/op_92241/F09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25983"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3731,7 +3909,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/G5",
+            "sample_id": "sample.uw_biofab.143222/G5",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3744,7 +3922,8 @@
                         {
                             "name": "17987/op_92241/G05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25984"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3752,7 +3931,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/G4",
+            "sample_id": "sample.uw_biofab.143222/G4",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3765,7 +3944,8 @@
                         {
                             "name": "17987/op_92241/G04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25985"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3773,7 +3953,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/G6",
+            "sample_id": "sample.uw_biofab.143222/G6",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3786,7 +3966,8 @@
                         {
                             "name": "17987/op_92241/G06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25986"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3794,7 +3975,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/G7",
+            "sample_id": "sample.uw_biofab.143222/G7",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3807,7 +3988,8 @@
                         {
                             "name": "17987/op_92241/G07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25987"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3815,7 +3997,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/G8",
+            "sample_id": "sample.uw_biofab.143222/G8",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3828,7 +4010,8 @@
                         {
                             "name": "17987/op_92241/G08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25988"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3836,7 +4019,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/H1",
+            "sample_id": "sample.uw_biofab.143222/H1",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3849,7 +4032,8 @@
                         {
                             "name": "17987/op_92241/H01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25989"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3857,7 +4041,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/G12",
+            "sample_id": "sample.uw_biofab.143222/G12",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3870,7 +4054,8 @@
                         {
                             "name": "17987/op_92241/G12.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25990"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3878,7 +4063,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/G3",
+            "sample_id": "sample.uw_biofab.143222/G3",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3891,7 +4076,8 @@
                         {
                             "name": "17987/op_92241/G03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25991"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3899,7 +4085,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/H3",
+            "sample_id": "sample.uw_biofab.143222/H3",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3912,7 +4098,8 @@
                         {
                             "name": "17987/op_92241/H03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25992"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3920,7 +4107,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/G10",
+            "sample_id": "sample.uw_biofab.143222/G10",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3933,7 +4120,8 @@
                         {
                             "name": "17987/op_92241/G10.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25993"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3941,7 +4129,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/H7",
+            "sample_id": "sample.uw_biofab.143222/H7",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3954,7 +4142,8 @@
                         {
                             "name": "17987/op_92241/H07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25994"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3962,7 +4151,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/H4",
+            "sample_id": "sample.uw_biofab.143222/H4",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3975,7 +4164,8 @@
                         {
                             "name": "17987/op_92241/H04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25995"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -3983,7 +4173,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/H8",
+            "sample_id": "sample.uw_biofab.143222/H8",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -3996,7 +4186,8 @@
                         {
                             "name": "17987/op_92241/H08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25996"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4004,7 +4195,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143222/H9",
+            "sample_id": "sample.uw_biofab.143222/H9",
             "temperature": "30:celsius",
             "contents": [
                 "SC_Sorbitol"
@@ -4017,7 +4208,8 @@
                         {
                             "name": "17987/op_92241/H09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25997"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4025,7 +4217,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/H1",
+            "sample_id": "sample.uw_biofab.143209/H1",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4038,7 +4230,8 @@
                         {
                             "name": "17987/op_92242/H01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.25999"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4046,7 +4239,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/G11",
+            "sample_id": "sample.uw_biofab.143209/G11",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4059,7 +4252,8 @@
                         {
                             "name": "17987/op_92242/G11.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26000"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4067,7 +4261,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/G9",
+            "sample_id": "sample.uw_biofab.143209/G9",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4080,7 +4274,8 @@
                         {
                             "name": "17987/op_92242/G09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26001"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4088,7 +4283,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/E2",
+            "sample_id": "sample.uw_biofab.143209/E2",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4101,7 +4296,8 @@
                         {
                             "name": "17987/op_92242/E02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26002"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4109,7 +4305,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/A7",
+            "sample_id": "sample.uw_biofab.143209/A7",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4122,7 +4318,8 @@
                         {
                             "name": "17987/op_92242/A07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26003"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4130,7 +4327,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/B4",
+            "sample_id": "sample.uw_biofab.143209/B4",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4143,7 +4340,8 @@
                         {
                             "name": "17987/op_92242/B04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26004"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4151,7 +4349,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/F4",
+            "sample_id": "sample.uw_biofab.143209/F4",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4164,7 +4362,8 @@
                         {
                             "name": "17987/op_92242/F04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26005"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4172,7 +4371,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/B6",
+            "sample_id": "sample.uw_biofab.143209/B6",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4185,7 +4384,8 @@
                         {
                             "name": "17987/op_92242/B06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26006"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4193,7 +4393,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/F6",
+            "sample_id": "sample.uw_biofab.143209/F6",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4206,7 +4406,8 @@
                         {
                             "name": "17987/op_92242/F06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26007"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4214,7 +4415,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/C9",
+            "sample_id": "sample.uw_biofab.143209/C9",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4227,7 +4428,8 @@
                         {
                             "name": "17987/op_92242/C09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26008"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4235,7 +4437,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/G12",
+            "sample_id": "sample.uw_biofab.143209/G12",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4248,7 +4450,8 @@
                         {
                             "name": "17987/op_92242/G12.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26009"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4256,7 +4459,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/F8",
+            "sample_id": "sample.uw_biofab.143209/F8",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4269,7 +4472,8 @@
                         {
                             "name": "17987/op_92242/F08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26010"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4277,7 +4481,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/C2",
+            "sample_id": "sample.uw_biofab.143209/C2",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4290,7 +4494,8 @@
                         {
                             "name": "17987/op_92242/C02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26011"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4298,7 +4503,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/H4",
+            "sample_id": "sample.uw_biofab.143209/H4",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4311,7 +4516,8 @@
                         {
                             "name": "17987/op_92242/H04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26012"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4319,7 +4525,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/G5",
+            "sample_id": "sample.uw_biofab.143209/G5",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4332,7 +4538,8 @@
                         {
                             "name": "17987/op_92242/G05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26013"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4340,7 +4547,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/H6",
+            "sample_id": "sample.uw_biofab.143209/H6",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4353,7 +4560,8 @@
                         {
                             "name": "17987/op_92242/H06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26014"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4361,7 +4569,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/F2",
+            "sample_id": "sample.uw_biofab.143209/F2",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4374,7 +4582,8 @@
                         {
                             "name": "17987/op_92242/F02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26015"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4382,7 +4591,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/F7",
+            "sample_id": "sample.uw_biofab.143209/F7",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4395,7 +4604,8 @@
                         {
                             "name": "17987/op_92242/F07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26017"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4403,7 +4613,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/H3",
+            "sample_id": "sample.uw_biofab.143209/H3",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4416,7 +4626,8 @@
                         {
                             "name": "17987/op_92242/H03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26016"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4424,7 +4635,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/A12",
+            "sample_id": "sample.uw_biofab.143209/A12",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4437,7 +4648,8 @@
                         {
                             "name": "17987/op_92242/A12.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26018"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4445,7 +4657,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/F11",
+            "sample_id": "sample.uw_biofab.143209/F11",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4458,7 +4670,8 @@
                         {
                             "name": "17987/op_92242/F11.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26019"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4466,7 +4679,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/H2",
+            "sample_id": "sample.uw_biofab.143209/H2",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4479,7 +4692,8 @@
                         {
                             "name": "17987/op_92242/H02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26020"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4487,7 +4701,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/G3",
+            "sample_id": "sample.uw_biofab.143209/G3",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4500,7 +4714,8 @@
                         {
                             "name": "17987/op_92242/G03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26021"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4508,7 +4723,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/F9",
+            "sample_id": "sample.uw_biofab.143209/F9",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4521,7 +4736,8 @@
                         {
                             "name": "17987/op_92242/F09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26022"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4529,7 +4745,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/B10",
+            "sample_id": "sample.uw_biofab.143209/B10",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4542,7 +4758,8 @@
                         {
                             "name": "17987/op_92242/B10.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26023"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4550,7 +4767,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/H5",
+            "sample_id": "sample.uw_biofab.143209/H5",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4563,7 +4780,8 @@
                         {
                             "name": "17987/op_92242/H05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26024"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4571,7 +4789,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/F10",
+            "sample_id": "sample.uw_biofab.143209/F10",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4584,7 +4802,8 @@
                         {
                             "name": "17987/op_92242/F10.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26025"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4592,7 +4811,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/E5",
+            "sample_id": "sample.uw_biofab.143209/E5",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4605,7 +4824,8 @@
                         {
                             "name": "17987/op_92242/E05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26026"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4613,7 +4833,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/G8",
+            "sample_id": "sample.uw_biofab.143209/G8",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4626,7 +4846,8 @@
                         {
                             "name": "17987/op_92242/G08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26027"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4634,7 +4855,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/D7",
+            "sample_id": "sample.uw_biofab.143209/D7",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4647,7 +4868,8 @@
                         {
                             "name": "17987/op_92242/D07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26028"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4655,7 +4877,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/C6",
+            "sample_id": "sample.uw_biofab.143209/C6",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4668,7 +4890,8 @@
                         {
                             "name": "17987/op_92242/C06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26029"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4676,7 +4899,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/E7",
+            "sample_id": "sample.uw_biofab.143209/E7",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4689,7 +4912,8 @@
                         {
                             "name": "17987/op_92242/E07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26030"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4697,7 +4921,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/A10",
+            "sample_id": "sample.uw_biofab.143209/A10",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4710,7 +4934,8 @@
                         {
                             "name": "17987/op_92242/A10.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26031"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4718,7 +4943,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/F3",
+            "sample_id": "sample.uw_biofab.143209/F3",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4731,7 +4956,8 @@
                         {
                             "name": "17987/op_92242/F03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26032"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4739,7 +4965,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/B1",
+            "sample_id": "sample.uw_biofab.143209/B1",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4752,7 +4978,8 @@
                         {
                             "name": "17987/op_92242/B01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26033"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4760,7 +4987,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/C3",
+            "sample_id": "sample.uw_biofab.143209/C3",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4773,7 +5000,8 @@
                         {
                             "name": "17987/op_92242/C03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26034"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4781,7 +5009,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/G1",
+            "sample_id": "sample.uw_biofab.143209/G1",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4794,7 +5022,8 @@
                         {
                             "name": "17987/op_92242/G01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26035"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4802,7 +5031,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/F1",
+            "sample_id": "sample.uw_biofab.143209/F1",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4815,7 +5044,8 @@
                         {
                             "name": "17987/op_92242/F01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26036"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4823,7 +5053,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/A2",
+            "sample_id": "sample.uw_biofab.143209/A2",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4836,7 +5066,8 @@
                         {
                             "name": "17987/op_92242/A02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26037"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4844,7 +5075,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/A1",
+            "sample_id": "sample.uw_biofab.143209/A1",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4857,7 +5088,8 @@
                         {
                             "name": "17987/op_92242/A01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26038"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4865,7 +5097,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/D6",
+            "sample_id": "sample.uw_biofab.143209/D6",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4878,7 +5110,8 @@
                         {
                             "name": "17987/op_92242/D06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26039"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4886,7 +5119,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/A4",
+            "sample_id": "sample.uw_biofab.143209/A4",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4899,7 +5132,8 @@
                         {
                             "name": "17987/op_92242/A04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26040"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4907,7 +5141,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/A5",
+            "sample_id": "sample.uw_biofab.143209/A5",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4920,7 +5154,8 @@
                         {
                             "name": "17987/op_92242/A05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26042"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4928,7 +5163,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/A3",
+            "sample_id": "sample.uw_biofab.143209/A3",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4941,7 +5176,8 @@
                         {
                             "name": "17987/op_92242/A03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26041"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4949,7 +5185,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/A8",
+            "sample_id": "sample.uw_biofab.143209/A8",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4962,7 +5198,8 @@
                         {
                             "name": "17987/op_92242/A08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26044"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4970,7 +5207,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/B2",
+            "sample_id": "sample.uw_biofab.143209/B2",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -4983,7 +5220,8 @@
                         {
                             "name": "17987/op_92242/B02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26045"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -4991,7 +5229,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/B5",
+            "sample_id": "sample.uw_biofab.143209/B5",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5004,7 +5242,8 @@
                         {
                             "name": "17987/op_92242/B05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26046"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5012,7 +5251,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/G7",
+            "sample_id": "sample.uw_biofab.143209/G7",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5025,7 +5264,8 @@
                         {
                             "name": "17987/op_92242/G07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26043"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5033,7 +5273,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/A6",
+            "sample_id": "sample.uw_biofab.143209/A6",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5046,7 +5286,8 @@
                         {
                             "name": "17987/op_92242/A06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26047"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5054,7 +5295,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/A9",
+            "sample_id": "sample.uw_biofab.143209/A9",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5067,7 +5308,8 @@
                         {
                             "name": "17987/op_92242/A09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26048"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5075,7 +5317,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/A11",
+            "sample_id": "sample.uw_biofab.143209/A11",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5088,7 +5330,8 @@
                         {
                             "name": "17987/op_92242/A11.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26050"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5096,7 +5339,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/B3",
+            "sample_id": "sample.uw_biofab.143209/B3",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5109,7 +5352,8 @@
                         {
                             "name": "17987/op_92242/B03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26051"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5117,7 +5361,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/B9",
+            "sample_id": "sample.uw_biofab.143209/B9",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5130,7 +5374,8 @@
                         {
                             "name": "17987/op_92242/B09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26052"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5138,7 +5383,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/B7",
+            "sample_id": "sample.uw_biofab.143209/B7",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5151,7 +5396,8 @@
                         {
                             "name": "17987/op_92242/B07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26049"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5159,7 +5405,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/C4",
+            "sample_id": "sample.uw_biofab.143209/C4",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5172,7 +5418,8 @@
                         {
                             "name": "17987/op_92242/C04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26053"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5180,7 +5427,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/B8",
+            "sample_id": "sample.uw_biofab.143209/B8",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5193,7 +5440,8 @@
                         {
                             "name": "17987/op_92242/B08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26054"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5201,7 +5449,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/B11",
+            "sample_id": "sample.uw_biofab.143209/B11",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5214,7 +5462,8 @@
                         {
                             "name": "17987/op_92242/B11.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26055"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5222,7 +5471,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/B12",
+            "sample_id": "sample.uw_biofab.143209/B12",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5235,7 +5484,8 @@
                         {
                             "name": "17987/op_92242/B12.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26056"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5243,7 +5493,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/C1",
+            "sample_id": "sample.uw_biofab.143209/C1",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5256,7 +5506,8 @@
                         {
                             "name": "17987/op_92242/C01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26057"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5264,7 +5515,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/C5",
+            "sample_id": "sample.uw_biofab.143209/C5",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5277,7 +5528,8 @@
                         {
                             "name": "17987/op_92242/C05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26058"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5285,7 +5537,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/C7",
+            "sample_id": "sample.uw_biofab.143209/C7",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5298,7 +5550,8 @@
                         {
                             "name": "17987/op_92242/C07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26059"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5306,7 +5559,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/C8",
+            "sample_id": "sample.uw_biofab.143209/C8",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5319,7 +5572,8 @@
                         {
                             "name": "17987/op_92242/C08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26060"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5327,7 +5581,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/C10",
+            "sample_id": "sample.uw_biofab.143209/C10",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5340,7 +5594,8 @@
                         {
                             "name": "17987/op_92242/C10.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26061"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5348,7 +5603,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/C12",
+            "sample_id": "sample.uw_biofab.143209/C12",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5361,7 +5616,8 @@
                         {
                             "name": "17987/op_92242/C12.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26062"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5369,7 +5625,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/D1",
+            "sample_id": "sample.uw_biofab.143209/D1",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5382,7 +5638,8 @@
                         {
                             "name": "17987/op_92242/D01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26063"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5390,7 +5647,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/C11",
+            "sample_id": "sample.uw_biofab.143209/C11",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5403,7 +5660,8 @@
                         {
                             "name": "17987/op_92242/C11.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26064"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5411,7 +5669,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/D2",
+            "sample_id": "sample.uw_biofab.143209/D2",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5424,7 +5682,8 @@
                         {
                             "name": "17987/op_92242/D02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26066"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5432,7 +5691,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/D3",
+            "sample_id": "sample.uw_biofab.143209/D3",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5445,7 +5704,8 @@
                         {
                             "name": "17987/op_92242/D03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26065"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5453,7 +5713,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/D4",
+            "sample_id": "sample.uw_biofab.143209/D4",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5466,7 +5726,8 @@
                         {
                             "name": "17987/op_92242/D04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26067"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5474,7 +5735,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/D5",
+            "sample_id": "sample.uw_biofab.143209/D5",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5487,7 +5748,8 @@
                         {
                             "name": "17987/op_92242/D05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26069"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5495,7 +5757,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/D8",
+            "sample_id": "sample.uw_biofab.143209/D8",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5508,7 +5770,8 @@
                         {
                             "name": "17987/op_92242/D08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26068"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5516,7 +5779,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/D10",
+            "sample_id": "sample.uw_biofab.143209/D10",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5529,7 +5792,8 @@
                         {
                             "name": "17987/op_92242/D10.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26070"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5537,7 +5801,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/D11",
+            "sample_id": "sample.uw_biofab.143209/D11",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5550,7 +5814,8 @@
                         {
                             "name": "17987/op_92242/D11.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26071"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5558,7 +5823,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/D9",
+            "sample_id": "sample.uw_biofab.143209/D9",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5571,7 +5836,8 @@
                         {
                             "name": "17987/op_92242/D09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26072"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5579,7 +5845,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/D12",
+            "sample_id": "sample.uw_biofab.143209/D12",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5592,7 +5858,8 @@
                         {
                             "name": "17987/op_92242/D12.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26073"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5600,7 +5867,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/E1",
+            "sample_id": "sample.uw_biofab.143209/E1",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5613,7 +5880,8 @@
                         {
                             "name": "17987/op_92242/E01.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26075"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5621,7 +5889,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/E3",
+            "sample_id": "sample.uw_biofab.143209/E3",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5634,7 +5902,8 @@
                         {
                             "name": "17987/op_92242/E03.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26074"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5642,7 +5911,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/E4",
+            "sample_id": "sample.uw_biofab.143209/E4",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5655,7 +5924,8 @@
                         {
                             "name": "17987/op_92242/E04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26076"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5663,7 +5933,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/E6",
+            "sample_id": "sample.uw_biofab.143209/E6",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5676,7 +5946,8 @@
                         {
                             "name": "17987/op_92242/E06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26077"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5684,7 +5955,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/E8",
+            "sample_id": "sample.uw_biofab.143209/E8",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5697,7 +5968,8 @@
                         {
                             "name": "17987/op_92242/E08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26078"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5705,7 +5977,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/E9",
+            "sample_id": "sample.uw_biofab.143209/E9",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5718,7 +5990,8 @@
                         {
                             "name": "17987/op_92242/E09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26079"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5726,7 +5999,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/E11",
+            "sample_id": "sample.uw_biofab.143209/E11",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5739,7 +6012,8 @@
                         {
                             "name": "17987/op_92242/E11.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26080"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5747,7 +6021,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/E12",
+            "sample_id": "sample.uw_biofab.143209/E12",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5760,7 +6034,8 @@
                         {
                             "name": "17987/op_92242/E12.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26081"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5768,7 +6043,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/F5",
+            "sample_id": "sample.uw_biofab.143209/F5",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5781,7 +6056,8 @@
                         {
                             "name": "17987/op_92242/F05.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26082"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5789,7 +6065,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/E10",
+            "sample_id": "sample.uw_biofab.143209/E10",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5802,7 +6078,8 @@
                         {
                             "name": "17987/op_92242/E10.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26083"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5810,7 +6087,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/F12",
+            "sample_id": "sample.uw_biofab.143209/F12",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5823,7 +6100,8 @@
                         {
                             "name": "17987/op_92242/F12.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26084"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5831,7 +6109,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/G2",
+            "sample_id": "sample.uw_biofab.143209/G2",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5844,7 +6122,8 @@
                         {
                             "name": "17987/op_92242/G02.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26085"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5852,7 +6131,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/G6",
+            "sample_id": "sample.uw_biofab.143209/G6",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5865,7 +6144,8 @@
                         {
                             "name": "17987/op_92242/G06.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26086"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5873,7 +6153,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/G4",
+            "sample_id": "sample.uw_biofab.143209/G4",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5886,7 +6166,8 @@
                         {
                             "name": "17987/op_92242/G04.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26087"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5894,7 +6175,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/H8",
+            "sample_id": "sample.uw_biofab.143209/H8",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5907,7 +6188,8 @@
                         {
                             "name": "17987/op_92242/H08.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26088"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5915,7 +6197,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/H7",
+            "sample_id": "sample.uw_biofab.143209/H7",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5928,7 +6210,8 @@
                         {
                             "name": "17987/op_92242/H07.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26090"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5936,7 +6219,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/G10",
+            "sample_id": "sample.uw_biofab.143209/G10",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5949,7 +6232,8 @@
                         {
                             "name": "17987/op_92242/G10.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26089"
                         }
                     ],
                     "measurement_type": "FLOW"
@@ -5957,7 +6241,7 @@
             ]
         },
         {
-            "sample_id": "lab.uw_biofab.143209/H9",
+            "sample_id": "sample.uw_biofab.143209/H9",
             "temperature": "30:celsius",
             "contents": [
                 "YPAD"
@@ -5970,7 +6254,8 @@
                         {
                             "name": "17987/op_92242/H09.fcs",
                             "type": "FCS",
-                            "state": "RAW"
+                            "state": "RAW",
+                            "file_id": "file.uw_biofab.26091"
                         }
                     ],
                     "measurement_type": "FLOW"
