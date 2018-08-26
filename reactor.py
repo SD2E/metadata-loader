@@ -89,7 +89,7 @@ def main():
                 sample.pop('sample_id')
 
         # set to -1 for no limit
-        max_samples = 1
+        max_samples = -1
         # Write samples, measurement, files record(s)
         samp_meas_assoc = {}
         meas_file_assoc = {}
@@ -112,7 +112,7 @@ def main():
             try:
                 meas = s.pop('measurements')
                 for m in meas:
-                    r.logger.info('PROCESSING MEASUREMENT {}'.format(m['measurement_id']))
+                    r.logger.info('PROCESSING MEASUREMENT {}'.format(m.get('measurement_id', 'Undefined')))
                     meas_extras = {}
                     meas_rec = data_merge(copy.deepcopy(m), meas_extras)
                     mid = None
@@ -164,7 +164,8 @@ def main():
                     except KeyError as kexc:
                         r.logger.warning('unable to process files: {}'.format(kexc))
             except Exception as exc:
-                r.logger.critical('unable to process measurements for sample')
+                #r.logger.critical('unable to process measurements for sample')
+                r.on_failure('unable to process measurements for sample', exc)
 
             max_samples = max_samples - 1
             if max_samples == 0:

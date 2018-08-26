@@ -173,6 +173,10 @@
                         "RAW",
                         "PROCESSED"
                     ]
+                },
+                "file_id": {
+                    "description": "file id, internal to lab",
+                    "type": "string"
                 }
             },
             "required": [
