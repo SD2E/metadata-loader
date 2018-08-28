@@ -38,9 +38,9 @@ def dict_compare(a, b):
     bb = '.'.join(sorted([str(u)
                           for u in flatten(b).values() if is_primitive(u)]))
     if aa == bb:
-        return True
-    else:
         return False
+    else:
+        return True
 
 def flatten(d, parent_key='', sep='_'):
     items = []

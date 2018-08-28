@@ -8,7 +8,7 @@
         "uri": {
             "type": "string",
             "format": "uri",
-            "description": "full agave-canonical path to a samples.json file"
+            "description": "agave-canonical path to a samples.json file"
         },
         "prefix" : {
             "type": "string",
