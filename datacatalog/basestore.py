@@ -7,7 +7,7 @@ from .logstore import LogStore, LogStoreError
 from .utils import catalog_uuid, current_time, time_stamp, validate_file_to_schema
 from .dicthelpers import data_merge, dict_compare, filter_dict, json_diff, data_merge_diff
 from .constants import Constants, Mappings, Enumerations
-from .exceptions import *
+#from .exceptions import *
 from .posixhelpers import *
 
 class BaseStore(object):
@@ -64,6 +64,20 @@ class BaseStore(object):
     def to_agave_uri(self, filename):
         full_path = os.path.join(self.store, filename)
         return 'agave://' + self.agave_system + '/' + full_path
+
+
+class CatalogError(Exception):
+    pass
+
+
+class CatalogUpdateFailure(CatalogError):
+    # Errors arising when the Data Catalog can't be updated
+    pass
+
+
+class CatalogDataError(CatalogError):
+    # Errors arising from computing or validating metadata
+    pass
 
 
 def lab_from_path(filename):

@@ -1,5 +1,7 @@
 from .basestore import *
 
+class MeasurementUpdateFailure(CatalogUpdateFailure):
+    pass
 class MeasurementStore(BaseStore):
     """Create and manage measurements metadata
     Records are linked with Files via file-specific uuid"""
@@ -27,7 +29,7 @@ class MeasurementStore(BaseStore):
         samp_uuid = None
         # Absolutely must
         if 'measurement_id' not in measurement:
-            raise CatalogUpdateFailure(
+            raise MeasurementUpdateFailure(
                 '"measurement_id" missing from measurement')
         # Add UUID if it does not exist (record is likely new)
         if 'uuid' not in measurement:
@@ -53,8 +55,8 @@ class MeasurementStore(BaseStore):
             try:
                 result = self.coll.insert_one(measurement)
                 return self.coll.find_one({'_id': result.inserted_id})
-            except Exception:
-                raise CatalogUpdateFailure('Failed to create measurement')
+            except Exception as exc:
+                raise MeasurementUpdateFailure('Failed to create measurement', exc)
         else:
             # Update the fields content of the record using a rightward merge,
             # then update the updated and revision properties, then write the
@@ -81,7 +83,7 @@ class MeasurementStore(BaseStore):
                     return_document=ReturnDocument.AFTER)
                 return uprec
             except Exception as exc:
-                raise CatalogUpdateFailure(
+                raise MeasurementUpdateFailure(
                     'Failed to update existing measurement', exc)
 
     def delete_record(self, measurement_id):
@@ -89,9 +91,9 @@ class MeasurementStore(BaseStore):
         try:
             meas_uuid = catalog_uuid(measurement_id)
             return self.coll.remove({'uuid': measurement_id})
-        except Exception:
-            raise CatalogUpdateFailure(
-                'Failed to delete measurement {}'.format(meas_uuid))
+        except Exception as exc:
+            raise MeasurementUpdateFailure(
+                'Failed to delete measurement {}'.format(meas_uuid), exc)
 
     def associate_ids(self, meas_uuid, ids):
         identifiers = copy.copy(ids)

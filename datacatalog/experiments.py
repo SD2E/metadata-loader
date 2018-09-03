@@ -1,5 +1,8 @@
 from .basestore import *
 
+class ExperimentUpdateFailure(CatalogUpdateFailure):
+    pass
+
 class ExperimentStore(BaseStore):
     """Create and manage expts metadata
     Records are linked with samples via sample-specific uuid"""
@@ -22,12 +25,12 @@ class ExperimentStore(BaseStore):
         dbrec['properties'] = data_merge(dbrec['properties'], properties)
         return dbrec
 
-    def create_update_experiment(self, expt, suuid=None):
+    def create_update_experiment(self, expt, uuid=None):
         ts = current_time()
         expt_uuid = None
         # Absolutely must
         if 'experiment_reference' not in expt:
-            raise CatalogUpdateFailure(
+            raise ExperimentUpdateFailure(
                 '"experiment_reference" is missing from experiment record')
         # Add UUID if it does not exist (record is likely new)
         if 'uuid' not in expt:
@@ -53,8 +56,8 @@ class ExperimentStore(BaseStore):
             try:
                 result = self.coll.insert_one(expt)
                 return self.coll.find_one({'_id': result.inserted_id})
-            except Exception:
-                raise CatalogUpdateFailure('Failed to create expt')
+            except Exception as exc:
+                raise ExperimentUpdateFailure('Failed to create experiment record', exc)
         else:
         # Update the fields content of the record using a rightward merge,
         # then update the updated and revision properties, then write the
@@ -81,7 +84,7 @@ class ExperimentStore(BaseStore):
                     return_document=ReturnDocument.AFTER)
                 return uprec
             except Exception as exc:
-                raise CatalogUpdateFailure(
+                raise ExperimentUpdateFailure(
                     'Failed to update existing expt', exc)
 
     def associate_ids(self, expt_uuid, ids):
@@ -90,13 +93,13 @@ class ExperimentStore(BaseStore):
             identifiers = [identifiers]
         meas = {'uuid': expt_uuid,
                 'samples_ids': list(set(identifiers))}
-        return self.create_update_expt(meas, suuid=expt_uuid)
+        return self.create_update_experimentt(meas, uuid=expt_uuid)
 
     def delete_record(self, expt_id):
         '''Delete record by expt.id'''
         try:
             return self.coll.remove({'id': expt_id})
-        except Exception:
-            raise CatalogUpdateFailure(
-                'Failed to delete expt {}'.format(expt_id))
+        except Exception as exc:
+            raise ExperimentUpdateFailure(
+                'Failed to delete expt {}'.format(expt_id), exc)
 

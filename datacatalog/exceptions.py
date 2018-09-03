@@ -18,11 +18,6 @@ class CatalogDatabaseError(CatalogError):
     # Errors reading to or writing from backing store
     pass
 
-
-class FileUpdateFailure(CatalogUpdateFailure):
-    pass
-
-
 class SampleUpdateFailure(CatalogUpdateFailure):
     pass
 

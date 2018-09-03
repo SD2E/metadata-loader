@@ -1,5 +1,8 @@
 from .basestore import *
 
+class ChallengeUpdateFailure(CatalogUpdateFailure):
+    pass
+
 class ChallengeStore(BaseStore):
     """Create and manage challenge problem metadata
     Records are linked with samples via challenge-specific uuid"""
@@ -27,7 +30,7 @@ class ChallengeStore(BaseStore):
         challenge_uuid = None
         # Absolutely must
         if 'challenge_problem' not in challenge:
-            raise CatalogUpdateFailure(
+            raise ChallengeUpdateFailure(
                 '"challenge_problem" missing from record')
         # Add UUID if it does not exist (record is likely new)
         if 'uuid' not in challenge:
@@ -53,8 +56,9 @@ class ChallengeStore(BaseStore):
             try:
                 result = self.coll.insert_one(challenge)
                 return self.coll.find_one({'_id': result.inserted_id})
-            except Exception:
-                raise CatalogUpdateFailure('Failed to create challenge problem record')
+            except Exception as exc:
+                raise ChallengeUpdateFailure(
+                    'Failed to create challenge problem record', exc)
         else:
         # Update the fields content of the record using a rightward merge,
         # then update the updated and revision properties, then write the
@@ -81,7 +85,7 @@ class ChallengeStore(BaseStore):
                     return_document=ReturnDocument.AFTER)
                 return uprec
             except Exception as exc:
-                raise CatalogUpdateFailure(
+                raise ChallengeUpdateFailure(
                     'Failed to update existing challenge problem', exc)
 
     def associate_ids(self, challenge_uuid, ids):
@@ -96,7 +100,7 @@ class ChallengeStore(BaseStore):
         '''Delete record by challenge.id'''
         try:
             return self.coll.remove({'id': challenge_id})
-        except Exception:
-            raise CatalogUpdateFailure(
-                'Failed to delete challenge {}'.format(challenge_id))
+        except Exception as exc:
+            raise ChallengeUpdateFailure(
+                'Failed to delete challenge {}'.format(challenge_id), exc)
 

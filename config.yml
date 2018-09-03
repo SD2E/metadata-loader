@@ -13,12 +13,12 @@ catalogstore:
   batch: 1000
   collections:
     updates: updates
-    files: datafiles
+    fixity: datafiles
     challenges: challenges
     experiments: experiments
     samples: samples
     measurements: measurements
-    files_metadata: files
+    files: files
 mongodb:
   # host: 127.0.0.1
   # username: catalog

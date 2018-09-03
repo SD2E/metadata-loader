@@ -1,5 +1,7 @@
 from .basestore import *
 
+class SampleUpdateFailure(CatalogUpdateFailure):
+    pass
 class SampleStore(BaseStore):
     """Create and manage samples metadata
     Records are linked with Measurements via measurement-specific uuid"""
@@ -27,7 +29,7 @@ class SampleStore(BaseStore):
         samp_uuid = None
         # Absolutely must
         if 'id' not in sample:
-            raise CatalogUpdateFailure('id missing from sample')
+            raise SampleUpdateFailure('"id" missing from sample')
         # Add UUID if it does not exist (record is likely new)
         if 'uuid' not in sample:
             samp_uuid = catalog_uuid(sample['id'])
@@ -51,8 +53,8 @@ class SampleStore(BaseStore):
             try:
                 result = self.coll.insert_one(sample)
                 return self.coll.find_one({'_id': result.inserted_id})
-            except Exception:
-                raise SampleUpdateFailure('Failed to create sample')
+            except Exception as exc:
+                raise SampleUpdateFailure('Failed to create sample', exc)
         else:
         # Update the fields content of the record using a rightward merge,
         # then update the updated and revision properties, then write the

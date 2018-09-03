@@ -30,4 +30,4 @@ class LogStore(object):
             result = self.coll.insert_one(rec)
             return self.coll.find_one({'_id': result.inserted_id})
         except Exception as exc:
-            raise CatalogError('failed to log update', exc)
+            raise LogStoreError('failed to log update', exc)

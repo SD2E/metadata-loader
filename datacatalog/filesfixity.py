@@ -1,11 +1,14 @@
 from .basestore import *
 
+class FileFixtyUpdateFailure(CatalogUpdateFailure):
+    pass
+
 class FileFixityStore(BaseStore):
     """Create and manage fixity records
     Records are linked with FilesMetadataStore via same uuid for a given filename"""
     def __init__(self, mongodb, config):
         super(FileFixityStore, self).__init__(mongodb, config)
-        coll = config['collections']['files']
+        coll = config['collections']['fixity']
         if config['debug']:
             coll = '_'.join([coll, str(time_stamp(rounded=True))])
         self.name = coll

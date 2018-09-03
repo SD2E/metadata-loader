@@ -10,10 +10,9 @@
 # from .posixhelpers import *
 
 from .basestore import *
-from .challenges import ChallengeStore
-from .experiments import ExperimentStore
-from .samples import SampleStore
-from .measurements import MeasurementStore
-from .filesmetadata import FileMetadataStore
-from .filesfixity import FileFixityStore
-
+from .challenges import ChallengeStore, ChallengeUpdateFailure
+from .experiments import ExperimentStore, ExperimentUpdateFailure
+from .samples import SampleStore, SampleUpdateFailure
+from .measurements import MeasurementStore, MeasurementUpdateFailure
+from .filesmetadata import FileMetadataStore, FileMetadataUpdateFailure
+from .filesfixity import FileFixityStore, FileFixtyUpdateFailure
