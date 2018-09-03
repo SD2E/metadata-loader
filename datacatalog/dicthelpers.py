@@ -1,9 +1,39 @@
 import copy
 import datetime
 from collections import Mapping, MutableMapping
+from attrdict import AttrDict
+import jsondiff
 
+FILTERKEYS = ('_id', 'uuid', 'properties', 'measurements_ids',
+              'measurements', 'files', 'samples')
 class DictionaryMergeError(Exception):
     pass
+
+def data_merge(a, b):
+    aa = AttrDict(a)
+    bb = AttrDict(b)
+    ab = dict(aa + bb)
+    return ab
+
+def data_merge_diff(a, b):
+    ab = data_merge(a, b)
+    df = json_diff(a, b)
+    return ab, df
+
+def json_diff(j1, j2, filters=FILTERKEYS):
+    j1 = copy.deepcopy(j1)
+    j2 = copy.deepcopy(j2)
+    for f in filters:
+        try:
+            j1.pop(f)
+        except KeyError:
+            pass
+        try:
+            j2.pop(f)
+        except KeyError:
+            pass
+    resp = jsondiff.diff(j1, j2, marshal=True)
+    return resp
 
 def filter_dict(target_dict, keys_to_filter):
     """Filters key(s) from top level of a dict
@@ -99,7 +129,7 @@ def list_merge(lst, merge_lst):
     return list(set(lst) | set(merge_lst))
 
 
-def data_merge(aa, bb):
+def __data_merge(aa, bb):
     """Merges b into a and returns merged result
     NOTE: Tuples and arbitrary objects are not handled as it is ambiguous what should happen
     """
@@ -109,7 +139,8 @@ def data_merge(aa, bb):
     try:
         if a is None or isinstance(a, (str, int, float, bool, bytes, datetime.datetime)):
             # border case for first run or if a is a primitive
-            a = b
+            if b is not None:
+                a = b
         elif isinstance(a, list):
             # lists can be only appended
             if isinstance(b, list):

@@ -1,2052 +1,4005 @@
 {
-    "experiment_id": "17987",
+    "experiment_id": "experiment.uw_biofab.17987",
     "challenge_problem": "YEAST_GATES",
     "experiment_reference": "Unknown",
     "lab": "UW_BIOFAB",
     "samples": [
         {
             "sample_id": "sample.uw_biofab.143209/H1",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8542"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-H01.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-H01.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.25999"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/G11",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8543"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-G11.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-G11.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26000"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/G9",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8543"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-G09.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-G09.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26001"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/E2",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8543"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-E02.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-E02.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26002"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/A7",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-A07.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-A07.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26003"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/B4",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8545"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-B04.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-B04.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26004"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/F4",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.22544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-F04.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-F04.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26005"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/B6",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8545"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-B06.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-B06.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26006"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/F6",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.22544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-F06.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-F06.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26007"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/C9",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.22544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-C09.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-C09.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26008"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/G12",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8543"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-G12.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-G12.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26009"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/F8",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-F08.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-F08.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26010"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/C2",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8542"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-C02.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-C02.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26011"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/H4",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8542"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-H04.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-H04.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26012"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/G5",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8545"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-G05.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-G05.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26013"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/H6",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8542"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-H06.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-H06.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26014"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/F2",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.22544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-F02.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-F02.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26015"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/F7",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-F07.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-F07.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26017"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/H3",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8542"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-H03.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-H03.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26016"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/A12",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-A12.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-A12.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26018"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/F11",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-F11.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-F11.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26019"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/H2",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8542"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-H02.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-H02.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26020"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/G3",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8545"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-G03.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-G03.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26021"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/F9",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-F09.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-F09.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26022"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/B10",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8543"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-B10.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-B10.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26023"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/H5",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8542"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-H05.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-H05.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26024"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/F10",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-F10.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-F10.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26025"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/E5",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8543"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-E05.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-E05.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26026"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/G8",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8543"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-G08.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-G08.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26027"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/D7",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8545"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-D07.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-D07.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26028"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/C6",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8542"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-C06.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-C06.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26029"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/E7",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8542"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-E07.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-E07.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26030"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/A10",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-A10.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-A10.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26031"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/F3",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.22544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-F03.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-F03.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26032"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/B1",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8545"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-B01.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-B01.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26033"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/C3",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8542"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-C03.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-C03.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26034"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/G1",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8545"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-G01.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-G01.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26035"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/F1",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.22544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-F01.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-F01.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26036"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/A2",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.22544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-A02.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-A02.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26037"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/A1",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.22544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-A01.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-A01.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26038"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/D6",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-D06.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-D06.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26039"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/A4",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.22544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-A04.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-A04.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26040"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/A5",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.22544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-A05.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-A05.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26042"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/A3",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.22544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-A03.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-A03.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26041"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/A8",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-A08.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-A08.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26044"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/B2",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8545"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-B02.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-B02.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26045"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/B5",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8545"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-B05.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-B05.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26046"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/G7",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8543"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-G07.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-G07.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26043"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/A6",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.22544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-A06.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-A06.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26047"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/A9",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-A09.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-A09.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26048"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/A11",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-A11.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-A11.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26050"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/B3",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8545"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-B03.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-B03.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26051"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/B9",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8543"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-B09.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-B09.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26052"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/B7",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8543"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-B07.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-B07.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26049"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/C4",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8542"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-C04.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-C04.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26053"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/B8",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8543"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-B08.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-B08.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26054"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/B11",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8543"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-B11.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-B11.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26055"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/B12",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8543"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-B12.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-B12.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26056"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/C1",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8542"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-C01.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-C01.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26057"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/C5",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8542"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-C05.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-C05.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26058"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/C7",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.22544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-C07.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-C07.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26059"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/C8",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.22544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-C08.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-C08.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26060"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/C10",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.22544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-C10.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-C10.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26061"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/C12",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.22544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-C12.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-C12.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26062"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/D1",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-D01.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-D01.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26063"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/C11",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.22544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-C11.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-C11.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26064"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/D2",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-D02.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-D02.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26066"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/D3",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-D03.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-D03.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26065"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/D4",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-D04.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-D04.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26067"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/D5",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-D05.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-D05.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26069"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/D8",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8545"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-D08.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-D08.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26068"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/D10",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8545"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-D10.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-D10.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26070"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/D11",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8545"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-D11.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-D11.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26071"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/D9",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8545"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-D09.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-D09.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26072"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/D12",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8545"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-D12.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-D12.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26073"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/E1",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8543"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-E01.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-E01.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26075"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/E3",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8543"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-E03.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-E03.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26074"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/E4",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8543"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-E04.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-E04.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26076"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/E6",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8543"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-E06.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-E06.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26077"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/E8",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8542"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-E08.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-E08.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26078"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/E9",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8542"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-E09.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-E09.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26079"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/E11",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8542"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-E11.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-E11.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26080"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/E12",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8542"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-E12.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-E12.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26081"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/F5",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.22544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-F05.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-F05.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26082"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/E10",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 0.00015,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8542"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-E10.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-E10.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26083"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/F12",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-F12.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-F12.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26084"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/G2",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8545"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-G02.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-G02.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26085"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/G6",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8545"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-G06.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-G06.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26086"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/G4",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD-LTR3-HygMX-GPD-RGR-W36|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8545"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-G04.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-G04.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26087"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/H8",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.22544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-H08.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-H08.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26088"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/H7",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "sample_9449/sample_30 diploid isolate #1 from Ginkgo Bioworks",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.22544"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-H07.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-H07.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26090"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/G10",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+            "inoculation_density": {
+                "value": 7.5e-05,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP|pMOD-HOKan-pGRR-W36(c3)W8(c5)-RGR-W20|pMOD-LTR1-Nat-pGRR-W36-RGR-W5|pMOD6-pGRR-W10(c3)W5(c6)-RGR-W17|pMOD-LTR2-bleo-pGRR-W8W8-RGR-W10|pMOD8A-RGR-W8|pMOD-HOKan-Leu2",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.8543"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-G10.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-G10.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26089"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         },
         {
             "sample_id": "sample.uw_biofab.143209/H9",
-            "temperature": "30:celsius",
+            "temperature": {
+                "value": 30.0,
+                "unit": "celsius"
+            },
             "contents": [
-                "YPAD"
+                {
+                    "name": {
+                        "label": "YPAD",
+                        "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                        "lab_id": "name.uw_biofab.11767"
+                    }
+                }
             ],
-            "strain": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP__X__pMOD8A-RGR-W10",
+            "inoculation_density": {
+                "value": 0.0003,
+                "unit": "od600"
+            },
+            "strain": {
+                "label": "pMOD4G-dcas9-mxi1|pMOD6-W17(c3)W20(c6)-eGFP__X__pMOD8A-RGR-W10",
+                "sbh_uri": "NO PROGRAM DICTIONARY ENTRY",
+                "lab_id": "name.uw_biofab.6390"
+            },
             "measurements": [
                 {
-                    "timepoint": "16:hour",
+                    "timepoint": {
+                        "value": 16.0,
+                        "unit": "hour"
+                    },
                     "files": [
                         {
-                            "name": "143209-H09.fcs",
+                            "name": "experiment.uw_biofab.17987/op_92242/143209-H09.fcs",
                             "type": "FCS",
                             "state": "RAW",
                             "file_id": "file.uw_biofab.26091"
                         }
                     ],
-                    "measurement_type": "FLOW"
+                    "measurement_type": "FLOW",
+                    "measurement_id": "measurement.uw_biofab.92242"
                 }
             ]
         }

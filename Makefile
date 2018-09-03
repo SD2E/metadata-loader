@@ -2,18 +2,23 @@ CONTAINER_IMAGE=$(shell bash scripts/container_image.sh)
 PYTHON ?= "python3"
 PYTEST_OPTS ?= "-s -vvv"
 PYTEST_DIR ?= "tests"
-ABACO_DEPLOY_OPTS ?=
+ABACO_DEPLOY_OPTS ?= "-p"
 SCRIPT_DIR ?= "scripts"
 PREF_SHELL ?= "bash"
 ACTOR_ID ?=
 
-.PHONY: tests container tests-local tests-reactor tests-deployed
-.SILENT: tests container tests-local tests-reactor tests-deployed
+.PHONY: tests container tests-local tests-reactor tests-deployed datacatalog formats
+.SILENT: tests container tests-local tests-reactor tests-deployed datacatalog formats
 
 all: image
-	true
 
-image:
+formats:
+	if [ -d ../etl-pipeline-support/formats ]; then rm -rf formats; cp -R ../etl-pipeline-support/formats .; fi
+
+datacatalog: formats
+	if [ -d ../datacatalog ]; then rm -rf datacatalog; cp -R ../datacatalog .; fi
+
+image: datacatalog
 	abaco deploy -R $(ABACO_DEPLOY_OPTS)
 
 shell:

@@ -5,12 +5,13 @@ import copy
 from attrdict import AttrDict
 from reactors.runtime import Reactor, agaveutils
 
-from datacatalog import CatalogStore, SampleStore, MeasurementStore
+from datacatalog import FileMetadataStore, SampleStore, MeasurementStore, ExperimentStore, ChallengeStore
 from datacatalog import posixhelpers, data_merge, validate_file_to_schema
 from datacatalog.agavehelpers import from_agave_uri
 
 SCHEMA_FILE = '/schemas/samples-schema.json'
-LOCALFILENAME = '/downloaded.json'
+# LOCALFILENAME = 'downloaded.json'
+LOCALFILENAME = '/data/samples-biofab.json'
 
 def compute_prefix(uri, catalog_root='/', prefix=None):
     new_prefix = ''
@@ -41,14 +42,20 @@ def main():
         r.on_failure('Invalid message received', None)
 
     # Set up Store objects
-    files_store = CatalogStore(mongodb=r.settings.mongodb,
-                                  config=r.settings.catalogstore)
+    chall_store = ChallengeStore(mongodb=r.settings.mongodb,
+                                 config=r.settings.catalogstore)
+
+    expt_store = ExperimentStore(mongodb=r.settings.mongodb,
+                                 config=r.settings.catalogstore)
 
     sample_store = SampleStore(mongodb=r.settings.mongodb,
                                config=r.settings.catalogstore)
 
     meas_store = MeasurementStore(mongodb=r.settings.mongodb,
                                   config=r.settings.catalogstore)
+
+    files_store = FileMetadataStore(mongodb=r.settings.mongodb,
+                                    config=r.settings.catalogstore)
 
     r.logger.debug('collections: {}, {}, {}'.format(files_store.name,
                    sample_store.name, meas_store.name))
@@ -90,11 +97,45 @@ def main():
                     sample.pop('sample_id')
 
         # set to -1 for no limit
-        max_samples = 1
+        max_samples = 4
         # Write samples, measurement, files record(s)
+        chall_expt_assoc = {}
+        expt_samp_assoc = {}
         samp_meas_assoc = {}
         meas_file_assoc = {}
         samples_set = filedata.pop('samples')
+
+        # create challenge problem record
+        r.logger.info('PROCESSING CHALLENGE PROBLEM {}'.format(filedata['challenge_problem']))
+        cp_extras = {'filename': expt_store.normalize(agave_full_path)}
+        cp_rec = data_merge(copy.deepcopy(filedata), cp_extras)
+        r.logger.debug('writing challenge problem record {}'.format(cp_rec['challenge_problem']))
+        cid = None
+        try:
+            new_samp = chall_store.create_update_challenge(cp_rec)
+            cid = new_samp['uuid']
+            if cid not in expt_samp_assoc:
+                expt_samp_assoc[cid] = []
+        except Exception as exc:
+            r.logger.critical('challenge problem write failed: {}'.format(exc))
+
+        # create experiment record
+        # NOTE: Currently failing to do the right thing because we don't have experiment_reference maps
+        r.logger.info('PROCESSING EXPERIMENT {}'.format(
+            filedata['experiment_reference']))
+        expt_extras = {'filename': expt_store.normalize(agave_full_path)}
+        expt_rec = data_merge(copy.deepcopy(filedata), expt_extras)
+        r.logger.debug('writing experiment record {}'.format(expt_rec['experiment_reference']))
+        eid = None
+        try:
+            new_samp = expt_store.create_update_experiment(expt_rec)
+            eid = new_samp['uuid']
+            if eid not in expt_samp_assoc:
+                expt_samp_assoc[eid] = []
+        except Exception as exc:
+            r.logger.critical('expt write failed: {}'.format(exc))
+
+        # process samples, measurements, files...
         for s in samples_set:
             r.logger.info('PROCESSING SAMPLE {}'.format(s['id']))
             samp_extras = {'filename': sample_store.normalize(agave_full_path)}
@@ -126,56 +167,59 @@ def main():
                                 samp_meas_assoc[sid].append(new_meas['uuid'])
                         except Exception as exc:
                             r.logger.critical('measurement write failed: {}'.format(exc))
-
-                        # Iterate through file records
-                        try:
-                            files = meas_rec.get('files', [])
-                            r.logger.debug('file count: {}'.format(len(files)))
-                            for f in files:
-                                r.logger.info(
-                                    'PROCESSING FILE {}'.format(f['name']))
-                                f['name'] = files_store.normalize(os.path.join(agave_path, f['name']))
-                                r.logger.debug('name: {}'.format(f['name']))
-                                try:
-                                    r.logger.debug(
-                                        'writing file record for {}'.format(f['name']))
-                                    file_resp = files_store.create_update_record(f)
-                                    if 'uuid' in file_resp:
-                                        if not mid in meas_file_assoc:
-                                            meas_file_assoc[mid] = []
-                                        if file_resp['uuid'] not in meas_file_assoc[mid]:
-                                            r.logger.debug(
-                                                'extending measurement.files_uuids')
-                                            meas_file_assoc[mid].append(file_resp['uuid'])
-                                    else:
-                                        r.logger.warning(
-                                            'uuid-to-measurement association failed for file')
-                                except Exception as exc:
-                                    r.logger.critical('files write failed: {}'.format(exc))
-                        except KeyError as kexc:
-                            r.logger.critical('unable to process files: {}'.format(kexc))
                 except Exception as exc:
-                    #r.logger.critical('unable to process measurements for sample')
-                    r.logger.critical('failed to process measurements for sample: {}'.format(exc))
-            else:
-                r.logger.warning('sample did not include measurements')
+                    raise Exception(exc)
 
             max_samples = max_samples - 1
             if max_samples == 0:
                 break
 
-        try:
-            for si in samp_meas_assoc:
-                sample_store.associate_ids(si, samp_meas_assoc[si])
-        except Exception as exc:
-            r.logger.critical(
-                'failed to associate measurements with samples: {}'.format(exc))
+        #                 # Iterate through file records
+        #                 try:
+        #                     files = meas_rec.get('files', [])
+        #                     r.logger.debug('file count: {}'.format(len(files)))
+        #                     for f in files:
+        #                         r.logger.info(
+        #                             'PROCESSING FILE {}'.format(f['name']))
+        #                         f['name'] = files_store.normalize(os.path.join(agave_path, f['name']))
+        #                         r.logger.debug('name: {}'.format(f['name']))
+        #                         try:
+        #                             r.logger.debug(
+        #                                 'writing file record for {}'.format(f['name']))
+        #                             file_resp = files_store.create_update_record(f)
+        #                             if 'uuid' in file_resp:
+        #                                 if not mid in meas_file_assoc:
+        #                                     meas_file_assoc[mid] = []
+        #                                 if file_resp['uuid'] not in meas_file_assoc[mid]:
+        #                                     r.logger.debug(
+        #                                         'extending measurement.files_uuids')
+        #                                     meas_file_assoc[mid].append(file_resp['uuid'])
+        #                             else:
+        #                                 r.logger.warning(
+        #                                     'uuid-to-measurement association failed for file')
+        #                         except Exception as exc:
+        #                             r.logger.critical('files write failed: {}'.format(exc))
+        #                 except KeyError as kexc:
+        #                     r.logger.critical('unable to process files: {}'.format(kexc))
+        #         except Exception as exc:
+        #             #r.logger.critical('unable to process measurements for sample')
+        #             r.logger.critical('failed to process measurements for sample: {}'.format(exc))
+        #     else:
+        #         r.logger.warning('sample did not include measurements')
 
-        try:
-            for mi in meas_file_assoc:
-                meas_store.associate_ids(mi, meas_file_assoc[mi])
-        except Exception as exc:
-            r.logger.critical('failed to associate files with measurements: {}'.format(exc))
+
+        # try:
+        #     for si in samp_meas_assoc:
+        #         sample_store.associate_ids(si, samp_meas_assoc[si])
+        # except Exception as exc:
+        #     r.logger.critical(
+        #         'failed to associate measurements with samples: {}'.format(exc))
+
+        # try:
+        #     for mi in meas_file_assoc:
+        #         meas_store.associate_ids(mi, meas_file_assoc[mi])
+        # except Exception as exc:
+        #     r.logger.critical('failed to associate files with measurements: {}'.format(exc))
 
 if __name__ == '__main__':
     main()

@@ -2,6 +2,7 @@ import os
 import hashlib
 import binascii
 import filetype
+import datetime
 
 def rebase_file_path(filename, prefix):
     if filename.startswith('/'):
@@ -94,3 +95,8 @@ def splitall(path):
             path = parts[0]
             allparts.insert(0, parts[1])
     return allparts
+
+
+def get_modification_date(filename):
+    t = os.path.getmtime(filename)
+    return datetime.datetime.fromtimestamp(t)

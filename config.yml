@@ -11,18 +11,21 @@ catalogstore:
   store: uploads/
   root: uploads/
   batch: 1000
-  collection: samplesfiles
   collections:
+    updates: updates
     files: datafiles
+    challenges: challenges
+    experiments: experiments
     samples: samples
     measurements: measurements
+    files_metadata: files
 mongodb:
   # host: 127.0.0.1
   # username: catalog
   # password: catalog
-  port: 27017
+  port: 27020
   database: catalog_dev
-  host: mongodb-staging.sd2e.org
+  host: data-catalog.sd2e.org
   username: catalog
   password: ~
 storagesystems:

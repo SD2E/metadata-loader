@@ -1,0 +1,189 @@
+
+from synbiohub_adapter.SynBioHubUtil import SD2Constants
+
+"""Some constants to populate samples-schema.json
+   compliant outputs
+"""
+class SampleConstants():
+
+    """Obvious issues with this, welcome something more robust.
+    """
+    def infer_file_type(file_name):
+
+        if file_name.endswith("fastq.gz"):
+            return SampleConstants.F_TYPE_FASTQ
+        elif file_name.endswith("zip"):
+            return SampleConstants.F_TYPE_ZIP
+        elif file_name.endswith("fcs"):
+            return SampleConstants.F_TYPE_FCS
+        elif file_name.endswith("sraw"):
+            return SampleConstants.F_TYPE_SRAW
+        elif file_name.endswith("txt"):
+            return SampleConstants.F_TYPE_TXT
+        elif file_name.endswith("csv"):
+            return SampleConstants.F_TYPE_CSV
+        elif file_name.endswith("mzML"):
+            return SampleConstants.F_TYPE_MZML
+        elif file_name.endswith("msf"):
+            return SampleConstants.F_TYPE_MSF
+        else:
+            raise ValueError("Could not parse FT: {}".format(file_name))
+
+    #experiment
+    EXPERIMENT_ID = "experiment_id"
+    CHALLENGE_PROBLEM = "challenge_problem"
+
+    CP_NOVEL_CHASSIS = "NOVEL_CHASSIS"
+
+    CP_UNKNOWN = "UNKNOWN"
+    CP_REF_UNKNOWN = "Unknown"
+
+    EXPERIMENT_REFERENCE = "experiment_reference"
+    LAB = "lab"
+    LAB_GINKGO = "Ginkgo"
+    LAB_TX = "Transcriptic"
+    LAB_UWBF = "UW_BIOFAB"
+
+    #samples
+    SAMPLES = "samples"
+    SAMPLE_ID = "sample_id"
+    STRAIN = "strain"
+    CONTENTS = "contents"
+    REPLICATE = "replicate"
+    INOCULATION_DENSITY = "inoculation_density"
+    TEMPERATURE = "temperature"
+    TIMEPOINT = "timepoint"
+    NAME = "name"
+    VALUE = "value"
+    UNIT = "unit"
+
+    LABEL = "label"
+    SBH_URI = "sbh_uri"
+    LAB_ID = "lab_id"
+    AGAVE_URI = "agave_uri"
+
+    STANDARD_TYPE = "standard_type"
+    STANDARD_FOR = "standard_for"
+    STANDARD_FLUORESCEIN = "FLUORESCEIN"
+
+    #measurements
+    MEASUREMENTS = "measurements"
+    FILES = "files"
+    FILE_ID = "file_id"
+    MEASUREMENT_TYPE = "measurement_type"
+    MEASUREMENT_NAME = "measurement_name"
+    MEASUREMENT_TMT_CHANNEL = "TMT_channel"
+    MEASUREMENT_ID = "measurement_id"
+    MT_RNA_SEQ = "RNA_SEQ"
+    MT_FLOW = "FLOW"
+    MT_PLATE_READER = "PLATE_READER"
+    MT_PROTEOMICS = "PROTEOMICS"
+    M_NAME = "name"
+    M_TYPE = "type"
+    M_STATE = "state"
+    M_STATE_RAW = "RAW"
+    M_STATE_PROCESSED = "PROCESSED"
+
+    F_TYPE_SRAW = "SRAW"
+    F_TYPE_FASTQ = "FASTQ"
+    F_TYPE_CSV = "CSV"
+    F_TYPE_FCS = "FCS"
+    F_TYPE_ZIP = "ZIP"
+    F_TYPE_TXT = "TXT"
+    F_TYPE_MZML = "MZML"
+    F_TYPE_MSF = "MSF"
+
+def convert_value_unit(value_unit):
+    value_unit_split = value_unit.split(":")
+    value = value_unit_split[0]
+    if type(value) == int:
+        value_unit_split[0] = int(value)
+    elif type(value) == float:
+        value_unit_split[0] = float(value)
+    else:
+        value_unit_split[0] = float(value)
+    return value_unit_split
+
+def create_media_component(media_name, media_id, lab, sbh_query, value_unit=None):
+    m_c_object = {}
+
+    m_c_object[SampleConstants.NAME] = create_mapped_name(media_name, media_id, lab, sbh_query)
+    if value_unit:
+        value_unit_split = convert_value_unit(value_unit)
+        m_c_object[SampleConstants.VALUE] = value_unit_split[0]
+        m_c_object[SampleConstants.UNIT] = value_unit_split[1]
+
+    return m_c_object
+
+# cache query lookups
+sbh_cache = {}
+
+def create_mapped_name(name_to_map, id_to_map, lab, sbh_query):
+    m_n_object = {}
+
+    sbh_lab = None
+    if lab == SampleConstants.LAB_GINKGO:
+        sbh_lab = SD2Constants.GINKGO
+    elif lab == SampleConstants.LAB_TX:
+        sbh_lab = SD2Constants.TRANSCRIPTIC
+    elif lab == SampleConstants.LAB_UWBF:
+        sbh_lab = SD2Constants.BIOFAB
+    else:
+        raise ValueError("Could not parse lab for SBH lookup: {}".format(lab))
+
+    # SBH expects strings
+    if type(id_to_map) == int:
+        id_to_map = str(id_to_map)
+
+    if id_to_map in sbh_cache:
+        designs = sbh_cache[id_to_map]
+    else:
+        designs = sbh_query.query_designs_by_lab_ids(sbh_lab, [id_to_map], verbose=True)
+        sbh_cache[id_to_map] = designs
+
+    if len(designs) > 0 and id_to_map in designs:
+        values = designs[id_to_map]
+        if isinstance(values, list):
+            # we can only hold a single value here for now, take the first one
+            # TODO DR/SBHA team fix this for current cases
+            # and we make this throw an error for future runs
+            values = values[0]
+        # use URI and title from SBH
+        m_n_object[SampleConstants.SBH_URI] = values["identity"]
+        m_n_object[SampleConstants.LABEL] = values["name"]
+    else:
+        # if we do not have a valid mapping, pass through the original lab name
+        m_n_object[SampleConstants.LABEL] = name_to_map
+        m_n_object[SampleConstants.SBH_URI] = "NO PROGRAM DICTIONARY ENTRY"
+
+    #m_n_object[SampleConstants.AGAVE_URI] =
+    m_n_object[SampleConstants.LAB_ID] = namespace_lab_id(id_to_map, lab)
+    return m_n_object
+
+# temperature, time, etc.
+def create_value_unit(value_unit):
+    v_u_object = {}
+    value_unit_split = convert_value_unit(value_unit)
+    v_u_object[SampleConstants.VALUE] = value_unit_split[0]
+    v_u_object[SampleConstants.UNIT] = value_unit_split[1]
+    return v_u_object
+
+def namespace_sample_id(sample_id, lab):
+    '''Prevents collisions amongst lab-specified sample_id'''
+    return '.'.join(['sample', lab.lower(), str(sample_id)])
+
+def namespace_measurement_id(measurement_id, lab):
+    '''Prevents collisions amongst lab-specified measurement_id'''
+    return '.'.join(['measurement', lab.lower(), str(measurement_id)])
+
+def namespace_file_id(file_id, lab):
+    '''Prevents collisions amongst lab-specified file_id'''
+    return '.'.join(['file', lab.lower(), str(file_id)])
+
+def namespace_lab_id(lab_id, lab):
+    '''Prevents collisions amongst lab-specified lab_id'''
+    return '.'.join(['name', lab.lower(), str(lab_id)])
+
+def namespace_experiment_id(lab_id, lab):
+    '''Prevents collisions amongst lab-specified experiment_id'''
+    return '.'.join(['experiment', lab.lower(), str(lab_id)])
