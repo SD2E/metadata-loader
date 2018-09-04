@@ -24,7 +24,7 @@ class SampleStore(BaseStore):
         dbrec['properties'] = data_merge(dbrec['properties'], properties)
         return dbrec
 
-    def create_update_sample(self, sample, suuid=None):
+    def create_update_sample(self, sample, parents=None, uuid=None):
         ts = current_time()
         samp_uuid = None
         # Absolutely must
@@ -34,6 +34,13 @@ class SampleStore(BaseStore):
         if 'uuid' not in sample:
             samp_uuid = catalog_uuid(sample['id'])
             sample['uuid'] = samp_uuid
+        # this list maintains the inheritance relationship
+        # in this case, a list of sample uuids
+        if parents is None:
+            parents = []
+        if isinstance(parents, str):
+            parents = [parents]
+        sample['child_of'] = parents
 
         # Filter keys we manage elsewhere
         try:

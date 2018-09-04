@@ -25,14 +25,15 @@ class FileMetadataStore(BaseStore):
         dbrec['properties'] = data_merge(dbrec['properties'], properties)
         return dbrec
 
-    def create_update_file(self, file, uuid=None):
+    def create_update_file(self, file, parents=None, uuid=None):
         """Create or update a file metadata record using its data catalog store-
         relative path as a primary key"""
         ts = current_time()
         file_uuid = None
+
         # Absolutely must
         if 'name' not in file:
-            raise FileUpdateFailure(
+            raise FileMetadataUpdateFailure(
                 '"name" missing from file record')
 
         # transformations
@@ -51,6 +52,16 @@ class FileMetadataStore(BaseStore):
             file['file_type'] = file.pop('type')
         if 'state' in file:
             file['level'] = file.pop('state')
+
+        # this list maintains the inheritance relationship
+        # in this case, a list of measurement uuids
+        # allow overloading parents as string or array or None
+        if parents is None:
+            parents = []
+        if isinstance(parents, str):
+            parents = [parents]
+        file['child_of'] = parents
+
         # # Filter keys we manage elsewhere or that are otherwise uninformative
         # for k in ['files', 'files_ids']:
         #     try:
@@ -71,7 +82,8 @@ class FileMetadataStore(BaseStore):
                 result = self.coll.insert_one(file)
                 return self.coll.find_one({'_id': result.inserted_id})
             except Exception:
-                raise FileUpdateFailure('Failed to create file metadata')
+                raise FileMetadataUpdateFailure(
+                    'Failed to create file metadata')
         else:
             # Update the fields content of the record using a rightward merge,
             # then update the updated and revision properties, then write the
@@ -98,7 +110,7 @@ class FileMetadataStore(BaseStore):
                     return_document=ReturnDocument.AFTER)
                 return uprec
             except Exception as exc:
-                raise FileUpdateFailure(
+                raise FileMetadataUpdateFailure(
                     'Failed to update existing file', exc)
 
     def delete_record(self, filename):
@@ -107,7 +119,7 @@ class FileMetadataStore(BaseStore):
             file_uuid = catalog_uuid(filename)
             return self.coll.remove({'uuid': file_uuid})
         except Exception:
-            raise FileUpdateFailure(
+            raise FileMetadataUpdateFailure(
                 'Failed to delete metadata for {}'.format(filename))
 
     def associate_ids(self, meas_uuid, ids):

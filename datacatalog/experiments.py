@@ -25,7 +25,7 @@ class ExperimentStore(BaseStore):
         dbrec['properties'] = data_merge(dbrec['properties'], properties)
         return dbrec
 
-    def create_update_experiment(self, expt, uuid=None):
+    def create_update_experiment(self, expt, parents=None, uuid=None):
         ts = current_time()
         expt_uuid = None
         # Absolutely must
@@ -36,6 +36,14 @@ class ExperimentStore(BaseStore):
         if 'uuid' not in expt:
             expt_uuid = catalog_uuid(expt['experiment_reference'])
             expt['uuid'] = expt_uuid
+
+        # this list maintains the inheritance relationship
+        # in this case, a list of challenge uuids
+        if parents is None:
+            parents = []
+        if isinstance(parents, str):
+            parents = [parents]
+        expt['child_of'] = parents
 
         # Filter keys we manage elsewhere or that are otherwise uninformative
         for k in ['samples', 'challenge_problem']:

@@ -25,7 +25,7 @@ class ChallengeStore(BaseStore):
         dbrec['properties'] = data_merge(dbrec['properties'], properties)
         return dbrec
 
-    def create_update_challenge(self, challenge, uuid=None):
+    def create_update_challenge(self, challenge, parents=None, uuid=None):
         ts = current_time()
         challenge_uuid = None
         # Absolutely must
@@ -36,6 +36,14 @@ class ChallengeStore(BaseStore):
         if 'uuid' not in challenge:
             challenge_uuid = catalog_uuid(challenge['challenge_problem'])
             challenge['uuid'] = challenge_uuid
+        # this list maintains the inheritance relationship
+        # challenge_problems currently have no parent but we include
+        # an affordance for one in the data model
+        if parents is None:
+            parents = []
+        if isinstance(parents, str):
+            parents = [parents]
+        challenge['child_of'] = parents
 
         # Filter keys we manage elsewhere or that are otherwise uninformative
         for k in ['samples', 'experiment_id', 'experiment_reference', 'lab']:

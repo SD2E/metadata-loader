@@ -24,7 +24,7 @@ class MeasurementStore(BaseStore):
         dbrec['properties'] = data_merge(dbrec['properties'], properties)
         return dbrec
 
-    def create_update_measurement(self, measurement, uuid=None):
+    def create_update_measurement(self, measurement, parents=None, uuid=None):
         ts = current_time()
         samp_uuid = None
         # Absolutely must
@@ -36,6 +36,13 @@ class MeasurementStore(BaseStore):
             samp_uuid = catalog_uuid(measurement['measurement_id'])
             measurement['uuid'] = samp_uuid
 
+        # this list maintains the inheritance relationship
+        # in this case, a list of sample uuids
+        if parents is None:
+            parents = []
+        if isinstance(parents, str):
+            parents = [parents]
+        measurement['child_of'] = parents
         # Filter keys we manage elsewhere or that are otherwise uninformative
         for k in ['files', 'files_ids']:
             try:

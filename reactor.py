@@ -112,7 +112,7 @@ def main():
         r.logger.debug('writing challenge problem record {}'.format(cp_rec['challenge_problem']))
         cid = None
         try:
-            new_samp = chall_store.create_update_challenge(cp_rec)
+            new_samp = chall_store.create_update_challenge(cp_rec, parents=[])
             cid = new_samp['uuid']
             if cid not in expt_samp_assoc:
                 expt_samp_assoc[cid] = []
@@ -128,7 +128,7 @@ def main():
         r.logger.debug('writing experiment record {}'.format(expt_rec['experiment_reference']))
         eid = None
         try:
-            new_samp = expt_store.create_update_experiment(expt_rec)
+            new_samp = expt_store.create_update_experiment(expt_rec, parents=cid)
             eid = new_samp['uuid']
             if eid not in expt_samp_assoc:
                 expt_samp_assoc[eid] = []
@@ -144,7 +144,7 @@ def main():
                 'writing sample record {}'.format(samp_rec['id']))
             sid = None
             try:
-                new_samp = sample_store.create_update_sample(samp_rec)
+                new_samp = sample_store.create_update_sample(samp_rec, parents=eid)
                 sid = new_samp['uuid']
                 if sid not in samp_meas_assoc:
                     samp_meas_assoc[sid] = []
@@ -160,33 +160,38 @@ def main():
                         meas_rec = data_merge(copy.deepcopy(m), meas_extras)
                         mid = None
                         try:
-                            new_meas = meas_store.create_update_measurement(meas_rec)
+                            new_meas = meas_store.create_update_measurement(
+                                meas_rec, parents=sid)
                             mid = new_meas['uuid']
                             if new_meas['uuid'] not in samp_meas_assoc[sid]:
                                 r.logger.debug('extending sample.measurement_ids')
                                 samp_meas_assoc[sid].append(new_meas['uuid'])
                         except Exception as exc:
                             r.logger.critical('measurement write failed: {}'.format(exc))
+
+                        # Iterate through file records
+                        if 'files' in m:
+                            files = m.get('files', [])
+                            for f in files:
+                                r.logger.info(
+                                    'PROCESSING FILE {}'.format(f['name']))
+                                try:
+                                    r.logger.debug(
+                                        'writing file record for {}'.format(f['name']))
+                                    file_resp = files_store.create_update_file(f, parents=mid)
+                                    if 'uuid' in file_resp:
+                                        r.logger.debug('wrote FileMetadata.uuid {}'.format(file_resp['uuid']))
+                                except Exception as exc:
+                                    r.logger.critical('file write failed: {}'.format(exc))
+
                 except Exception as exc:
                     raise Exception(exc)
 
-            max_samples = max_samples - 1
-            if max_samples == 0:
-                break
+            # max_samples = max_samples - 1
+            # if max_samples == 0:
+            #     break
 
-        #                 # Iterate through file records
-        #                 try:
-        #                     files = meas_rec.get('files', [])
-        #                     r.logger.debug('file count: {}'.format(len(files)))
-        #                     for f in files:
-        #                         r.logger.info(
-        #                             'PROCESSING FILE {}'.format(f['name']))
-        #                         f['name'] = files_store.normalize(os.path.join(agave_path, f['name']))
-        #                         r.logger.debug('name: {}'.format(f['name']))
-        #                         try:
-        #                             r.logger.debug(
-        #                                 'writing file record for {}'.format(f['name']))
-        #                             file_resp = files_store.create_update_record(f)
+
         #                             if 'uuid' in file_resp:
         #                                 if not mid in meas_file_assoc:
         #                                     meas_file_assoc[mid] = []
