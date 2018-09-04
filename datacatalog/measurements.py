@@ -24,7 +24,7 @@ class MeasurementStore(BaseStore):
         dbrec['properties'] = data_merge(dbrec['properties'], properties)
         return dbrec
 
-    def create_update_measurement(self, measurement, parents=None, uuid=None):
+    def create_update_measurement(self, measurement, parents=None, uuid=None, attributes={}):
         ts = current_time()
         samp_uuid = None
         # Absolutely must
@@ -36,6 +36,12 @@ class MeasurementStore(BaseStore):
             samp_uuid = catalog_uuid(measurement['measurement_id'])
             measurement['uuid'] = samp_uuid
 
+        # accept attributes overrides
+        if 'attributes' not in measurement:
+            measurement['attributes'] = {}
+        for k, v in attributes.items():
+            measurement['attributes'][k] = v
+
         # this list maintains the inheritance relationship
         # in this case, a list of sample uuids
         if parents is None:
@@ -44,7 +50,7 @@ class MeasurementStore(BaseStore):
             parents = [parents]
         measurement['child_of'] = parents
         # Filter keys we manage elsewhere or that are otherwise uninformative
-        for k in ['files', 'files_ids']:
+        for k in ['files']:
             try:
                 measurement.pop(k)
             except KeyError:
@@ -57,8 +63,6 @@ class MeasurementStore(BaseStore):
             measurement['properties'] = {'created_date': ts,
                                          'modified_date': ts,
                                          'revision': 0}
-            if 'files_ids' not in measurement:
-                measurement['files_ids'] = []
             try:
                 result = self.coll.insert_one(measurement)
                 return self.coll.find_one({'_id': result.inserted_id})
@@ -71,9 +75,6 @@ class MeasurementStore(BaseStore):
             dbrec = self.update_properties(dbrec)
             dbrec_core = copy.deepcopy(dbrec)
             dbrec_props = dbrec_core.pop('properties')
-            dbrec_files_ids  = []
-            if 'files_ids' in dbrec_core:
-                dbrec_files_ids  = dbrec_core.pop('files_ids')
             measurement_core = copy.deepcopy(measurement)
             # merge in fields data
             dbrec_core_1 = copy.deepcopy(dbrec_core)
@@ -83,7 +84,6 @@ class MeasurementStore(BaseStore):
             self.log(samp_uuid, jdiff)
 #            print(json.dumps(jdiff, indent=2))
             new_rec['properties'] = dbrec_props
-            new_rec['files_ids'] = dbrec_files_ids
             try:
                 uprec = self.coll.find_one_and_replace(
                     {'_id': new_rec['_id']}, new_rec,
@@ -101,12 +101,3 @@ class MeasurementStore(BaseStore):
         except Exception as exc:
             raise MeasurementUpdateFailure(
                 'Failed to delete measurement {}'.format(meas_uuid), exc)
-
-    def associate_ids(self, meas_uuid, ids):
-        identifiers = copy.copy(ids)
-        if not isinstance(identifiers, list):
-            # using list on a str will return a character iterator
-            identifiers = [identifiers]
-        meas = {'uuid': meas_uuid,
-                'files_ids': list(set(identifiers))}
-        return self.create_update_measurement(meas, uuid=meas_uuid)

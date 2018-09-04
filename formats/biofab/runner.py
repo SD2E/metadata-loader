@@ -207,6 +207,7 @@ def convert_biofab(schema_file, input_file, verbose=True, output=True, output_fi
                             { SampleConstants.M_NAME : file_name, \
                             SampleConstants.M_TYPE : file_type, \
                             SampleConstants.M_STATE : SampleConstants.M_STATE_RAW,
+                            SampleConstants.FILE_LEVEL: SampleConstants.F_LEVEL_0,
                             SampleConstants.FILE_ID: file_id})
 
         if len(measurement_doc[SampleConstants.FILES]) == 0:

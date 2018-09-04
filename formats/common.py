@@ -70,6 +70,13 @@ class SampleConstants():
     MEASUREMENTS = "measurements"
     FILES = "files"
     FILE_ID = "file_id"
+    FILE_LEVEL = "level"
+    F_LEVEL_0 = "Level0"
+    F_LEVEL_1 = "Level1"
+    F_LEVEL_2 = "Level2"
+    F_LEVEL_3 = "Level3"
+    F_LEVEL_ANCILLARY = "Ancillary"
+
     MEASUREMENT_TYPE = "measurement_type"
     MEASUREMENT_NAME = "measurement_name"
     MEASUREMENT_TMT_CHANNEL = "TMT_channel"

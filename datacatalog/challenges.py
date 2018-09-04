@@ -59,8 +59,6 @@ class ChallengeStore(BaseStore):
             challenge['properties'] = {'created_date': ts,
                                     'modified_date': ts,
                                     'revision': 0}
-            if 'experiments_ids' not in challenge:
-                challenge['experiments_ids'] = []
             try:
                 result = self.coll.insert_one(challenge)
                 return self.coll.find_one({'_id': result.inserted_id})
@@ -74,9 +72,6 @@ class ChallengeStore(BaseStore):
             dbrec = self.update_properties(dbrec)
             dbrec_core = copy.deepcopy(dbrec)
             dbrec_props = dbrec_core.pop('properties')
-            dbrec_meas_ids = []
-            if 'experiments_ids' in dbrec_core:
-                dbrec_meas_ids = dbrec_core.pop('experiments_ids')
             challenge_core = copy.deepcopy(challenge)
             # merge in fields data
             dbrec_core_1 = copy.deepcopy(dbrec_core)
@@ -84,9 +79,7 @@ class ChallengeStore(BaseStore):
             new_rec, jdiff = data_merge_diff(dbrec_core, challenge_core)
             # Store diff in our append-only updates log
             self.log(challenge_uuid, jdiff)
-#            print(json.dumps(jdiff, indent=2))
             new_rec['properties'] = dbrec_props
-            new_rec['experiments_ids'] = dbrec_meas_ids
             try:
                 uprec = self.coll.find_one_and_replace(
                     {'_id': new_rec['_id']}, new_rec,
@@ -95,14 +88,6 @@ class ChallengeStore(BaseStore):
             except Exception as exc:
                 raise ChallengeUpdateFailure(
                     'Failed to update existing challenge problem', exc)
-
-    def associate_ids(self, challenge_uuid, ids):
-        identifiers = copy.copy(ids)
-        if not isinstance(identifiers, list):
-            identifiers = [identifiers]
-        meas = {'uuid': challenge_uuid,
-                'experiments_ids': list(set(identifiers))}
-        return self.create_update_challenge(meas, uuid=challenge_uuid)
 
     def delete_record(self, challenge_id):
         '''Delete record by challenge.id'''

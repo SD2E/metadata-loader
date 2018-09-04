@@ -59,8 +59,6 @@ class ExperimentStore(BaseStore):
             expt['properties'] = {'created_date': ts,
                                     'modified_date': ts,
                                     'revision': 0}
-            if 'samples_ids' not in expt:
-                expt['samples_ids'] = []
             try:
                 result = self.coll.insert_one(expt)
                 return self.coll.find_one({'_id': result.inserted_id})
@@ -73,9 +71,6 @@ class ExperimentStore(BaseStore):
             dbrec = self.update_properties(dbrec)
             dbrec_core = copy.deepcopy(dbrec)
             dbrec_props = dbrec_core.pop('properties')
-            dbrec_meas_ids = []
-            if 'samples_ids' in dbrec_core:
-                dbrec_meas_ids = dbrec_core.pop('samples_ids')
             expt_core = copy.deepcopy(expt)
             # merge in fields data
             dbrec_core_1 = copy.deepcopy(dbrec_core)
@@ -85,7 +80,6 @@ class ExperimentStore(BaseStore):
             self.log(expt_uuid, jdiff)
 #            print(json.dumps(jdiff, indent=2))
             new_rec['properties'] = dbrec_props
-            new_rec['samples_ids'] = dbrec_meas_ids
             try:
                 uprec = self.coll.find_one_and_replace(
                     {'_id': new_rec['_id']}, new_rec,
@@ -94,14 +88,6 @@ class ExperimentStore(BaseStore):
             except Exception as exc:
                 raise ExperimentUpdateFailure(
                     'Failed to update existing expt', exc)
-
-    def associate_ids(self, expt_uuid, ids):
-        identifiers = copy.copy(ids)
-        if not isinstance(identifiers, list):
-            identifiers = [identifiers]
-        meas = {'uuid': expt_uuid,
-                'samples_ids': list(set(identifiers))}
-        return self.create_update_experimentt(meas, uuid=expt_uuid)
 
     def delete_record(self, expt_id):
         '''Delete record by expt.id'''

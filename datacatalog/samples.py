@@ -24,7 +24,7 @@ class SampleStore(BaseStore):
         dbrec['properties'] = data_merge(dbrec['properties'], properties)
         return dbrec
 
-    def create_update_sample(self, sample, parents=None, uuid=None):
+    def create_update_sample(self, sample, parents=None, uuid=None, attributes={}):
         ts = current_time()
         samp_uuid = None
         # Absolutely must
@@ -34,6 +34,13 @@ class SampleStore(BaseStore):
         if 'uuid' not in sample:
             samp_uuid = catalog_uuid(sample['id'])
             sample['uuid'] = samp_uuid
+
+        # accept attributes overrides
+        if 'attributes' not in sample:
+            sample['attributes'] = {}
+        for k, v in attributes.items():
+            sample['attributes'][k] = v
+
         # this list maintains the inheritance relationship
         # in this case, a list of sample uuids
         if parents is None:
@@ -55,8 +62,6 @@ class SampleStore(BaseStore):
             sample['properties'] = {'created_date': ts,
                                     'modified_date': ts,
                                     'revision': 0}
-            if 'measurements_ids' not in sample:
-                sample['measurements_ids'] = []
             try:
                 result = self.coll.insert_one(sample)
                 return self.coll.find_one({'_id': result.inserted_id})
@@ -69,9 +74,6 @@ class SampleStore(BaseStore):
             dbrec = self.update_properties(dbrec)
             dbrec_core = copy.deepcopy(dbrec)
             dbrec_props = dbrec_core.pop('properties')
-            dbrec_meas_ids = []
-            if 'measurements_ids' in dbrec_core:
-                dbrec_meas_ids = dbrec_core.pop('measurements_ids')
             sample_core = copy.deepcopy(sample)
             # merge in fields data
             dbrec_core_1 = copy.deepcopy(dbrec_core)
@@ -81,7 +83,6 @@ class SampleStore(BaseStore):
             self.log(samp_uuid, jdiff)
 #            print(json.dumps(jdiff, indent=2))
             new_rec['properties'] = dbrec_props
-            new_rec['measurements_ids'] = dbrec_meas_ids
             try:
                 uprec = self.coll.find_one_and_replace(
                     {'_id': new_rec['_id']}, new_rec,
@@ -90,14 +91,6 @@ class SampleStore(BaseStore):
             except Exception as exc:
                 raise SampleUpdateFailure(
                     'Failed to update existing sample', exc)
-
-    def associate_ids(self, samp_uuid, ids):
-        identifiers = copy.copy(ids)
-        if not isinstance(identifiers, list):
-            identifiers = [identifiers]
-        meas = {'uuid': samp_uuid,
-                'measurements_ids': list(set(identifiers))}
-        return self.create_update_sample(meas, suuid=samp_uuid)
 
     def delete_record(self, sample_id):
         '''Delete record by sample.id'''

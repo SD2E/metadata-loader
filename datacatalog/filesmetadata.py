@@ -25,7 +25,7 @@ class FileMetadataStore(BaseStore):
         dbrec['properties'] = data_merge(dbrec['properties'], properties)
         return dbrec
 
-    def create_update_file(self, file, parents=None, uuid=None):
+    def create_update_file(self, file, parents=None, uuid=None, attributes={}):
         """Create or update a file metadata record using its data catalog store-
         relative path as a primary key"""
         ts = current_time()
@@ -45,14 +45,17 @@ class FileMetadataStore(BaseStore):
         if 'uuid' not in file:
             file_uuid = catalog_uuid(filename)
             file['uuid'] = file_uuid
-        # move keys that overlap with fixity data model into properties
-        # if 'properties' not in file:
-        #     file['properties'] = {}
-        if 'type' in file:
-            file['file_type'] = file.pop('type')
-        if 'state' in file:
-            file['level'] = file.pop('state')
 
+        # accept attributes overrides
+        if 'attributes' not in file:
+            file['attributes'] = {}
+        for k, v in attributes.items():
+            file['attributes'][k] = v
+        # move some top-level keys into attributes
+        if 'type' in file:
+            file['attributes']['file_type'] = file.pop('type')
+        if 'state' in file:
+            file['attributes']['state'] = file.pop('state')
         # this list maintains the inheritance relationship
         # in this case, a list of measurement uuids
         # allow overloading parents as string or array or None
@@ -60,14 +63,6 @@ class FileMetadataStore(BaseStore):
             parents = []
         if isinstance(parents, str):
             parents = [parents]
-        file['child_of'] = parents
-
-        # # Filter keys we manage elsewhere or that are otherwise uninformative
-        # for k in ['files', 'files_ids']:
-        #     try:
-        #         file.pop(k)
-        #     except KeyError:
-        #         pass
 
         # Try to fetch the existing record
         dbrec = self.coll.find_one({'uuid': file_uuid})
@@ -76,8 +71,6 @@ class FileMetadataStore(BaseStore):
             file['properties'] = {'created_date': ts,
                                   'modified_date': ts,
                                   'revision': 0}
-            # if 'files_ids' not in file:
-            #     file['files_ids'] = []
             try:
                 result = self.coll.insert_one(file)
                 return self.coll.find_one({'_id': result.inserted_id})
@@ -91,9 +84,6 @@ class FileMetadataStore(BaseStore):
             dbrec = self.update_properties(dbrec)
             dbrec_core = copy.deepcopy(dbrec)
             dbrec_props = dbrec_core.pop('properties')
-            # dbrec_files_ids = []
-            # if 'files_ids' in dbrec_core:
-            #     dbrec_files_ids = dbrec_core.pop('files_ids')
             file_core = copy.deepcopy(file)
             # merge in fields data
             dbrec_core_1 = copy.deepcopy(dbrec_core)
@@ -101,9 +91,7 @@ class FileMetadataStore(BaseStore):
             new_rec, jdiff = data_merge_diff(dbrec_core, file_core)
             # Store diff in our append-only updates log
             self.log(file_uuid, jdiff)
-#            print(json.dumps(jdiff, indent=2))
             new_rec['properties'] = dbrec_props
-#            new_rec['files_ids'] = dbrec_files_ids
             try:
                 uprec = self.coll.find_one_and_replace(
                     {'_id': new_rec['_id']}, new_rec,
@@ -121,12 +109,3 @@ class FileMetadataStore(BaseStore):
         except Exception:
             raise FileMetadataUpdateFailure(
                 'Failed to delete metadata for {}'.format(filename))
-
-    def associate_ids(self, meas_uuid, ids):
-        identifiers = copy.copy(ids)
-        if not isinstance(identifiers, list):
-            # using list on a str will return a character iterator
-            identifiers = [identifiers]
-        meas = {'uuid': meas_uuid,
-                'files_ids': list(set(identifiers))}
-        return self.create_update_file(meas, uuid=meas_uuid)

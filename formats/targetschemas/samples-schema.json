@@ -2,6 +2,11 @@
     "$schema": "http://json-schema.org/draft-06/schema#",
     "additionalProperties": false,
     "definitions": {
+        "processing_level": {
+            "description": "a data processing level",
+            "type": "string",
+            "enum": ["Level0", "Level1", "Level2", "Level3", "Ancillary"]
+        },
         "time_unit": {
             "description": "unit of temporal measurement",
             "type": "string",
@@ -341,6 +346,9 @@
                 "file_id": {
                     "description": "file id, internal to lab",
                     "type": "string"
+                },
+                "level": {
+                    "$ref": "#/definitions/processing_level"
                 }
             },
             "required": [

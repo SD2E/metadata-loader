@@ -39,6 +39,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-H01.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.25999"
                         }
                     ],
@@ -82,6 +83,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-G11.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26000"
                         }
                     ],
@@ -125,6 +127,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-G09.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26001"
                         }
                     ],
@@ -168,6 +171,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-E02.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26002"
                         }
                     ],
@@ -211,6 +215,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-A07.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26003"
                         }
                     ],
@@ -254,6 +259,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-B04.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26004"
                         }
                     ],
@@ -297,6 +303,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-F04.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26005"
                         }
                     ],
@@ -340,6 +347,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-B06.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26006"
                         }
                     ],
@@ -383,6 +391,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-F06.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26007"
                         }
                     ],
@@ -426,6 +435,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-C09.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26008"
                         }
                     ],
@@ -469,6 +479,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-G12.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26009"
                         }
                     ],
@@ -512,6 +523,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-F08.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26010"
                         }
                     ],
@@ -555,6 +567,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-C02.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26011"
                         }
                     ],
@@ -598,6 +611,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-H04.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26012"
                         }
                     ],
@@ -641,6 +655,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-G05.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26013"
                         }
                     ],
@@ -684,6 +699,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-H06.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26014"
                         }
                     ],
@@ -727,6 +743,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-F02.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26015"
                         }
                     ],
@@ -770,6 +787,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-F07.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26017"
                         }
                     ],
@@ -813,6 +831,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-H03.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26016"
                         }
                     ],
@@ -856,6 +875,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-A12.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26018"
                         }
                     ],
@@ -899,6 +919,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-F11.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26019"
                         }
                     ],
@@ -942,6 +963,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-H02.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26020"
                         }
                     ],
@@ -985,6 +1007,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-G03.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26021"
                         }
                     ],
@@ -1028,6 +1051,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-F09.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26022"
                         }
                     ],
@@ -1071,6 +1095,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-B10.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26023"
                         }
                     ],
@@ -1114,6 +1139,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-H05.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26024"
                         }
                     ],
@@ -1157,6 +1183,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-F10.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26025"
                         }
                     ],
@@ -1200,6 +1227,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-E05.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26026"
                         }
                     ],
@@ -1243,6 +1271,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-G08.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26027"
                         }
                     ],
@@ -1286,6 +1315,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-D07.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26028"
                         }
                     ],
@@ -1329,6 +1359,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-C06.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26029"
                         }
                     ],
@@ -1372,6 +1403,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-E07.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26030"
                         }
                     ],
@@ -1415,6 +1447,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-A10.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26031"
                         }
                     ],
@@ -1458,6 +1491,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-F03.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26032"
                         }
                     ],
@@ -1501,6 +1535,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-B01.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26033"
                         }
                     ],
@@ -1544,6 +1579,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-C03.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26034"
                         }
                     ],
@@ -1587,6 +1623,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-G01.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26035"
                         }
                     ],
@@ -1630,6 +1667,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-F01.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26036"
                         }
                     ],
@@ -1673,6 +1711,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-A02.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26037"
                         }
                     ],
@@ -1716,6 +1755,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-A01.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26038"
                         }
                     ],
@@ -1759,6 +1799,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-D06.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26039"
                         }
                     ],
@@ -1802,6 +1843,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-A04.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26040"
                         }
                     ],
@@ -1845,6 +1887,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-A05.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26042"
                         }
                     ],
@@ -1888,6 +1931,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-A03.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26041"
                         }
                     ],
@@ -1931,6 +1975,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-A08.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26044"
                         }
                     ],
@@ -1974,6 +2019,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-B02.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26045"
                         }
                     ],
@@ -2017,6 +2063,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-B05.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26046"
                         }
                     ],
@@ -2060,6 +2107,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-G07.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26043"
                         }
                     ],
@@ -2103,6 +2151,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-A06.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26047"
                         }
                     ],
@@ -2146,6 +2195,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-A09.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26048"
                         }
                     ],
@@ -2189,6 +2239,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-A11.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26050"
                         }
                     ],
@@ -2232,6 +2283,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-B03.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26051"
                         }
                     ],
@@ -2275,6 +2327,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-B09.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26052"
                         }
                     ],
@@ -2318,6 +2371,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-B07.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26049"
                         }
                     ],
@@ -2361,6 +2415,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-C04.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26053"
                         }
                     ],
@@ -2404,6 +2459,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-B08.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26054"
                         }
                     ],
@@ -2447,6 +2503,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-B11.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26055"
                         }
                     ],
@@ -2490,6 +2547,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-B12.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26056"
                         }
                     ],
@@ -2533,6 +2591,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-C01.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26057"
                         }
                     ],
@@ -2576,6 +2635,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-C05.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26058"
                         }
                     ],
@@ -2619,6 +2679,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-C07.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26059"
                         }
                     ],
@@ -2662,6 +2723,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-C08.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26060"
                         }
                     ],
@@ -2705,6 +2767,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-C10.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26061"
                         }
                     ],
@@ -2748,6 +2811,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-C12.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26062"
                         }
                     ],
@@ -2791,6 +2855,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-D01.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26063"
                         }
                     ],
@@ -2834,6 +2899,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-C11.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26064"
                         }
                     ],
@@ -2877,6 +2943,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-D02.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26066"
                         }
                     ],
@@ -2920,6 +2987,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-D03.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26065"
                         }
                     ],
@@ -2963,6 +3031,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-D04.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26067"
                         }
                     ],
@@ -3006,6 +3075,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-D05.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26069"
                         }
                     ],
@@ -3049,6 +3119,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-D08.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26068"
                         }
                     ],
@@ -3092,6 +3163,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-D10.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26070"
                         }
                     ],
@@ -3135,6 +3207,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-D11.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26071"
                         }
                     ],
@@ -3178,6 +3251,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-D09.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26072"
                         }
                     ],
@@ -3221,6 +3295,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-D12.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26073"
                         }
                     ],
@@ -3264,6 +3339,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-E01.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26075"
                         }
                     ],
@@ -3307,6 +3383,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-E03.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26074"
                         }
                     ],
@@ -3350,6 +3427,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-E04.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26076"
                         }
                     ],
@@ -3393,6 +3471,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-E06.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26077"
                         }
                     ],
@@ -3436,6 +3515,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-E08.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26078"
                         }
                     ],
@@ -3479,6 +3559,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-E09.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26079"
                         }
                     ],
@@ -3522,6 +3603,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-E11.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26080"
                         }
                     ],
@@ -3565,6 +3647,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-E12.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26081"
                         }
                     ],
@@ -3608,6 +3691,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-F05.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26082"
                         }
                     ],
@@ -3651,6 +3735,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-E10.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26083"
                         }
                     ],
@@ -3694,6 +3779,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-F12.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26084"
                         }
                     ],
@@ -3737,6 +3823,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-G02.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26085"
                         }
                     ],
@@ -3780,6 +3867,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-G06.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26086"
                         }
                     ],
@@ -3823,6 +3911,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-G04.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26087"
                         }
                     ],
@@ -3866,6 +3955,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-H08.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26088"
                         }
                     ],
@@ -3909,6 +3999,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-H07.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26090"
                         }
                     ],
@@ -3952,6 +4043,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-G10.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26089"
                         }
                     ],
@@ -3995,6 +4087,7 @@
                             "name": "experiment.uw_biofab.17987/op_92242/143209-H09.fcs",
                             "type": "FCS",
                             "state": "RAW",
+                            "level": "Level0",
                             "file_id": "file.uw_biofab.26091"
                         }
                     ],

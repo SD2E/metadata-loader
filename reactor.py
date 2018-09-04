@@ -107,6 +107,7 @@ def main():
 
         # create challenge problem record
         r.logger.info('PROCESSING CHALLENGE PROBLEM {}'.format(filedata['challenge_problem']))
+        lab_name = filedata.get('lab', 'Unknown')
         cp_extras = {'filename': expt_store.normalize(agave_full_path)}
         cp_rec = data_merge(copy.deepcopy(filedata), cp_extras)
         r.logger.debug('writing challenge problem record {}'.format(cp_rec['challenge_problem']))
@@ -144,7 +145,8 @@ def main():
                 'writing sample record {}'.format(samp_rec['id']))
             sid = None
             try:
-                new_samp = sample_store.create_update_sample(samp_rec, parents=eid)
+                new_samp = sample_store.create_update_sample(
+                    samp_rec, parents=eid, attributes={'lab': lab_name})
                 sid = new_samp['uuid']
                 if sid not in samp_meas_assoc:
                     samp_meas_assoc[sid] = []
