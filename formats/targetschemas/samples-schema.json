@@ -5,7 +5,7 @@
         "processing_level": {
             "description": "a data processing level",
             "type": "string",
-            "enum": ["Level0", "Level1", "Level2", "Level3", "Ancillary"]
+            "enum": ["0", "1", "2", "3"]
         },
         "time_unit": {
             "description": "unit of temporal measurement",
@@ -379,20 +379,22 @@
             "description": "experiment reference enumeration",
             "type": "string",
             "enum": [
-                "Novelchassis-Nand-Gate",
-                "Novelchassis-P-Fluorescens",
-                "Novelchassis-Parts-Discovery",
+                "NovelChassis-NAND-Gate",
+                "NovelChassis-P-Fluorescens",
+                "NovelChassis-Parts-Discovery",
+                "NovelChassis-V-Natriegens-Titration",
                 "Overview-Immortality",
-                "Pubdataanal-Immortality",
+                "PubDataAnal-Immortality",
                 "Riboswitches",
+                "Unknown",
                 "Yeast-Gates",
-                "Yeast-Tetr-Characterization",
-                "Yeaststates-3-Node-Bistable-Circuit",
-                "Yeaststates-Aptamer-Based-Parts",
-                "Yeaststates-Cello-Characterization",
-                "Yeaststates-Gander-Operational-Envelope",
-                "Yeaststates-Grna-Seq-Diagnosis",
-                "Unknown"
+                "Yeast-TetR-Characterization",
+                "YeastSTATES-3-Node-Bistable-Circuit",
+                "YeastSTATES-Aptamer-Based-Parts",
+                "YeastSTATES-Cello-Characterization",
+                "YeastSTATES-DNAseq-of-Yeastgates1-Strains",
+                "YeastSTATES-Gander-Operational-Envelope",
+                "YeastSTATES-gRNA-Seq-Diagnosis"
             ]
         },
         "lab": {

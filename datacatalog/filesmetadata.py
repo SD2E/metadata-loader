@@ -25,7 +25,7 @@ class FileMetadataStore(BaseStore):
         dbrec['properties'] = data_merge(dbrec['properties'], properties)
         return dbrec
 
-    def create_update_file(self, file, parents=None, uuid=None, attributes={}):
+    def create_update_file(self, file, path=None, parents=None, uuid=None, attributes={}):
         """Create or update a file metadata record using its data catalog store-
         relative path as a primary key"""
         ts = current_time()
@@ -37,9 +37,10 @@ class FileMetadataStore(BaseStore):
                 '"name" missing from file record')
 
         # transformations
-        # replace name w filename
-        filename = self.normalize(file['name'])
-        file.pop('name')
+        # replace name w filename, extended with path if provided
+        if path is None:
+            path = ''
+        filename = self.normalize(os.path.join(path, file.pop('name')))
         file['filename'] = filename
         # Add UUID if it does not exist (record is likely new)
         if 'uuid' not in file:
@@ -63,6 +64,7 @@ class FileMetadataStore(BaseStore):
             parents = []
         if isinstance(parents, str):
             parents = [parents]
+        file['child_of'] = parents
 
         # Try to fetch the existing record
         dbrec = self.coll.find_one({'uuid': file_uuid})

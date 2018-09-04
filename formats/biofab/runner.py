@@ -39,10 +39,11 @@ def convert_biofab(schema_file, input_file, verbose=True, output=True, output_fi
 
     lab = SampleConstants.LAB_UWBF
 
-    # TODO cannot map yet
+    original_experiment_id = biofab_doc["plan_id"]
     output_doc[SampleConstants.EXPERIMENT_ID] = namespace_experiment_id(biofab_doc["plan_id"], lab)
     output_doc[SampleConstants.CHALLENGE_PROBLEM] = biofab_doc.get("attributes", {}).get("challenge_problem", "UNKNOWN")
-    output_doc[SampleConstants.EXPERIMENT_REFERENCE] = SampleConstants.CP_REF_UNKNOWN
+    output_doc[SampleConstants.EXPERIMENT_REFERENCE] = biofab_doc.get(
+        "attributes", {}).get("experiment_reference", "Unknown")
 
     output_doc[SampleConstants.LAB] = biofab_doc.get("attributes", {}).get("lab", lab)
     output_doc[SampleConstants.SAMPLES] = []
@@ -196,9 +197,12 @@ def convert_biofab(schema_file, input_file, verbose=True, output=True, output_fi
         # TODO
         #measurement_doc[SampleConstants.MEASUREMENT_NAME] = measurement_props["measurement_name"]
 
-        #file_name = biofab_sample["filename"]
-        file_name = extend_biofab_filename(
-            biofab_sample['filename'], output_doc[SampleConstants.EXPERIMENT_ID], biofab_sample['generated_by'])
+        if config.get('extend', False):
+            file_name = extend_biofab_filename(
+                biofab_sample['filename'], original_experiment_id, biofab_sample['generated_by'])
+        else:
+            file_name = biofab_sample["filename"]
+
         file_id = biofab_sample.get('file_id', None)
         if file_id is not None:
             file_id = namespace_file_id(file_id, lab)

@@ -25,9 +25,20 @@ class LogStore(object):
         collection and uuid.
         """
         ts = current_time()
-        rec = {'created_date': ts, 'ref': {'collection': collection_name, 'uuid': uuid}, 'diff': diff}
+        # filter dict to remove $
+        rec = {'created_date': ts, 'ref': {'collection': collection_name, 'uuid': uuid}, 'diff': safen(diff)}
         try:
             result = self.coll.insert_one(rec)
             return self.coll.find_one({'_id': result.inserted_id})
         except Exception as exc:
             raise LogStoreError('failed to log update', exc)
+
+
+def safen(d):
+    """Replaces $ leading character in keys with _$, making the dict safe for MongoDB"""
+    new = {}
+    for k, v in d.items():
+        if isinstance(v, dict):
+            v = safen(v)
+        new[k.replace('$', '_$')] = v
+    return new

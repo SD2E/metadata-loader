@@ -86,18 +86,11 @@ def main():
     except Exception as exc:
         r.on_failure('validation failed', exc)
 
-    r.logger.debug('extending file names with root path')
     with open(LOCALFILENAME, 'r') as samplesfile:
         filedata = json.load(samplesfile)
-        if 'samples' in filedata:
-            for sample in filedata['samples']:
-                # Change keyname to id since we're already in the samples collection
-                if 'sample_id' in sample:
-                    sample['id'] = sample['sample_id']
-                    sample.pop('sample_id')
 
         # set to -1 for no limit
-        max_samples = 4
+        max_samples = -1
         # Write samples, measurement, files record(s)
         chall_expt_assoc = {}
         expt_samp_assoc = {}
@@ -138,11 +131,11 @@ def main():
 
         # process samples, measurements, files...
         for s in samples_set:
-            r.logger.info('PROCESSING SAMPLE {}'.format(s['id']))
+            r.logger.info('PROCESSING SAMPLE {}'.format(s['sample_id']))
             samp_extras = {'filename': sample_store.normalize(agave_full_path)}
             samp_rec = data_merge(copy.deepcopy(s), samp_extras)
             r.logger.debug(
-                'writing sample record {}'.format(samp_rec['id']))
+                'writing sample record {}'.format(samp_rec['sample_id']))
             sid = None
             try:
                 new_samp = sample_store.create_update_sample(
@@ -180,7 +173,7 @@ def main():
                                 try:
                                     r.logger.debug(
                                         'writing file record for {}'.format(f['name']))
-                                    file_resp = files_store.create_update_file(f, parents=mid)
+                                    file_resp = files_store.create_update_file(f, path=agave_path, parents=mid)
                                     if 'uuid' in file_resp:
                                         r.logger.debug('wrote FileMetadata.uuid {}'.format(file_resp['uuid']))
                                 except Exception as exc:
@@ -189,44 +182,10 @@ def main():
                 except Exception as exc:
                     raise Exception(exc)
 
-            # max_samples = max_samples - 1
-            # if max_samples == 0:
-            #     break
+                max_samples = max_samples - 1
+                if max_samples == 0:
+                    break
 
-
-        #                             if 'uuid' in file_resp:
-        #                                 if not mid in meas_file_assoc:
-        #                                     meas_file_assoc[mid] = []
-        #                                 if file_resp['uuid'] not in meas_file_assoc[mid]:
-        #                                     r.logger.debug(
-        #                                         'extending measurement.files_uuids')
-        #                                     meas_file_assoc[mid].append(file_resp['uuid'])
-        #                             else:
-        #                                 r.logger.warning(
-        #                                     'uuid-to-measurement association failed for file')
-        #                         except Exception as exc:
-        #                             r.logger.critical('files write failed: {}'.format(exc))
-        #                 except KeyError as kexc:
-        #                     r.logger.critical('unable to process files: {}'.format(kexc))
-        #         except Exception as exc:
-        #             #r.logger.critical('unable to process measurements for sample')
-        #             r.logger.critical('failed to process measurements for sample: {}'.format(exc))
-        #     else:
-        #         r.logger.warning('sample did not include measurements')
-
-
-        # try:
-        #     for si in samp_meas_assoc:
-        #         sample_store.associate_ids(si, samp_meas_assoc[si])
-        # except Exception as exc:
-        #     r.logger.critical(
-        #         'failed to associate measurements with samples: {}'.format(exc))
-
-        # try:
-        #     for mi in meas_file_assoc:
-        #         meas_store.associate_ids(mi, meas_file_assoc[mi])
-        # except Exception as exc:
-        #     r.logger.critical('failed to associate files with measurements: {}'.format(exc))
 
 if __name__ == '__main__':
     main()

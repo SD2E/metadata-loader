@@ -28,11 +28,11 @@ class SampleStore(BaseStore):
         ts = current_time()
         samp_uuid = None
         # Absolutely must
-        if 'id' not in sample:
-            raise SampleUpdateFailure('"id" missing from sample')
+        if 'sample_id' not in sample:
+            raise SampleUpdateFailure('"sample_id" missing from sample')
         # Add UUID if it does not exist (record is likely new)
         if 'uuid' not in sample:
-            samp_uuid = catalog_uuid(sample['id'])
+            samp_uuid = catalog_uuid(sample['sample_id'])
             sample['uuid'] = samp_uuid
 
         # accept attributes overrides

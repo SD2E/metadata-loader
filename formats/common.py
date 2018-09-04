@@ -39,6 +39,8 @@ class SampleConstants():
     CP_REF_UNKNOWN = "Unknown"
 
     EXPERIMENT_REFERENCE = "experiment_reference"
+    EXPT_DEFAULT_REFERENCE_GINKGO = "NovelChassis-NAND-Gate"
+
     LAB = "lab"
     LAB_GINKGO = "Ginkgo"
     LAB_TX = "Transcriptic"
@@ -71,11 +73,10 @@ class SampleConstants():
     FILES = "files"
     FILE_ID = "file_id"
     FILE_LEVEL = "level"
-    F_LEVEL_0 = "Level0"
-    F_LEVEL_1 = "Level1"
-    F_LEVEL_2 = "Level2"
-    F_LEVEL_3 = "Level3"
-    F_LEVEL_ANCILLARY = "Ancillary"
+    F_LEVEL_0 = "0"
+    F_LEVEL_1 = "1"
+    F_LEVEL_2 = "2"
+    F_LEVEL_3 = "3"
 
     MEASUREMENT_TYPE = "measurement_type"
     MEASUREMENT_NAME = "measurement_name"
@@ -124,6 +125,7 @@ def create_media_component(media_name, media_id, lab, sbh_query, value_unit=None
 
 # cache query lookups
 sbh_cache = {}
+mapping_failures = {}
 
 def create_mapped_name(name_to_map, id_to_map, lab, sbh_query):
     m_n_object = {}
@@ -162,6 +164,10 @@ def create_mapped_name(name_to_map, id_to_map, lab, sbh_query):
         # if we do not have a valid mapping, pass through the original lab name
         m_n_object[SampleConstants.LABEL] = name_to_map
         m_n_object[SampleConstants.SBH_URI] = "NO PROGRAM DICTIONARY ENTRY"
+        if name_to_map not in mapping_failures:
+            mapping_failures[name_to_map] = id_to_map
+            with open('create_mapped_name_failures.csv', 'a+') as unmapped:
+                unmapped.write('"{}","{}","{}"\n'.format(lab, name_to_map, id_to_map))
 
     #m_n_object[SampleConstants.AGAVE_URI] =
     m_n_object[SampleConstants.LAB_ID] = namespace_lab_id(id_to_map, lab)

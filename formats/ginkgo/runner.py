@@ -141,6 +141,11 @@ def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_fi
                     print("Setting Novel Chassis Challenge Problem by Inference")
                     output_doc[SampleConstants.CHALLENGE_PROBLEM] = SampleConstants.CP_NOVEL_CHASSIS
 
+            # use challenge_problem and lab to infer the experiment_reference
+            # FIXME update this later
+            if output_doc[SampleConstants.CHALLENGE_PROBLEM] == SampleConstants.CP_NOVEL_CHASSIS:
+                output_doc[SampleConstants.EXPERIMENT_REFERENCE] = SampleConstants.EXPT_DEFAULT_REFERENCE_GINKGO
+
             # convey optional measurement id if provided by lab to help with troubleshooting
             measurement_doc[SampleConstants.MEASUREMENT_ID] = namespace_measurement_id(measurement_key, output_doc[SampleConstants.LAB])
             tmt_prop = "TMT_channel"
