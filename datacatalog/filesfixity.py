@@ -13,6 +13,7 @@ class FileFixityStore(BaseStore):
             coll = '_'.join([coll, str(time_stamp(rounded=True))])
         self.name = coll
         self.coll = self.db[coll]
+        self._post_init()
 
     def checkfile(self, filepath):
         '''Check if a filepath exists and is believed by the OS to be a file'''

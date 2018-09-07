@@ -34,11 +34,13 @@ class SampleConstants():
     CHALLENGE_PROBLEM = "challenge_problem"
 
     CP_NOVEL_CHASSIS = "NOVEL_CHASSIS"
+    CP_YEAST_GATES = "YEAST_GATES"
 
     CP_UNKNOWN = "UNKNOWN"
     CP_REF_UNKNOWN = "Unknown"
 
     EXPERIMENT_REFERENCE = "experiment_reference"
+    EXPERIMENT_REFERENCE_URL = "experiment_reference_url"
     EXPT_DEFAULT_REFERENCE_GINKGO = "NovelChassis-NAND-Gate"
 
     LAB = "lab"
@@ -80,7 +82,7 @@ class SampleConstants():
 
     MEASUREMENT_TYPE = "measurement_type"
     MEASUREMENT_NAME = "measurement_name"
-    MEASUREMENT_TMT_CHANNEL = "TMT_channel"
+    SAMPLE_TMT_CHANNEL = "TMT_channel"
     MEASUREMENT_ID = "measurement_id"
     MT_RNA_SEQ = "RNA_SEQ"
     MT_FLOW = "FLOW"

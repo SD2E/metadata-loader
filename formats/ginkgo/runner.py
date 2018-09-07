@@ -13,6 +13,7 @@ from common import namespace_sample_id, namespace_measurement_id, create_media_c
 from synbiohub_adapter.query_synbiohub import *
 from synbiohub_adapter.SynBioHubUtil import *
 from sbol import *
+from .mappings import SampleContentsFilter
 
 def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_file=None, config={}):
 
@@ -43,13 +44,14 @@ def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_fi
         contents = []
         for reagent in ginkgo_sample["content"]["reagent"]:
 
-            reagent_name = reagent["name"]
             reagent_id = reagent["id"]
-            concentration_prop = "concentration"
-            if concentration_prop in reagent:
-                contents.append(create_media_component(reagent_name, reagent_id, lab, sbh_query, reagent[concentration_prop]))
-            else:
-                contents.append(create_media_component(reagent_name, reagent_id, lab, sbh_query))
+            if int(reagent_id) not in SampleContentsFilter.GINKGO_LAB_IDS:
+                reagent_name = reagent["name"]
+                concentration_prop = "concentration"
+                if concentration_prop in reagent:
+                    contents.append(create_media_component(reagent_name, reagent_id, lab, sbh_query, reagent[concentration_prop]))
+                else:
+                    contents.append(create_media_component(reagent_name, reagent_id, lab, sbh_query))
 
         sample_doc[SampleConstants.CONTENTS] = contents
 
@@ -150,7 +152,12 @@ def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_fi
             measurement_doc[SampleConstants.MEASUREMENT_ID] = namespace_measurement_id(measurement_key, output_doc[SampleConstants.LAB])
             tmt_prop = "TMT_channel"
             if tmt_prop in measurement_props:
-                measurement_doc[SampleConstants.MEASUREMENT_TMT_CHANNEL] = measurement_props[tmt_prop]
+                tmt_val = measurement_props[tmt_prop]
+                if SampleConstants.SAMPLE_TMT_CHANNEL not in sample_doc:
+                    sample_doc[SampleConstants.SAMPLE_TMT_CHANNEL] = tmt_val
+                else:
+                    if sample_doc[SampleConstants.SAMPLE_TMT_CHANNEL] != tmt_val:
+                        raise ValueError("Multiple TMT channels for sample?: {}".format(sample_doc[SampleConstants.SAMPLE_ID]))
 
             for key in measurement_props["dataset_files"].keys():
                 if key == "processed":

@@ -7,24 +7,24 @@ from .biofab import Biofab
 class NoClassifierError(ConversionError):
     pass
 
-def get_converter(json_filepath):
+def get_converter(json_filepath, options={}):
 
     try:
-        t = Transcriptic()
+        t = Transcriptic(options=options)
         t.validate_input(json_filepath)
         return t
     except Exception:
         pass
 
     try:
-        g = Ginkgo()
+        g = Ginkgo(options=options)
         g.validate_input(json_filepath)
         return g
     except Exception:
         pass
 
     try:
-        b = Biofab()
+        b = Biofab(options=options)
         b.validate_input(json_filepath)
         return b
     except Exception:

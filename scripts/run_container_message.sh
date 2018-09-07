@@ -46,7 +46,17 @@ fi
 TEMP=`mktemp -d $PWD/tmp.XXXXXX` && \
   echo "Working directory: $TEMP"
 
+CNAME=$(random_hex)
+log "Container name: ${CNAME}"
+
+function finish {
+  log "Forcing ${CNAME} to stop..."
+  docker stop ${CNAME} ; log "(Stopped)"
+}
+trap finish EXIT
+
 docker run -t -v ${AGAVE_CREDS}:/root/.agave:rw \
+           --name ${CNAME} \
            -v ${TEMP}:/mnt/ephemeral-01:rw \
            -e MSG="${MESSAGE}" \
            ${DOCKER_ENVS} \

@@ -6,13 +6,14 @@ class SampleStore(BaseStore):
     """Create and manage samples metadata
     Records are linked with Measurements via measurement-specific uuid"""
 
-    def __init__(self, mongodb, config):
-        super(SampleStore, self).__init__(mongodb, config)
+    def __init__(self, mongodb, config, session=None):
+        super(SampleStore, self).__init__(mongodb, config, session)
         coll = config['collections']['samples']
         if config['debug']:
             coll = '_'.join([coll, str(time_stamp(rounded=True))])
         self.name = coll
         self.coll = self.db[coll]
+        self._post_init()
 
     def update_properties(self, dbrec):
         ts = current_time()
@@ -54,7 +55,6 @@ class SampleStore(BaseStore):
             sample.pop('measurements')
         except KeyError:
             pass
-
         # Try to fetch the existing record
         dbrec = self.coll.find_one({'uuid': samp_uuid})
         if dbrec is None:
@@ -81,7 +81,6 @@ class SampleStore(BaseStore):
             new_rec, jdiff = data_merge_diff(dbrec_core, sample_core)
             # Store diff in our append-only updates log
             self.log(samp_uuid, jdiff)
-#            print(json.dumps(jdiff, indent=2))
             new_rec['properties'] = dbrec_props
             try:
                 uprec = self.coll.find_one_and_replace(

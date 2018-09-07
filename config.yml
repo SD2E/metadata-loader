@@ -32,3 +32,4 @@ storagesystems:
   data-sd2e-community:
     posix_path: /work/projects/SD2E-Community/prod/data
 only_extant_files: False
+downloaded: downloaded.json

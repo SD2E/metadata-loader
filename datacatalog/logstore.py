@@ -12,26 +12,33 @@ class LogStoreError(CatalogError):
     pass
 
 class LogStore(object):
-    def __init__(self, mongodb, config):
+    def __init__(self, mongodb, config, session=None):
         self.db = db_connection(mongodb)
         coll = config['collections']['updates']
         if config['debug']:
             coll = '_'.join([coll, str(time_stamp(rounded=True))])
         self.name = coll
         self.coll = self.db[coll]
+        self.session = session
 
     def append(self, collection_name, uuid, diff):
         """Write a JSON diff to the update log, extended with source
         collection and uuid.
         """
         ts = current_time()
-        # filter dict to remove $
-        rec = {'created_date': ts, 'ref': {'collection': collection_name, 'uuid': uuid}, 'diff': safen(diff)}
-        try:
-            result = self.coll.insert_one(rec)
-            return self.coll.find_one({'_id': result.inserted_id})
-        except Exception as exc:
-            raise LogStoreError('failed to log update', exc)
+        # Do not log the empties as they should not count as updates
+        if diff != {}:
+            # filter dict to remove $
+            sdiff = safen(diff)
+            rec = {'created_date': ts, 'ref': {
+                'collection': collection_name, 'uuid': uuid}, 'diff': sdiff}
+            if self.session is not None:
+                rec['ref']['session'] = self.session
+            try:
+                result = self.coll.insert_one(rec)
+                return self.coll.find_one({'_id': result.inserted_id})
+            except Exception as exc:
+                raise LogStoreError('failed to log update', exc)
 
 
 def safen(d):
@@ -40,5 +47,6 @@ def safen(d):
     for k, v in d.items():
         if isinstance(v, dict):
             v = safen(v)
-        new[k.replace('$', '_$')] = v
+        if isinstance(k, str):
+            new[k.replace('$', '_$')] = v
     return new

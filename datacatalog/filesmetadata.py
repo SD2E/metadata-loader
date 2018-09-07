@@ -7,13 +7,15 @@ class FileMetadataStore(BaseStore):
     """Create and manage files metadata records.
     Records are linked with FixityStore via shared uuid for a each filename and
     to files via that UUID"""
-    def __init__(self, mongodb, config):
-        super(FileMetadataStore, self).__init__(mongodb, config)
+    def __init__(self, mongodb, config, session=None):
+        super(FileMetadataStore, self).__init__(mongodb, config, session)
         coll = config['collections']['files']
         if config['debug']:
             coll = '_'.join([coll, str(time_stamp(rounded=True))])
         self.name = coll
         self.coll = self.db[coll]
+        self._post_init()
+
 
     def update_properties(self, dbrec):
         ts = current_time()

@@ -29,8 +29,16 @@ tests: tests-pytest tests-local
 tests-pytest:
 	bash $(SCRIPT_DIR)/run_container_process.sh $(PYTHON) -m "pytest" $(PYTEST_DIR) $(PYTEST_OPTS)
 
-tests-local:
-	bash $(SCRIPT_DIR)/run_container_message.sh tests/data/local-message-01.json
+tests-local: tests-local-biofab tests-local-transcriptic tests-local-ginkgo
+
+tests-local-biofab:
+	bash $(SCRIPT_DIR)/run_container_message.sh tests/data/local-message-01-biofab.json
+
+tests-local-transcriptic:
+	bash $(SCRIPT_DIR)/run_container_message.sh tests/data/local-message-01-transcriptic.json
+
+tests-local-ginkgo:
+	bash $(SCRIPT_DIR)/run_container_message.sh tests/data/local-message-01-ginkgo.json
 
 tests-deployed:
 	echo "not implemented"
@@ -48,3 +56,8 @@ deploy:
 
 postdeploy:
 	bash tests/run_after_deploy.sh
+
+samples:
+	cp ../etl-pipeline-support/output/ginkgo/Novelchassis_Nand_gate_samples.json tests/data/samples-ginkgo.json
+	cp ../etl-pipeline-support/output/biofab/provenance_dump.json tests/data/samples-biofab.json
+	cp ../etl-pipeline-support/output/transcriptic/samples.json tests/data/samples-transcriptic.json

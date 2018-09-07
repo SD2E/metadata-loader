@@ -6,13 +6,14 @@ class MeasurementStore(BaseStore):
     """Create and manage measurements metadata
     Records are linked with Files via file-specific uuid"""
 
-    def __init__(self, mongodb, config):
-        super(MeasurementStore, self).__init__(mongodb, config)
+    def __init__(self, mongodb, config, session=None):
+        super(MeasurementStore, self).__init__(mongodb, config, session)
         coll = config['collections']['measurements']
         if config['debug']:
             coll = '_'.join([coll, str(time_stamp(rounded=True))])
         self.name = coll
         self.coll = self.db[coll]
+        self._post_init()
 
     def update_properties(self, dbrec):
         ts = current_time()
@@ -26,15 +27,18 @@ class MeasurementStore(BaseStore):
 
     def create_update_measurement(self, measurement, parents=None, uuid=None, attributes={}):
         ts = current_time()
-        samp_uuid = None
-        # Absolutely must
-        if 'measurement_id' not in measurement:
+        meas_id = None
+        meas_uuid = None
+        # Absolutely must have measurement_id
+        if 'measurement_id' in measurement:
+            meas_id = measurement['measurement_id']
+        else:
             raise MeasurementUpdateFailure(
                 '"measurement_id" missing from measurement')
         # Add UUID if it does not exist (record is likely new)
         if 'uuid' not in measurement:
-            samp_uuid = catalog_uuid(measurement['measurement_id'])
-            measurement['uuid'] = samp_uuid
+            meas_uuid = catalog_uuid(measurement['measurement_id'])
+            measurement['uuid'] = meas_uuid
 
         # accept attributes overrides
         if 'attributes' not in measurement:
@@ -57,7 +61,7 @@ class MeasurementStore(BaseStore):
                 pass
 
         # Try to fetch the existing record
-        dbrec = self.coll.find_one({'uuid': samp_uuid})
+        dbrec = self.coll.find_one({'uuid': meas_uuid})
         if dbrec is None:
             dbrec = measurement
             measurement['properties'] = {'created_date': ts,
@@ -67,7 +71,8 @@ class MeasurementStore(BaseStore):
                 result = self.coll.insert_one(measurement)
                 return self.coll.find_one({'_id': result.inserted_id})
             except Exception as exc:
-                raise MeasurementUpdateFailure('Failed to create measurement', exc)
+                raise MeasurementUpdateFailure(
+                    'Failed to store measurement {}'.format(meas_id), exc)
         else:
             # Update the fields content of the record using a rightward merge,
             # then update the updated and revision properties, then write the
@@ -79,10 +84,12 @@ class MeasurementStore(BaseStore):
             # merge in fields data
             dbrec_core_1 = copy.deepcopy(dbrec_core)
             dbrec_core_1.pop('_id')
+            # print('dbrec_core', dbrec_core)
+            # print(' measurement_core',  measurement_core)
             new_rec, jdiff = data_merge_diff(dbrec_core, measurement_core)
+            # print('new_rec', new_rec)
             # Store diff in our append-only updates log
-            self.log(samp_uuid, jdiff)
-#            print(json.dumps(jdiff, indent=2))
+            self.log(meas_uuid, jdiff)
             new_rec['properties'] = dbrec_props
             try:
                 uprec = self.coll.find_one_and_replace(
@@ -91,7 +98,7 @@ class MeasurementStore(BaseStore):
                 return uprec
             except Exception as exc:
                 raise MeasurementUpdateFailure(
-                    'Failed to update existing measurement', exc)
+                    'Failed to update measurement {}'.format(meas_id), exc)
 
     def delete_record(self, measurement_id):
         '''Delete record by measurement.id'''

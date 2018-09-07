@@ -10,8 +10,7 @@ from datacatalog import posixhelpers, data_merge, validate_file_to_schema
 from datacatalog.agavehelpers import from_agave_uri
 
 SCHEMA_FILE = '/schemas/samples-schema.json'
-# LOCALFILENAME = 'downloaded.json'
-LOCALFILENAME = '/data/samples-biofab.json'
+LOCALFILENAME = 'downloaded.json'
 
 def compute_prefix(uri, catalog_root='/', prefix=None):
     new_prefix = ''
@@ -41,21 +40,43 @@ def main():
     if not r.validate_message(m):
         r.on_failure('Invalid message received', None)
 
+    # Process options. Eventually move this into a Reactor method.
+    # May need to add a filter to prevent some things from being over-written
+    if 'options' in m:
+        # allow override of settings
+        try:
+            options_settings = m.get('options', {}).get('settings', {})
+            if isinstance(options_settings, dict):
+                options_settings = AttrDict(options_settings)
+            r.settings = r.settings + options_settings
+        except Exception as exc:
+            r.on_failure('Failed to handle options', exc)
+
+        print(r.settings)
+
+    # small-eel/w7M4JZZJeGXml/EGy13KRPQMeWV
+    stores_session = '/'.join([r.nickname, r.uid, r.execid])
+
     # Set up Store objects
     chall_store = ChallengeStore(mongodb=r.settings.mongodb,
-                                 config=r.settings.catalogstore)
+                                 config=r.settings.catalogstore,
+                                 session=stores_session)
 
     expt_store = ExperimentStore(mongodb=r.settings.mongodb,
-                                 config=r.settings.catalogstore)
+                                 config=r.settings.catalogstore,
+                                 session=stores_session)
 
     sample_store = SampleStore(mongodb=r.settings.mongodb,
-                               config=r.settings.catalogstore)
+                               config=r.settings.catalogstore,
+                               session=stores_session)
 
     meas_store = MeasurementStore(mongodb=r.settings.mongodb,
-                                  config=r.settings.catalogstore)
+                                  config=r.settings.catalogstore,
+                                  session=stores_session)
 
     files_store = FileMetadataStore(mongodb=r.settings.mongodb,
-                                    config=r.settings.catalogstore)
+                                    config=r.settings.catalogstore,
+                                    session=stores_session)
 
     r.logger.debug('collections: {}, {}, {}'.format(files_store.name,
                    sample_store.name, meas_store.name))
@@ -70,6 +91,7 @@ def main():
     r.logger.debug('computed filename prefix: {}'.format(filename_prefix))
 
     r.logger.debug('downloading file')
+    LOCALFILENAME = r.settings.downloaded
     if r.local is False:
         try:
             agaveutils.agave_download_file(
@@ -92,11 +114,8 @@ def main():
         # set to -1 for no limit
         max_samples = -1
         # Write samples, measurement, files record(s)
-        chall_expt_assoc = {}
-        expt_samp_assoc = {}
-        samp_meas_assoc = {}
-        meas_file_assoc = {}
         samples_set = filedata.pop('samples')
+        child_of_count = {}
 
         # create challenge problem record
         r.logger.info('PROCESSING CHALLENGE PROBLEM {}'.format(filedata['challenge_problem']))
@@ -108,8 +127,6 @@ def main():
         try:
             new_samp = chall_store.create_update_challenge(cp_rec, parents=[])
             cid = new_samp['uuid']
-            if cid not in expt_samp_assoc:
-                expt_samp_assoc[cid] = []
         except Exception as exc:
             r.logger.critical('challenge problem write failed: {}'.format(exc))
 
@@ -122,10 +139,8 @@ def main():
         r.logger.debug('writing experiment record {}'.format(expt_rec['experiment_reference']))
         eid = None
         try:
-            new_samp = expt_store.create_update_experiment(expt_rec, parents=cid)
+            new_samp = expt_store.create_update_experiment(expt_rec, parents=[cid])
             eid = new_samp['uuid']
-            if eid not in expt_samp_assoc:
-                expt_samp_assoc[eid] = []
         except Exception as exc:
             r.logger.critical('expt write failed: {}'.format(exc))
 
@@ -139,10 +154,8 @@ def main():
             sid = None
             try:
                 new_samp = sample_store.create_update_sample(
-                    samp_rec, parents=eid, attributes={'lab': lab_name})
+                    samp_rec, parents=[eid], attributes={'lab': lab_name})
                 sid = new_samp['uuid']
-                if sid not in samp_meas_assoc:
-                    samp_meas_assoc[sid] = []
             except Exception as exc:
                 r.logger.critical('sample write failed: {}'.format(exc))
 
@@ -155,12 +168,17 @@ def main():
                         meas_rec = data_merge(copy.deepcopy(m), meas_extras)
                         mid = None
                         try:
+                            r.logger.debug('measurement {} is child_of: {}'.format(m.get('measurement_id', 'Undefined'), sid))
                             new_meas = meas_store.create_update_measurement(
-                                meas_rec, parents=sid)
+                                meas_rec, parents=[sid])
                             mid = new_meas['uuid']
-                            if new_meas['uuid'] not in samp_meas_assoc[sid]:
-                                r.logger.debug('extending sample.measurement_ids')
-                                samp_meas_assoc[sid].append(new_meas['uuid'])
+                            parentcount = len(new_meas['child_of'])
+                            r.logger.info(
+                                'measurement {} has {} parents'.format(mid, parentcount))
+                            if parentcount >= child_of_count.get(mid, 0):
+                                child_of_count[mid] = parentcount
+                            else:
+                                r.logger.critical('measurement {} parent count decreased'.format(mid))
                         except Exception as exc:
                             r.logger.critical('measurement write failed: {}'.format(exc))
 
@@ -173,9 +191,9 @@ def main():
                                 try:
                                     r.logger.debug(
                                         'writing file record for {}'.format(f['name']))
-                                    file_resp = files_store.create_update_file(f, path=agave_path, parents=mid)
+                                    file_resp = files_store.create_update_file(f, path=agave_path, parents=[mid])
                                     if 'uuid' in file_resp:
-                                        r.logger.debug('wrote FileMetadata.uuid {}'.format(file_resp['uuid']))
+                                        r.logger.debug('wrote files.uuid {}'.format(file_resp['uuid']))
                                 except Exception as exc:
                                     r.logger.critical('file write failed: {}'.format(exc))
 

@@ -1,0 +1,14 @@
+{
+    "uri": "agave://data-sd2e-community/uploads/transcriptic/201808/yeast-gates/r1bsmggea748b_r1bsun4yb67e7/samples.json",
+    "options": {
+        "settings": {
+            "downloaded": "/data/samples-transcriptic.json",
+            "mongodb": {
+                "database": "catalog_dev"
+            },
+            "catalogstore": {
+                "debug": true
+            }
+        }
+    }
+}

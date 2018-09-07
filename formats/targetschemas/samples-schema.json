@@ -251,6 +251,10 @@
                     },
                     "minItems": 1,
                     "type": "array"
+                },
+                "TMT_channel": {
+                    "description": "TMT tag/channel for proteomics",
+                    "type": "string"
                 }
             },
             "required": [
@@ -299,10 +303,6 @@
                 },
                 "reference_sequence": {
                     "description": "This field should be a path to the fasta/gff without the extension, ex. agave://data-sd2e-community/reference/novel-chassis/MG1655 where the references are named MG1655.fa and MG1655.gff",
-                    "type": "string"
-                },
-                "TMT_channel": {
-                    "description": "TMT tag/channel for proteomics",
                     "type": "string"
                 }
             },
@@ -396,6 +396,11 @@
                 "YeastSTATES-Gander-Operational-Envelope",
                 "YeastSTATES-gRNA-Seq-Diagnosis"
             ]
+        },
+        "experiment_reference_url": {
+            "description": "experiment reference url, e.g. google drive link",
+            "type": "string",
+            "pattern": "^https://docs.google.com/document"
         },
         "lab": {
             "description": "lab identifier",

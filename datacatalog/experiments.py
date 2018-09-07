@@ -7,13 +7,14 @@ class ExperimentStore(BaseStore):
     """Create and manage expts metadata
     Records are linked with samples via sample-specific uuid"""
 
-    def __init__(self, mongodb, config):
-        super(ExperimentStore, self).__init__(mongodb, config)
+    def __init__(self, mongodb, config, session=None):
+        super(ExperimentStore, self).__init__(mongodb, config, session)
         coll = config['collections']['experiments']
         if config['debug']:
             coll = '_'.join([coll, str(time_stamp(rounded=True))])
         self.name = coll
         self.coll = self.db[coll]
+        self._post_init()
 
     def update_properties(self, dbrec):
         ts = current_time()
