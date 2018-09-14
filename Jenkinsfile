@@ -1,17 +1,18 @@
 // JOB_BASE_NAME is not reliably available in Multibranch Pipeline
-def clientName = "ingest-samples-json"
+def CLIENT_PREFIX = "ingest-samples-json"
 pipeline {
     agent any
     options {
         disableConcurrentBuilds()
     }
     environment {
+        CLIENT_PREFIX     = "ingest-samples-json"
         ACTOR_ID_PROD     = '5DmaBb07qKNXr'
         ACTOR_ID_STAGING  = 'D0bvrrM4qLwgr'
+        ACTOR_WORKERS = 3
         PYTEST_OPTS       = '-s -vvv'
         ABACO_DEPLOY_OPTS = ''
-        CI                = "true"
-        AGAVE_CACHE_DIR   = "${HOME}/credentials_cache/${clientName}"
+        AGAVE_CACHE_DIR   = "${HOME}/credentials_cache/${CLIENT_PREFIX}"
         AGAVE_JSON_PARSER = "jq"
         AGAVE_TENANTID    = "sd2e"
         AGAVE_APISERVER   = "https://api.sd2e.org"
@@ -21,42 +22,30 @@ pipeline {
         REGISTRY_PASSWORD = credentials('sd2etest-dockerhub-password')
         REGISTRY_ORG      = credentials('sd2etest-dockerhub-org')
         PATH = "${HOME}/bin:${HOME}/sd2e-cloud-cli/bin:${env.PATH}"
-        SECRETS_FILE = credentials('etl-pipeline-support-secrets-json')
-        SECRETS_FILE_STAGING = credentials('etl-pipeline-support-secrets-json')
+        SECRETS_FILE = credentials('data-catalog-secrets-json-prod')
+        SECRETS_FILE_STAGING = credentials('data-catalog-secrets-json-prod')
         CONFIG_LOCAL_FILE = credentials('etl-pipeline-support-config-local-yml')
         CONFIG_LOCAL_FILE = credentials('etl-pipeline-support-config-local-yml')
+        CI                = "true"
         }
     stages {
-        stage('Build from master') {
-            when {
-                branch 'master'
-            }
+        stage('Build project') {
             steps {
-                sh "get-job-client ${clientName}-${BRANCH_NAME} ${BUILD_ID}"
+                println("Building against branch ${BRANCH_NAME}")
+                sh "get-job-client ${CLIENT_PREFIX}-${BRANCH_NAME} ${BUILD_ID}"
                 sh "cat ${SECRETS_FILE} > secrets.json"
                 sh "cat ${CONFIG_LOCAL_FILE} > config-local.yml"
                 sh "make clean || true"
                 sh "make image"
             }
         }
-        stage('Build from develop') {
-            when {
-                branch 'develop'
-            }
-            steps {
-                sh "get-job-client ${clientName}-${BRANCH_NAME} ${BUILD_ID}"
-                sh "cat ${SECRETS_FILE_STAGING} > secrets.json"
-                sh "cat ${CONFIG_LOCAL_FILE_STAGING} > config-local.yml"
-                sh "make clean || true"
-                sh "make image"
-            }
-        }
-        stage('Run integration tests') {
-            steps {
-                sh "NOCLEANUP=1 make tests-integration"
-            }
-        }
-        stage('Deploy to staging') {
+        // stage('Run integration tests') {
+        //     steps {
+        //         sh "NOCLEANUP=1 make tests-integration"
+        //         sh "FORCE_LOCK_RELEASE=1 release-job-client ${CLIENT_PREFIX}-${BRANCH_NAME} ${BUILD_ID}"
+        //     }
+        // }
+        stage('Deploy to staging from develop') {
             when {
                 branch 'develop'
             }
@@ -66,7 +55,7 @@ pipeline {
             }
             steps {
                 script {
-                    sh "get-job-client ${clientName}-deploy ${BUILD_ID}"
+                    sh "get-job-client ${CLIENT_PREFIX}-${BRANCH_NAME}-deploy ${BUILD_ID}"
                     reactorName = sh(script: 'cat reactor.rc | egrep -e "^REACTOR_NAME=" | sed "s/REACTOR_NAME=//"', returnStdout: true).trim()
                     sh(script: "abaco deploy -U ${ACTOR_ID_STAGING}", returnStdout: false)
                     // TODO - update alias
@@ -75,7 +64,7 @@ pipeline {
                 }
             }
         }
-        stage('Deploy to production') {
+        stage('Deploy to production from master') {
             when {
                 branch 'master'
             }
@@ -85,7 +74,7 @@ pipeline {
             }
             steps {
                 script {
-                    sh "get-job-client ${clientName}-deploy ${BUILD_ID}"
+                    sh "get-job-client ${CLIENT_PREFIX}-${BRANCH_NAME}-deploy ${BUILD_ID}"
                     reactorName = sh(script: 'cat reactor.rc | egrep -e "^REACTOR_NAME=" | sed "s/REACTOR_NAME=//"', returnStdout: true).trim()
                     sh(script: "abaco deploy -U ${ACTOR_ID_PROD}", returnStdout: false)
                     // TODO - update alias
@@ -97,8 +86,8 @@ pipeline {
     }
     post {
         always {
-            sh "release-job-client ${clientName}-${BRANCH_NAME} ${BUILD_ID}"
-            sh "release-job-client ${clientName}-deploy ${BUILD_ID}"
+            sh "FORCE_LOCK_RELEASE=1 release-job-client ${CLIENT_PREFIX}-${BRANCH_NAME} ${BUILD_ID}"
+            sh "FORCE_LOCK_RELEASE=1 release-job-client ${CLIENT_PREFIX}-${BRANCH_NAME}-deploy ${BUILD_ID}"
             archiveArtifacts artifacts: 'input, output, create_mapped_name_failures.csv', fingerprint: true, excludes: 'secrets.json', allowEmptyArchive: true
             deleteDir()
         }
