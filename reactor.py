@@ -5,6 +5,7 @@ import copy
 from attrdict import AttrDict
 from reactors.runtime import Reactor, agaveutils
 
+from utils import upload, download
 from datacatalog import FileMetadataStore, SampleStore, MeasurementStore, ExperimentStore, ChallengeStore
 from datacatalog import posixhelpers, data_merge, validate_file_to_schema
 from datacatalog.agavehelpers import from_agave_uri
@@ -90,17 +91,24 @@ def main():
 
     r.logger.debug('computed filename prefix: {}'.format(filename_prefix))
 
+    # r.logger.debug('downloading file')
+    # LOCALFILENAME = r.settings.downloaded
+    # if r.local is False:
+    #     try:
+    #         agaveutils.agave_download_file(
+    #             agaveClient=r.client,
+    #             agaveAbsolutePath=agave_full_path,
+    #             systemId=agave_sys,
+    #             localFilename=LOCALFILENAME)
+    #     except Exception as exc:
+    #         r.on_failure('download failed', exc)
+
     r.logger.debug('downloading file')
     LOCALFILENAME = r.settings.downloaded
-    if r.local is False:
-        try:
-            agaveutils.agave_download_file(
-                agaveClient=r.client,
-                agaveAbsolutePath=agave_full_path,
-                systemId=agave_sys,
-                localFilename=LOCALFILENAME)
-        except Exception as exc:
-            r.on_failure('download failed', exc)
+    try:
+        download(r, agave_full_path, LOCALFILENAME, agave_sys)
+    except Exception as exc:
+        r.on_failure('download failed', exc)
 
     r.logger.debug('validating file against samples schema')
     try:

@@ -1,4 +1,5 @@
 from pymongo import MongoClient, ReturnDocument, ASCENDING
+from pymongo.errors import DuplicateKeyError
 from bson.binary import UUID_SUBTYPE, OLD_UUID_SUBTYPE
 try:
     # Python 3.x

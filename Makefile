@@ -16,7 +16,7 @@ formats:
 	if [ -d ../etl-pipeline-support/formats ]; then rm -rf formats; cp -R ../etl-pipeline-support/formats .; fi
 
 datacatalog: formats
-	if [ -d ../datacatalog ]; then rm -rf datacatalog; cp -R ../datacatalog .; fi
+	if [ -d ../python-datacatalog/datacatalog ]; then rm -rf datacatalog; cp -R ../python-datacatalog/datacatalog .; fi
 
 image: datacatalog
 	abaco deploy -R $(ABACO_DEPLOY_OPTS)

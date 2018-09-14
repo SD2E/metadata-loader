@@ -1,5 +1,7 @@
 FROM sd2e/reactors:python3
 
+COPY utils.py /utils.py
+
 ADD formats/targetschemas/samples-schema.json /schemas/samples-schema.json
 ADD datacatalog /datacatalog
 # reactor.py, config.yml, and message.jsonschema will be automatically

@@ -5,3 +5,5 @@ pytz
 jsonschema
 python-slugify
 jsondiff
+transitions
+tenacity

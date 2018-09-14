@@ -51,6 +51,12 @@ def catalog_uuid(filename, binary=True):
     else:
         return Binary(new_uuid.bytes, OLD_UUID_SUBTYPE)
 
+def text_uuid_to_binary(text_uuid):
+    try:
+        return Binary(uuid.UUID(text_uuid).bytes, OLD_UUID_SUBTYPE)
+    except Exception as exc:
+        raise ValueError('Failed to convert text UUID to binary', exc)
+
 def validate_file_to_schema(filename, schema_file=SCHEMA_FILE, permissive=False):
     """Validate a JSON document against a specified JSON schema
 

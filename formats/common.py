@@ -29,6 +29,9 @@ class SampleConstants():
         else:
             raise ValueError("Could not parse FT: {}".format(file_name))
 
+    # For circuits
+    LOGIC_PREFIX = "http://www.openmath.org/cd/logic1#"
+
     #experiment
     EXPERIMENT_ID = "experiment_id"
     CHALLENGE_PROBLEM = "challenge_problem"
@@ -62,6 +65,8 @@ class SampleConstants():
     UNIT = "unit"
 
     LABEL = "label"
+    CIRCUIT = "circuit"
+    INPUT_STATE = "input_state"
     SBH_URI = "sbh_uri"
     LAB_ID = "lab_id"
     AGAVE_URI = "agave_uri"
@@ -69,6 +74,10 @@ class SampleConstants():
     STANDARD_TYPE = "standard_type"
     STANDARD_FOR = "standard_for"
     STANDARD_FLUORESCEIN = "FLUORESCEIN"
+
+    CONTROL_TYPE = "control_type"
+    CONTROL_FOR = "control_for"
+    CONTROL_BASELINE_MEDIA_PR = "BASELINE_MEDIA_PR"
 
     #measurements
     MEASUREMENTS = "measurements"
@@ -84,6 +93,7 @@ class SampleConstants():
     MEASUREMENT_NAME = "measurement_name"
     SAMPLE_TMT_CHANNEL = "TMT_channel"
     MEASUREMENT_ID = "measurement_id"
+    MEASUREMENT_GROUP_ID = "measurement_group_id"
     MT_RNA_SEQ = "RNA_SEQ"
     MT_FLOW = "FLOW"
     MT_PLATE_READER = "PLATE_READER"
@@ -129,7 +139,7 @@ def create_media_component(media_name, media_id, lab, sbh_query, value_unit=None
 sbh_cache = {}
 mapping_failures = {}
 
-def create_mapped_name(name_to_map, id_to_map, lab, sbh_query):
+def create_mapped_name(name_to_map, id_to_map, lab, sbh_query, strain=False):
     m_n_object = {}
 
     sbh_lab = None
@@ -160,8 +170,29 @@ def create_mapped_name(name_to_map, id_to_map, lab, sbh_query):
             # and we make this throw an error for future runs
             values = values[0]
         # use URI and title from SBH
-        m_n_object[SampleConstants.SBH_URI] = values["identity"]
+        sbh_uri = values["identity"]
+        m_n_object[SampleConstants.SBH_URI] = sbh_uri
         m_n_object[SampleConstants.LABEL] = values["name"]
+        # for strains, we have a SBH URI and can see if there is a circuit
+        # associated with this strain
+        if strain:
+            circuit = query_circuit_from_strain(sbh_uri, sbh_query)
+            # e.g. http://www.openmath.org/cd/logic1#nand
+            if len(circuit) > 0:
+                circuit = circuit[0]["o"]["value"]
+                if circuit.startswith(SampleConstants.LOGIC_PREFIX):
+                    circuit = circuit.split(SampleConstants.LOGIC_PREFIX)[1].upper()
+                    m_n_object[SampleConstants.CIRCUIT] = circuit
+
+                    # grab the circuit's input state
+                    input_state = query_input_state_from_strain(sbh_uri, sbh_query)
+                    if len(input_state) > 0:
+                        input_state = input_state[0]["o"]["value"]
+                        #TODO - remove string hacking, better way to encode this in SBH?
+                        # e.g. stateful UW strains; UWBF_AND_10
+                        if input_state.startswith("UWBF_"):
+                            input_state = input_state[-2:]
+                            m_n_object[SampleConstants.INPUT_STATE] = input_state
     else:
         # if we do not have a valid mapping, pass through the original lab name
         m_n_object[SampleConstants.LABEL] = name_to_map
@@ -182,6 +213,39 @@ def create_value_unit(value_unit):
     v_u_object[SampleConstants.VALUE] = value_unit_split[0]
     v_u_object[SampleConstants.UNIT] = value_unit_split[1]
     return v_u_object
+
+# Query for a logic circuit (and, or, etc.) for a given strain
+def query_circuit_from_strain(strain, sbh_query):
+
+    _id = strain + SampleConstants.CIRCUIT
+    if _id in sbh_cache:
+        strain_circuit = sbh_cache[_id]
+    else:
+        # TODO Nic replace this with a real SBHA query
+        query = """PREFIX sbol: <http://sbols.org/v2#>
+select distinct ?o where {{ <{}> <http://sbols.org/v2#role> ?o }}""".format(strain)
+
+        strain_circuit = sbh_query.fetch_SPARQL(SD2Constants.SD2_SERVER, query)['results']['bindings']
+        sbh_cache[_id] = strain_circuit
+
+    return strain_circuit
+
+# Query for an input state for a circuit (00, 01, etc.) for a given strain
+def query_input_state_from_strain(strain, sbh_query):
+
+    _id = strain + SampleConstants.INPUT_STATE
+
+    if _id in sbh_cache:
+        strain_input_state = sbh_cache[_id]
+    else:
+        # TODO Nic replace this with a real SBHA query
+        query = """
+select distinct ?o where {{ <{}> <http://purl.org/dc/terms/title> ?o }}""".format(strain)
+
+        strain_input_state = sbh_query.fetch_SPARQL(SD2Constants.SD2_SERVER, query)['results']['bindings']
+        sbh_cache[_id] = strain_input_state
+
+    return strain_input_state
 
 def namespace_sample_id(sample_id, lab):
     '''Prevents collisions amongst lab-specified sample_id'''

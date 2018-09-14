@@ -51,6 +51,28 @@
                 "fahrenheit"
             ]
         },
+        "input_state": {
+            "description": "An input state for a strain circuit. Currently only encodes two input states.",
+            "type": "string",
+            "enum": [
+                "00",
+                "01",
+                "10",
+                "11"
+            ]
+        },
+        "circuit": {
+            "description": "Enumerated logic circuit, e.g for yeast_gates CP",
+            "type": "string",
+            "enum": [
+                "AND",
+                "NAND",
+                "OR",
+                "NOR",
+                "XOR",
+                "XNOR"
+            ]
+        },
         "od_unit": {
             "description": "unit of measurement for optical density",
             "type": "string",
@@ -124,6 +146,14 @@
                 "agave_uri": {
                     "description": "an SD2 Agave API files reference (optional)",
                     "$ref": "#/definitions/agave_files_uri"
+                },
+                "circuit": {
+                    "description": "a logic circuit enum for this sbh_uri, if available (e.g. a strain)",
+                    "$ref": "#/definitions/circuit"
+                },
+                "input_state": {
+                    "description": "an input state enum for this sbh_uri, if available (e.g. a strain)",
+                    "$ref": "#/definitions/input_state"
                 }
             },
             "required": [
@@ -222,7 +252,8 @@
                         "EMPTY_VECTOR",
                         "BASELINE",
                         "TREATMENT_1",
-                        "TREATMENT_2"
+                        "TREATMENT_2",
+                        "BASELINE_MEDIA_PR"
                     ]
                 },
                 "control_for": {
@@ -243,6 +274,21 @@
                         "LUDOX",
                         "FLUORESCEIN"
                     ]
+                },
+                "standard_attributes": {
+                    "description": "additional attributes used by standard enumerations",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "bead_model": {
+                            "description": "For the BEAD_FLUORESCENCE standard, the bead model used",
+                            "type": "string"
+                        },
+                        "bead_batch": {
+                            "description": "For the BEAD_FLUORESCENCE standard, the bead batch used",
+                            "type": "string"
+                        }
+                    }
                 },
                 "standard_for": {
                     "description": "list of samples this sample is a standard for",
@@ -289,12 +335,20 @@
                         "PROTEOMICS"
                     ]
                 },
+                "channel": {
+                    "description": "for flow, the name of the channel this measurement used",
+                    "type": "string"
+                },
                 "measurement_name": {
                     "description": "CP/protocol specific name suggested by the labs",
                     "type": "string"
                 },
                 "measurement_id": {
-                    "description": "sample id, internal to lab",
+                    "description": "a localized, unique measurement id relating a given sample to one or more files",
+                    "type": "string"
+                },
+                "measurement_group_id": {
+                    "description": "measurement group id, represents a single logical measurement from a lab that aggregates multiple related samples and files",
                     "type": "string"
                 },
                 "instrument_configuration": {

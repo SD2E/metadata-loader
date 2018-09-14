@@ -55,9 +55,10 @@ def data_merge(left, right, setkeys=LISTKEYS):
                 merged[key] = right_value
     return merged
 
-def data_merge_diff(a, b):
+
+def data_merge_diff(a, b, filters=FILTERKEYS):
     ab = data_merge(a, b)
-    df = json_diff(a, b)
+    df = json_diff(a, b, filters=FILTERKEYS)
     return ab, df
 
 def json_diff(j1, j2, filters=FILTERKEYS):

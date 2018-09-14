@@ -20,7 +20,9 @@ Schema closely aligns with V1 target schema
 Walk and expand to dictionary/attribute blocks
 as necessary
 """
-def convert_transcriptic(schema_file, input_file, verbose=True, output=True, output_file=None, config={}):
+
+
+def convert_transcriptic(schema_file, input_file, verbose=True, output=True, output_file=None, config={}, enforce_validation=True):
     # for SBH Librarian Mapping
     sbh_query = SynBioHubQuery(SD2Constants.SD2_SERVER)
     expt_ref_mapper = ExperimentReferenceMapping(mapper_config=config['experiment_reference'],
@@ -79,7 +81,7 @@ def convert_transcriptic(schema_file, input_file, verbose=True, output=True, out
         # strain
         if SampleConstants.STRAIN in transcriptic_sample:
             strain = transcriptic_sample[SampleConstants.STRAIN]
-            sample_doc[SampleConstants.STRAIN] = create_mapped_name(strain, strain, lab, sbh_query)
+            sample_doc[SampleConstants.STRAIN] = create_mapped_name(strain, strain, lab, sbh_query, strain=True)
 
         # temperature
         sample_doc[SampleConstants.TEMPERATURE] = create_value_unit(transcriptic_sample[SampleConstants.TEMPERATURE])
@@ -100,6 +102,9 @@ def convert_transcriptic(schema_file, input_file, verbose=True, output=True, out
         # time
         time_val = transcriptic_sample[SampleConstants.TIMEPOINT]
 
+        # determinstically derive measurement ids from sample_id + counter (local to sample)
+        measurement_counter = 1
+
         for file in transcriptic_sample[SampleConstants.FILES]:
             measurement_doc = {}
 
@@ -107,9 +112,21 @@ def convert_transcriptic(schema_file, input_file, verbose=True, output=True, out
 
             measurement_doc[SampleConstants.FILES] = []
 
-            measurement_doc[SampleConstants.MEASUREMENT_TYPE] = file[SampleConstants.M_TYPE]
+            measurement_type = file[SampleConstants.M_TYPE]
+            measurement_doc[SampleConstants.MEASUREMENT_TYPE] = measurement_type
 
-            measurement_doc[SampleConstants.MEASUREMENT_ID] = namespace_measurement_id(measurement_id, output_doc[SampleConstants.LAB])
+            # TX can repeat measurement ids
+            # across multiple measurement types, append
+            # the type so we have a distinct id per actual grouped measurement
+            typed_measurement_id = '.'.join([measurement_id, measurement_type])
+
+            # generate a measurement id unique to this sample
+            measurement_doc[SampleConstants.MEASUREMENT_ID] = namespace_measurement_id(".".join([sample_doc[SampleConstants.SAMPLE_ID], str(measurement_counter)]), output_doc[SampleConstants.LAB])
+
+            # record a measurement grouping id to find other linked samples and files
+            measurement_doc[SampleConstants.MEASUREMENT_GROUP_ID] = namespace_measurement_id(typed_measurement_id, output_doc[SampleConstants.LAB])
+
+            measurement_counter = measurement_counter + 1
 
             file_name = file[SampleConstants.M_NAME]
             file_type = SampleConstants.infer_file_type(file_name)
@@ -150,9 +167,12 @@ def convert_transcriptic(schema_file, input_file, verbose=True, output=True, out
                 json.dump(output_doc, outfile, indent=4)
         return True
     except ValidationError as err:
-        if verbose:
-            print("Schema Validation Error: {0}\n".format(err))
-        return False
+        if enforce_validation:
+            raise ValidationError("Schema Validation Error", err)
+        else:
+            if verbose:
+                print("Schema Validation Error: {0}\n".format(err))
+            return False
 
 if __name__ == "__main__":
     path = sys.argv[2]

@@ -27,7 +27,7 @@ def extend_biofab_filename(file_name, plan_id, generated_by):
     return '/'.join([str(plan_id), gen_id, file_name])
 
 
-def convert_biofab(schema_file, input_file, verbose=True, output=True, output_file=None, config={}):
+def convert_biofab(schema_file, input_file, verbose=True, output=True, output_file=None, config={}, enforce_validation=True):
 
     # for SBH Librarian Mapping
     sbh_query = SynBioHubQuery(SD2Constants.SD2_SERVER)
@@ -131,7 +131,7 @@ def convert_biofab(schema_file, input_file, verbose=True, output=True, output_fi
         if sample_attr in item:
             sample_id = item[sample_attr]["sample_id"]
             strain = item[sample_attr]["sample_name"]
-            sample_doc[SampleConstants.STRAIN] = create_mapped_name(strain, sample_id, lab, sbh_query)
+            sample_doc[SampleConstants.STRAIN] = create_mapped_name(strain, sample_id, lab, sbh_query, strain=True)
 
         # TODO replicate
         # Compute this? Biofab knows the number of replicates, but does not individually tag...
@@ -191,7 +191,13 @@ def convert_biofab(schema_file, input_file, verbose=True, output=True, output_fi
         "name": "Flow Cytometry 96 well"
         },
         """
+        # generate a measurement id unique to this sample
+        # Biofab does not have additional measurements per file, can fix to 1
         measurement_doc[SampleConstants.MEASUREMENT_ID] = namespace_measurement_id(
+            ".".join([sample_doc[SampleConstants.SAMPLE_ID], "1"]), output_doc[SampleConstants.LAB])
+
+        # record a measurement grouping id to find other linked samples and files
+        measurement_doc[SampleConstants.MEASUREMENT_GROUP_ID] = namespace_measurement_id(
             biofab_sample["generated_by"]["operation_id"], output_doc[SampleConstants.LAB])
 
         # TODO
@@ -236,8 +242,12 @@ def convert_biofab(schema_file, input_file, verbose=True, output=True, output_fi
                 json.dump(output_doc, outfile, indent=4)
         return True
     except ValidationError as err:
-        if verbose:
-            print("Schema Validation Error: {0}\n".format(err))
+        if enforce_validation:
+            raise ValidationError("Schema Validation Error", err)
+        else:
+            if verbose:
+                print("Schema Validation Error: {0}\n".format(err))
+            return False
         return False
 
 if __name__ == "__main__":

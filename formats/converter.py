@@ -43,8 +43,8 @@ class Converter(object):
 
         self.options = options
 
-    def convert(self, input_fp, output_fp=None, verbose=True, config={}):
-        return convert_file(self.targetschema, input_fp, output_path=output_fp, verbose=verbose, config=config)
+    def convert(self, input_fp, output_fp=None, verbose=True, config={}, enforce_validation=True):
+        return convert_file(self.targetschema, input_fp, output_path=output_fp, verbose=verbose, config=config, enforce_validation=enforce_validation)
 
     def test(self, input_fp, output_fp, verbose=True, config={}):
         return True

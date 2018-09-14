@@ -15,7 +15,8 @@ from synbiohub_adapter.SynBioHubUtil import *
 from sbol import *
 from .mappings import SampleContentsFilter
 
-def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_file=None, config={}):
+
+def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_file=None, config={}, enforce_validation=True):
 
     # for SBH Librarian Mapping
     sbh_query = SynBioHubQuery(SD2Constants.SD2_SERVER)
@@ -56,31 +57,40 @@ def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_fi
         sample_doc[SampleConstants.CONTENTS] = contents
 
         for strain in ginkgo_sample["content"]["strain"]:
-            sample_doc[SampleConstants.STRAIN] = create_mapped_name(strain["name"], strain["id"], lab, sbh_query)
+            sample_doc[SampleConstants.STRAIN] = create_mapped_name(strain["name"], strain["id"], lab, sbh_query, strain=True)
             # TODO multiple strains?
             continue
 
         props = ginkgo_sample["properties"]
 
-        control_for_prop = "control_for_samples"
-        sbh_uri_prop = "SD2_SBH_URI"
-        if control_for_prop in ginkgo_sample:
-            control_for_val = ginkgo_sample[control_for_prop]
+        # map standard for, type,
+        if SampleConstants.STANDARD_TYPE in ginkgo_sample:
+            sample_doc[SampleConstants.STANDARD_TYPE] = ginkgo_sample[SampleConstants.STANDARD_TYPE]
+        if SampleConstants.STANDARD_FOR in ginkgo_sample:
+            standard_for_val = ginkgo_sample[SampleConstants.STANDARD_FOR]
+            #int -> str conversion
+            if isinstance(standard_for_val, list):
+                if type(standard_for_val[0]) == int:
+                    standard_for_val = [str(n) for n in standard_for_val]
 
+            sample_doc[SampleConstants.STANDARD_FOR] = standard_for_val
+
+        # map control for, type
+        if SampleConstants.CONTROL_TYPE in ginkgo_sample:
+            control_type = ginkgo_sample[SampleConstants.CONTROL_TYPE]
+            # Ginkgo's value - map to enum
+            if control_type == "BASELINE_media_only_control_for_platereader":
+                sample_doc[SampleConstants.CONTROL_TYPE] = SampleConstants.CONTROL_BASELINE_MEDIA_PR
+            else:
+                sample_doc[SampleConstants.CONTROL_TYPE] = control_type
+        if SampleConstants.CONTROL_FOR in ginkgo_sample:
+            control_for_val = ginkgo_sample[SampleConstants.CONTROL_FOR]
             #int -> str conversion
             if isinstance(control_for_val, list):
                 if type(control_for_val[0]) == int:
                     control_for_val = [str(n) for n in control_for_val]
 
-            if sbh_uri_prop in props:
-                sbh_uri_val = props[sbh_uri_prop]
-                if "fluorescein_control" in sbh_uri_val:
-                    sample_doc[SampleConstants.STANDARD_TYPE] = SampleConstants.STANDARD_FLUORESCEIN
-                    sample_doc[SampleConstants.STANDARD_FOR] = control_for_val
-                else:
-                    print("Unknown control for sample: {}".format(sample_doc[SampleConstants.SAMPLE_ID]))
-            else:
-                print("Unknown control for sample: {}".format(sample_doc[SampleConstants.SAMPLE_ID]))
+            sample_doc[SampleConstants.CONTROL_FOR] = control_for_val
 
         # do some cleaning
         temp_prop = "SD2_incubation_temperature"
@@ -97,6 +107,9 @@ def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_fi
             if isinstance(replicate_val, six.string_types):
                 replicate_val = int(replicate_val)
             sample_doc[SampleConstants.REPLICATE] = replicate_val
+
+        # determinstically derive measurement ids from sample_id + counter (local to sample)
+        measurement_counter = 1
 
         for measurement_key in ginkgo_sample["measurements"].keys():
             measurement_doc = {}
@@ -148,8 +161,14 @@ def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_fi
             if output_doc[SampleConstants.CHALLENGE_PROBLEM] == SampleConstants.CP_NOVEL_CHASSIS:
                 output_doc[SampleConstants.EXPERIMENT_REFERENCE] = SampleConstants.EXPT_DEFAULT_REFERENCE_GINKGO
 
-            # convey optional measurement id if provided by lab to help with troubleshooting
-            measurement_doc[SampleConstants.MEASUREMENT_ID] = namespace_measurement_id(measurement_key, output_doc[SampleConstants.LAB])
+            # generate a measurement id unique to this sample
+            measurement_doc[SampleConstants.MEASUREMENT_ID] = namespace_measurement_id(".".join([sample_doc[SampleConstants.SAMPLE_ID], str(measurement_counter)]), output_doc[SampleConstants.LAB])
+
+            # record a measurement grouping id to find other linked samples and files
+            measurement_doc[SampleConstants.MEASUREMENT_GROUP_ID] = namespace_measurement_id(measurement_key, output_doc[SampleConstants.LAB])
+
+            measurement_counter = measurement_counter + 1
+
             tmt_prop = "TMT_channel"
             if tmt_prop in measurement_props:
                 tmt_val = measurement_props[tmt_prop]
@@ -209,8 +228,12 @@ def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_fi
                 json.dump(output_doc, outfile, indent=4)
         return True
     except ValidationError as err:
-        if verbose:
-            print("Schema Validation Error: {0}\n".format(err))
+        if enforce_validation:
+            raise ValidationError("Schema Validation Error", err)
+        else:
+            if verbose:
+                print("Schema Validation Error: {0}\n".format(err))
+            return False
         return False
 
 if __name__ == "__main__":
