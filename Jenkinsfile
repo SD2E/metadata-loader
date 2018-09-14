@@ -9,7 +9,7 @@ pipeline {
         CLIENT_PREFIX     = "ingest-samples-json"
         ACTOR_ID_PROD     = '5DmaBb07qKNXr'
         ACTOR_ID_STAGING  = 'D0bvrrM4qLwgr'
-        ACTOR_WORKERS = 3
+        ACTOR_WORKERS = 2
         PYTEST_OPTS       = '-s -vvv'
         ABACO_DEPLOY_OPTS = ''
         AGAVE_CACHE_DIR   = "${HOME}/credentials_cache/${CLIENT_PREFIX}"
