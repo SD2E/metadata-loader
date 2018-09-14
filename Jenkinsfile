@@ -25,7 +25,7 @@ pipeline {
         SECRETS_FILE = credentials('data-catalog-secrets-json-prod')
         SECRETS_FILE_STAGING = credentials('data-catalog-secrets-json-prod')
         CONFIG_LOCAL_FILE = credentials('etl-pipeline-support-config-local-yml')
-        CONFIG_LOCAL_FILE = credentials('etl-pipeline-support-config-local-yml')
+        CONFIG_LOCAL_STAGING = credentials('etl-pipeline-support-config-local-yml')
         CI                = "true"
         }
     stages {
