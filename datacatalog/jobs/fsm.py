@@ -35,7 +35,7 @@ class JobStateMachine(object):
 
         # These will be empty if jobdef refers to a newly created job
         if 'history' not in jobdef:
-            self.history = [{'CREATED': ts}]
+            self.history = [{'CREATED': {'date': ts, 'data': None}}]
         if 'status' not in jobdef:
             self.status = 'CREATED'
         if 'last_event' not in jobdef:
@@ -65,7 +65,7 @@ class JobStateMachine(object):
     def update_history(self, opts, event):
         ts = current_time()
         history_entry = {}
-        history_entry[str(self.state).upper()] = {'date': ts, 'details': opts}
+        history_entry[str(self.state).upper()] = {'date': ts, 'data': opts}
         self.history.append(history_entry)
         self.status = self.state
         self.last_event = event.upper()

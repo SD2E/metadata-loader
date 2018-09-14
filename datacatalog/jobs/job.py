@@ -64,6 +64,7 @@ class DataCatalogJob(object):
         for name, value in prj.items():
             if not name.startswith('__') and not inspect.ismethod(value):
                 pr[name] = value
+        pr['status'] = pr['status'].upper()
         return Job(pr)
 
 

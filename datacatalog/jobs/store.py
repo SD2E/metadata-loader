@@ -22,9 +22,8 @@ class JobStore(BaseStore):
         # Used for looking up references to pipeline IDs
         self.pipelines = pipeline_store
         self.coll = self.db[coll]
-        self.CREATE_OPTIONAL_KEYS = ('data', 'session', 'binary_uuid', 'actor_id')
-        self.EVENT_OPTIONAL_KEYS = (
-            'details')
+        self.CREATE_OPTIONAL_KEYS = ['data', 'session', 'binary_uuid', 'actor_id']
+        self.EVENT_OPTIONAL_KEYS = ['data']
 
         self._post_init()
 
@@ -62,6 +61,7 @@ class JobStore(BaseStore):
         except Exception as exc:
             raise JobCreateFailure('Failed to create job for pipeline {}'.format(pipeline_uuid), exc)
 
+
     def handle_event(self, job_uuid, event, token, **kwargs):
         """Accept and process a job state-transition event
         Parameters:
@@ -74,7 +74,7 @@ class JobStore(BaseStore):
         Returns:
         Boolean for successful handling of the event
         """
-        DEFAULTS = {'details': {}}
+        DEFAULTS = {'data': {}}
         # Validate job_uuid
         # if isinstance(job_uuid, str):
         #     job_uuid = identifiers.datacatalog_uuid.text_uuid_to_binary(job_uuid)
@@ -84,22 +84,17 @@ class JobStore(BaseStore):
             job_rec = self.coll.find_one({'_uuid': job_uuid})
             if job_rec is None:
                 raise JobUpdateFailure('No job found with that UUID')
-            print('JOB_REC')
-            pprint(job_rec)
 
             # Ensure the event is from the actor that created it
             try:
                 validate_token(token, pipeline_uuid=job_rec['_pipeline_uuid'], job_uuid=job_rec['_uuid'], actor_id=job_rec['actor_id'], permissive=False)
             except InvalidToken as exc:
                 raise JobUpdateFailure(exc)
-            print('VALIDATED')
 
             # Materialize out the job from database and handle the event with its FSM
             db_job = DataCatalogJob(job_rec['pipeline_uuid'], job_doc=job_rec)
-            pprint(db_job.as_dict())
-            db_job.handle(event, opts=details_data['details'])
+            db_job.handle(event, opts=details_data['data'])
             db_job = db_job.as_dict()
-            pprint(db_job)
         except Exception as exc:
             raise JobUpdateFailure('Failed to change the job state', exc)
         try:
