@@ -89,6 +89,7 @@ def main():
     filename_prefix = compute_prefix(
         agave_uri, r.settings.catalogstore.store, m.get('prefix', None))
 
+    r.logger.info('INGESTING {}'.format(agave_uri))
     r.logger.debug('computed filename prefix: {}'.format(filename_prefix))
 
     # r.logger.debug('downloading file')
@@ -212,6 +213,9 @@ def main():
                 if max_samples == 0:
                     break
 
+    r.loggers.slack.info(
+        ':mario_star: Ingested {} ({} usec)'.format(agave_uri, r.elapsed()))
+    r.logger.info('INGESTED {} ({} usec)'.format(agave_uri, r.elapsed()))
 
 if __name__ == '__main__':
     main()
