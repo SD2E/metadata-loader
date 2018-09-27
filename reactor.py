@@ -102,7 +102,7 @@ def main():
     filename_prefix = compute_prefix(
         agave_uri, r.settings.catalogstore.store, m.get('prefix', None))
 
-    update_job(r, m['__options']['pipelinejob'], event='update', data={'begin': agave_uri})
+    update_job(r, m['__options']['pipelinejob'], event='run', data={'begin': agave_uri})
     r.logger.info('INGESTING {}'.format(agave_uri))
     r.logger.debug('computed filename prefix: {}'.format(filename_prefix))
 
@@ -230,6 +230,7 @@ def main():
                 if max_samples == 0:
                     break
 
+    update_job(r, m['__options']['pipelinejob'], event='finish')
     r.loggers.slack.info(
         ':mario_star: Ingested {} ({} usec)'.format(agave_uri, r.elapsed()))
     r.logger.info('INGESTED {} ({} usec)'.format(agave_uri, r.elapsed()))
