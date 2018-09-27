@@ -33,3 +33,5 @@ storagesystems:
     posix_path: /work/projects/SD2E-Community/prod/data
 only_extant_files: False
 downloaded: downloaded.json
+pipelines:
+  job_manager_id: G56vjoAVzGkkq

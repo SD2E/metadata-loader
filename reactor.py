@@ -24,6 +24,18 @@ def compute_prefix(uri, catalog_root='/', prefix=None):
             new_prefix = new_prefix[1:]
     return new_prefix
 
+def update_job(reactor, job_dict, event='update', data={}):
+    try:
+        actor_id = reactor.settings.pipelines.job_manager_id
+        event_msg = {'uuid': job_dict.get('uuid', None),
+                     'token': job_dict.get('token', None),
+                     'event': event,
+                     'data': data}
+        reactor.send_message(actor_id, event_msg, retryMaxAttempts=3)
+    except Exception as exc:
+        reactor.logger.warning('Unable to update PipelineJob: {}'.format(exc))
+    return True
+
 def main():
     # { "uri": "agave://storagesystem/uploads/path/to/target.txt"}
 
@@ -43,6 +55,7 @@ def main():
 
     # Process options. Eventually move this into a Reactor method.
     # May need to add a filter to prevent some things from being over-written
+    options_settings = {}
     if 'options' in m:
         # allow override of settings
         try:
@@ -89,6 +102,7 @@ def main():
     filename_prefix = compute_prefix(
         agave_uri, r.settings.catalogstore.store, m.get('prefix', None))
 
+    update_job(r, m['__options']['pipelinejob'], event='update', data={'begin': agave_uri})
     r.logger.info('INGESTING {}'.format(agave_uri))
     r.logger.debug('computed filename prefix: {}'.format(filename_prefix))
 
@@ -109,12 +123,15 @@ def main():
     try:
         download(r, agave_full_path, LOCALFILENAME, agave_sys)
     except Exception as exc:
+        update_job(r, m['__options']['pipelinejob'], event='fail', data={'cause': 'download failed'})
         r.on_failure('download failed', exc)
 
     r.logger.debug('validating file against samples schema')
     try:
         validate_file_to_schema(LOCALFILENAME, SCHEMA_FILE)
     except Exception as exc:
+        update_job(r, m['__options']['pipelinejob'],
+                   event='fail', data={'cause': 'validation failed'})
         r.on_failure('validation failed', exc)
 
     with open(LOCALFILENAME, 'r') as samplesfile:
