@@ -1,19 +1,32 @@
 {
-    "$schema": "http://json-schema.org/draft-06/schema#",
-    "title": "SamplesJsonMessageWithOptions",
-    "description": "Trigger processing and re-processing of samples.json files",
-    "type": "object",
-    "additionalProperties": false,
-    "properties": {
-        "uri": {
-            "type": "string",
-            "format": "uri",
-            "description": "agave-canonical path to a samples.json file"
-        },
-        "options" : {
-            "type": "object",
-            "description": "optional options dict for parameterizing this message"
-        }
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "SamplesJsonMessageWithPipelineOpts",
+  "description": "Trigger processing and re-processing of samples.json files",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "uri": {
+      "type": "string",
+      "format": "uri",
+      "description": "agave-canonical path to a samples.json file"
     },
-    "required": ["uri"]
+    "__options": {
+      "type": "object",
+      "description": "Options dict for parameterizing this message",
+      "properties": {
+        "pipeline": {
+          "type": "object",
+          "properties": {
+            "uuid": {
+              "type": "string"
+            },
+            "token ": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": ["uri", "__options"]
 }
