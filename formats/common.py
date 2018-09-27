@@ -74,10 +74,17 @@ class SampleConstants():
     STANDARD_TYPE = "standard_type"
     STANDARD_FOR = "standard_for"
     STANDARD_FLUORESCEIN = "FLUORESCEIN"
+    STANDARD_BEAD_FLUORESCENCE = "BEAD_FLUORESCENCE"
 
     CONTROL_TYPE = "control_type"
     CONTROL_FOR = "control_for"
     CONTROL_BASELINE_MEDIA_PR = "BASELINE_MEDIA_PR"
+    CONTROL_EMPTY_VECTOR = "EMPTY_VECTOR"
+
+    # sample attributes
+    STANDARD_ATTRIBUTES = "standard_attributes"
+    BEAD_MODEL = "bead_model"
+    BEAD_BATCH = "bead_batch"
 
     #measurements
     MEASUREMENTS = "measurements"
@@ -103,6 +110,8 @@ class SampleConstants():
     M_STATE = "state"
     M_STATE_RAW = "RAW"
     M_STATE_PROCESSED = "PROCESSED"
+    M_CHANNEL = "channel"
+    M_INSTRUMENT_CONFIGURATION = "instrument_configuration"
 
     F_TYPE_SRAW = "SRAW"
     F_TYPE_FASTQ = "FASTQ"
@@ -179,20 +188,16 @@ def create_mapped_name(name_to_map, id_to_map, lab, sbh_query, strain=False):
             circuit = query_circuit_from_strain(sbh_uri, sbh_query)
             # e.g. http://www.openmath.org/cd/logic1#nand
             if len(circuit) > 0:
-                circuit = circuit[0]["o"]["value"]
+                circuit = circuit[0]["gate_type"]
                 if circuit.startswith(SampleConstants.LOGIC_PREFIX):
                     circuit = circuit.split(SampleConstants.LOGIC_PREFIX)[1].upper()
                     m_n_object[SampleConstants.CIRCUIT] = circuit
 
                     # grab the circuit's input state
-                    input_state = query_input_state_from_strain(sbh_uri, sbh_query)
-                    if len(input_state) > 0:
-                        input_state = input_state[0]["o"]["value"]
-                        #TODO - remove string hacking, better way to encode this in SBH?
-                        # e.g. stateful UW strains; UWBF_AND_10
-                        if input_state.startswith("UWBF_"):
-                            input_state = input_state[-2:]
-                            m_n_object[SampleConstants.INPUT_STATE] = input_state
+                    input_state_bindings = query_input_state_from_strain(sbh_uri, sbh_query)
+                    if len(input_state_bindings) > 0:
+                        input_state = "".join(binding["level"]["value"] for binding in input_state_bindings)
+                        m_n_object[SampleConstants.INPUT_STATE] = input_state
     else:
         # if we do not have a valid mapping, pass through the original lab name
         m_n_object[SampleConstants.LABEL] = name_to_map
@@ -221,11 +226,7 @@ def query_circuit_from_strain(strain, sbh_query):
     if _id in sbh_cache:
         strain_circuit = sbh_cache[_id]
     else:
-        # TODO Nic replace this with a real SBHA query
-        query = """PREFIX sbol: <http://sbols.org/v2#>
-select distinct ?o where {{ <{}> <http://sbols.org/v2#role> ?o }}""".format(strain)
-
-        strain_circuit = sbh_query.fetch_SPARQL(SD2Constants.SD2_SERVER, query)['results']['bindings']
+        strain_circuit = sbh_query.query_gate_logic([strain], pretty=True)
         sbh_cache[_id] = strain_circuit
 
     return strain_circuit
@@ -238,11 +239,7 @@ def query_input_state_from_strain(strain, sbh_query):
     if _id in sbh_cache:
         strain_input_state = sbh_cache[_id]
     else:
-        # TODO Nic replace this with a real SBHA query
-        query = """
-select distinct ?o where {{ <{}> <http://purl.org/dc/terms/title> ?o }}""".format(strain)
-
-        strain_input_state = sbh_query.fetch_SPARQL(SD2Constants.SD2_SERVER, query)['results']['bindings']
+        strain_input_state = sbh_query.query_gate_input_levels([strain])['results']['bindings']
         sbh_cache[_id] = strain_input_state
 
     return strain_input_state
