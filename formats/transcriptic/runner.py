@@ -74,9 +74,12 @@ def convert_transcriptic(schema_file, input_file, verbose=True, output=True, out
         # media
         contents = []
         for reagent in transcriptic_sample[SampleConstants.CONTENTS]:
-            contents.append(create_media_component(reagent, reagent, lab, sbh_query))
-
-        sample_doc[SampleConstants.CONTENTS] = contents
+            if reagent is None or len(reagent) == 0:
+                print("Warning, reagent value is null or empty string {}".format(sample_doc[SampleConstants.SAMPLE_ID]))
+            else:
+                contents.append(create_media_component(reagent, reagent, lab, sbh_query))
+        if len(contents) > 0:
+            sample_doc[SampleConstants.CONTENTS] = contents
 
         # strain
         if SampleConstants.STRAIN in transcriptic_sample:

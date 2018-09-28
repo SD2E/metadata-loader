@@ -9,7 +9,7 @@ from jsonschema import ValidationError
 # Hack hack
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from common import SampleConstants
-from common import namespace_sample_id, namespace_measurement_id, create_media_component, create_mapped_name, create_value_unit
+from common import namespace_sample_id, namespace_measurement_id, namespace_lab_id, create_media_component, create_mapped_name, create_value_unit
 from synbiohub_adapter.query_synbiohub import *
 from synbiohub_adapter.SynBioHubUtil import *
 from sbol import *
@@ -17,6 +17,12 @@ from .mappings import SampleContentsFilter
 
 
 def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_file=None, config={}, enforce_validation=True):
+
+    # default values for FCS support; replace with trace information as available
+    DEFAULT_BEAD_MODEL = "SpheroTech URCP-38-2K"
+    DEFAULT_BEAD_BATCH = "AJ02"
+    DEFAULT_CYTOMETER_CHANNEL = "YFP_A"
+    DEFAULT_CYTOMETER_CONFIGURATION = "/sd2e-community/ginkgo/instruments/SA3800-20180912.json"
 
     # for SBH Librarian Mapping
     sbh_query = SynBioHubQuery(SD2Constants.SD2_SERVER)
@@ -91,6 +97,14 @@ def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_fi
                     control_for_val = [str(n) for n in control_for_val]
 
             sample_doc[SampleConstants.CONTROL_FOR] = control_for_val
+
+        # fill in attributes if we have a bead standard
+        if SampleConstants.STANDARD_TYPE in sample_doc and \
+            sample_doc[SampleConstants.STANDARD_TYPE] == SampleConstants.STANDARD_BEAD_FLUORESCENCE and \
+                SampleConstants.STANDARD_ATTRIBUTES not in sample_doc:
+                    sample_doc[SampleConstants.STANDARD_ATTRIBUTES] = {}
+                    sample_doc[SampleConstants.STANDARD_ATTRIBUTES][SampleConstants.BEAD_MODEL] = DEFAULT_BEAD_MODEL
+                    sample_doc[SampleConstants.STANDARD_ATTRIBUTES][SampleConstants.BEAD_BATCH] = DEFAULT_BEAD_BATCH
 
         # do some cleaning
         temp_prop = "SD2_incubation_temperature"
@@ -177,6 +191,21 @@ def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_fi
                 else:
                     if sample_doc[SampleConstants.SAMPLE_TMT_CHANNEL] != tmt_val:
                         raise ValueError("Multiple TMT channels for sample?: {}".format(sample_doc[SampleConstants.SAMPLE_ID]))
+
+            # apply defaults, if nothing mapped
+            if measurement_type == SampleConstants.MT_FLOW:
+                if SampleConstants.M_CHANNEL not in measurement_doc:
+                    measurement_doc[SampleConstants.M_CHANNEL] = DEFAULT_CYTOMETER_CHANNEL
+                if SampleConstants.M_INSTRUMENT_CONFIGURATION not in measurement_doc:
+                    measurement_doc[SampleConstants.M_INSTRUMENT_CONFIGURATION] = DEFAULT_CYTOMETER_CONFIGURATION
+
+            # Use default NC negative strain, if CP matches
+            # Match on lab ID for now, as this is unambiguous given dictionary name changes
+            if SampleConstants.CONTROL_TYPE not in sample_doc and \
+                SampleConstants.STRAIN in sample_doc and \
+                    output_doc[SampleConstants.CHALLENGE_PROBLEM] == SampleConstants.CP_NOVEL_CHASSIS and \
+                        sample_doc[SampleConstants.STRAIN][SampleConstants.LAB_ID] == namespace_lab_id("194568", output_doc[SampleConstants.LAB]):
+                            sample_doc[SampleConstants.CONTROL_TYPE] = SampleConstants.CONTROL_EMPTY_VECTOR
 
             for key in measurement_props["dataset_files"].keys():
                 if key == "processed":

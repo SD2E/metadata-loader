@@ -226,7 +226,7 @@
                     "type": "array"
                 },
                 "replicate": {
-                    "description": "replicate number",
+                    "description": "An integer number representing the biological replicate parent sample (initial glycerol stock) from which this sample was ultimately derived",
                     "type": "integer"
                 },
                 "inoculation_density": {
@@ -304,8 +304,7 @@
                 }
             },
             "required": [
-                "sample_id",
-                "contents"
+                "sample_id"
             ],
             "type": "object"
         },
