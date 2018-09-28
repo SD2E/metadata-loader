@@ -18,8 +18,8 @@ class PipelineJobClientError(Exception):
 
 class PipelineJobClient(object):
     PARAMS = [('uuid', True, 'uuid', None),
-              ('manager', True, '__manager', None),
               ('token', True, 'token', None),
+              ('manager', False, '__manager', None),
               ('actor_id', False, 'actor_id', None),
               ('pipeline_uuid', False, 'pipeline_uuid', None),
               ('data', False, 'data', None),
