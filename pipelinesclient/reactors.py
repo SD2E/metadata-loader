@@ -68,22 +68,25 @@ class ReactorsPipelineJobClient(PipelineJobClient):
     def update(self, message={}, **kwargs):
         super(ReactorsPipelineJobClient, self).update()
         data = self.render(message)
-        job_message = kwargs.update({'data': data, 'event': 'update'})
-        return self._message(job_message)
+        extras = copy.copy(kwargs)
+        extras.update({'data': data, 'event': 'update'})
+        return self._message(extras)
 
     def fail(self, message='Unspecified', **kwargs):
         super(ReactorsPipelineJobClient, self).fail()
-        data = self.render(message, 'cause')
+        data = self.render(message)
         data['elapsed'] = str(self.__reactor.elapsed()) + ' usec'
-        job_message = kwargs.update({'data': data, 'event': 'fail'})
-        return self._message(job_message)
+        extras = copy.copy(kwargs)
+        extras.update({'data': data, 'event': 'fail'})
+        return self._message(extras)
 
     def finish(self, message='Unspecified', **kwargs):
         super(ReactorsPipelineJobClient, self).fail()
         data = self.render(message)
         data['elapsed'] = str(self.__reactor.elapsed()) + ' usec'
-        job_message = kwargs.update({'data': data, 'event': 'finish'})
-        return self._message(job_message)
+        extras = copy.copy(kwargs)
+        extras.update({'data': data, 'event': 'finish'})
+        return self._message(extras)
 
     def render(self, message, key='message'):
         # TODO: Add a custom renderer for other types

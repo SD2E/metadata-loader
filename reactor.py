@@ -92,7 +92,7 @@ def main():
         agave_uri, r.settings.catalogstore.store, m.get('prefix', None))
 
     job = ReactorsPipelineJobClient(r, m)
-    job.setup().run(data={'processing': agave_uri})
+    job.setup().run({'processing': agave_uri})
 
     r.logger.info('INGESTING {}'.format(agave_uri))
     r.logger.debug('computed filename prefix: {}'.format(filename_prefix))
@@ -117,6 +117,7 @@ def main():
         job.fail('Download failed')
         r.on_failure('download failed', exc)
 
+    # TODO Pull from schema at at URI
     # r.logger.debug('validating file against samples schema')
     # try:
     #     validate_file_to_schema(LOCALFILENAME, SCHEMA_FILE)
