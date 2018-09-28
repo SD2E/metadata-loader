@@ -2,6 +2,7 @@ FROM sd2e/reactors:python3-edge
 
 COPY utils.py /utils.py
 COPY formats/targetschemas/samples-schema.json /schemas/samples-schema.json
+COPY pipelinesclient /pipelinesclient
 
 # reactor.py, config.yml, and message.jsonschema will be automatically
 # added to the container when you run docker build or abaco deploy

@@ -10,6 +10,8 @@ from datacatalog import FileMetadataStore, SampleStore, MeasurementStore, Experi
 from datacatalog import posixhelpers, data_merge, validate_file_to_schema
 from datacatalog.agavehelpers import from_agave_uri
 
+from pipelinesclient.reactors import ReactorsPipelineJobClient
+
 SCHEMA_FILE = '/schemas/samples-schema.json'
 LOCALFILENAME = 'downloaded.json'
 
@@ -102,7 +104,9 @@ def main():
     filename_prefix = compute_prefix(
         agave_uri, r.settings.catalogstore.store, m.get('prefix', None))
 
-    update_job(r, m['__options']['pipelinejob'], event='run', data={'begin': agave_uri})
+    job = ReactorsPipelineJobClient(r, m)
+    job.setup().run(data={'processing': agave_uri})
+
     r.logger.info('INGESTING {}'.format(agave_uri))
     r.logger.debug('computed filename prefix: {}'.format(filename_prefix))
 
@@ -123,16 +127,15 @@ def main():
     try:
         download(r, agave_full_path, LOCALFILENAME, agave_sys)
     except Exception as exc:
-        update_job(r, m['__options']['pipelinejob'], event='fail', data={'cause': 'download failed'})
+        job.fail('Download failed')
         r.on_failure('download failed', exc)
 
-    r.logger.debug('validating file against samples schema')
-    try:
-        validate_file_to_schema(LOCALFILENAME, SCHEMA_FILE)
-    except Exception as exc:
-        update_job(r, m['__options']['pipelinejob'],
-                   event='fail', data={'cause': 'validation failed'})
-        r.on_failure('validation failed', exc)
+    # r.logger.debug('validating file against samples schema')
+    # try:
+    #     validate_file_to_schema(LOCALFILENAME, SCHEMA_FILE)
+    # except Exception as exc:
+    #     job.fail('Schema validation failed')
+    #     r.on_failure('validation failed', exc)
 
     with open(LOCALFILENAME, 'r') as samplesfile:
         filedata = json.load(samplesfile)
