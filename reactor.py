@@ -82,7 +82,7 @@ def main():
                                     session=stores_session)
 
     r.logger.debug('collections: {}, {}, {}'.format(files_store.name,
-                   sample_store.name, meas_store.name))
+                                                    sample_store.name, meas_store.name))
 
     agave_uri = m.get('uri')
     agave_sys, agave_path, agave_file = from_agave_uri(agave_uri)
@@ -91,7 +91,7 @@ def main():
     filename_prefix = compute_prefix(
         agave_uri, r.settings.catalogstore.store, m.get('prefix', None))
 
-    job = ReactorsPipelineJobClient(r, m)
+    job = ReactorsPipelineJobClient(r, **m)
     job.setup().run(data={'processing': agave_uri})
 
     r.logger.info('INGESTING {}'.format(agave_uri))

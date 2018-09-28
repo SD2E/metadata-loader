@@ -10,7 +10,6 @@ from .client import PipelineJobClient, PipelineJobUpdateMessage, PipelineJobClie
 
 class ReactorsPipelineJobClient(PipelineJobClient):
     def __init__(self, reactor, reactor_msg, **kwargs):
-        super(ReactorsPipelineJobClient, self).__init__(**kwargs)
         jobconf = {}
         try:
             if 'pipelinejob' in reactor_msg:
