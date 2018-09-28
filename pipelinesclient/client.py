@@ -42,7 +42,7 @@ class PipelineJobClient(object):
     def update(self, *args, **kwargs):
         self.status = 'RUNNING'
         return self
-     def finish(self, *args, **kwargs):
+    def finish(self, *args, **kwargs):
         self.status = 'FINISHED'
         return self
     def fail(self, *args, **kwargs):

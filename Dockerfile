@@ -14,7 +14,7 @@ COPY pipelinesclient /pipelinesclient
 RUN pip uninstall --yes datacatalog
 
 # Copy from local
-COPY datacatalog /datacatalog
+# COPY datacatalog /datacatalog
 
 # Install from Repo
-# RUN pip3 install --upgrade git+https://github.com/SD2E/python-datacatalog.git@develop
+RUN pip3 install --upgrade git+https://github.com/SD2E/python-datacatalog.git@develop

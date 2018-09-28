@@ -14,9 +14,39 @@ from synbiohub_adapter.query_synbiohub import *
 from synbiohub_adapter.SynBioHubUtil import *
 from sbol import *
 
+# common across methods
+attributes_attr = "attributes"
+replicate_attr = "replicate"
+sample_attr = "sample"
+sample_id_attr = "sample_id"
+op_id = "operation_id"
+job_id = "job_id"
+type_attr = "type"
+type_of_media_attr = "type_of_media"
+part_of_attr = "part_of"
+source_attr = "sources"
+item_id_attr = "item_id"
+
+def add_timepoint(measurement_doc, input_item_id, biofab_doc):
+    try:
+        time_val = jq(".operations[] | select(.inputs[].item_id ==\"" + input_item_id + "\").inputs[] | select (.name == \"Timepoint (hr)\").value").transform(biofab_doc)
+        measurement_doc[SampleConstants.TIMEPOINT] = create_value_unit(time_val + ":hour")
+    except StopIteration:
+        print("Warning: could not find matching time value for {}".format(input_item_id))
+
+def add_od(item, sample_doc):
+    if item is not None and attributes_attr in item and "od600" in item[attributes_attr]:
+        od = item[attributes_attr]["od600"]
+        sample_doc[SampleConstants.INOCULATION_DENSITY] = create_value_unit(od + ":od600")
+
+def add_replicate(item, sample_doc):
+    if attributes_attr in item and replicate_attr in item[attributes_attr]:
+        replicate_val = item[attributes_attr][replicate_attr]
+        if isinstance(replicate_val, six.string_types):
+            replicate_val = int(replicate_val)
+        sample_doc[SampleConstants.REPLICATE] = replicate_val
+
 def add_strain(item, sample_doc, lab, sbh_query):
-    sample_attr = "sample"
-    sample_id_attr = "sample_id"
     if sample_attr in item:
         if sample_id_attr not in item[sample_attr]:
             print("Warning, sample is missing a strain entry: {}".format(item))
@@ -43,8 +73,6 @@ def add_measurement_id(measurement_doc, sample_doc, output_doc):
 def add_measurement_group_id(measurement_doc, file, output_doc):
     # record a measurement grouping id to find other linked samples and files
     file_gen = file["generated_by"]
-    op_id = "operation_id"
-    job_id = "job_id"
     mg_val = None
     if op_id in file_gen:
         mg_val = file_gen[op_id]
@@ -57,7 +85,6 @@ def add_measurement_group_id(measurement_doc, file, output_doc):
 
 
 def add_measurement_type(file, measurement_doc):
-    type_attr = "type"
     if type_attr in file:
         assay_type = file[type_attr]
         if assay_type == "FCS":
@@ -143,7 +170,6 @@ def convert_biofab(schema_file, input_file, verbose=True, output=True, output_fi
 
     missing_part_of_items = set()
 
-    source_attr = "sources"
     # process bottom up from file -> sample
     for biofab_sample in biofab_doc["files"]:
         sample_doc = {}
@@ -154,20 +180,14 @@ def convert_biofab(schema_file, input_file, verbose=True, output=True, output_fi
         # sample_doc[SampleConstants.SAMPLE_ID] = file_source
         sample_doc[SampleConstants.SAMPLE_ID] = namespace_sample_id(file_source, lab)
 
-        #print(biofab_sample)
-        #print(file_source)
         item = jq(".items[] | select(.item_id==\"" + file_source + "\")").transform(biofab_doc)
 
         # plate this source is a part of?
-        #print(item)
-        type_of_media_attr = "type_of_media"
-        part_of_attr = "part_of"
-        attributes_attr = "attributes"
         plate = None
         found_plate = False
         part_of = None
         if part_of_attr not in item:
-            #print(item)
+
             if attributes_attr in item and type_of_media_attr in item[attributes_attr]:
                 # use ourself instead of doing part_of
                 plate = item
@@ -182,7 +202,6 @@ def convert_biofab(schema_file, input_file, verbose=True, output=True, output_fi
             part_of = item[part_of_attr]
             plate = jq(".items[] | select(.item_id==\"" + part_of + "\")").transform(biofab_doc)
 
-        #print(plate)
         reagents = []
 
         plate_source_lookup = None
@@ -195,7 +214,6 @@ def convert_biofab(schema_file, input_file, verbose=True, output=True, output_fi
             plate_source = plate["sources"][0]
             plate_source_lookup = jq(".items[] | select(.item_id==\"" + plate_source + "\")").transform(biofab_doc)
 
-        #print(plate_source_lookup)
         media_name = plate_source_lookup[attributes_attr][type_of_media_attr]
 
         media_source_lookup = None
@@ -207,11 +225,10 @@ def convert_biofab(schema_file, input_file, verbose=True, output=True, output_fi
         else:
             media_source_ = item["sources"][0]
             media_source_lookup = jq(".items[] | select(.item_id==\"" + media_source_ + "\")").transform(biofab_doc)
-            #print(media_source_lookup)
+
             if attributes_attr in media_source_lookup and "media" in media_source_lookup[attributes_attr]:
                 if "sample_id" in media_source_lookup[attributes_attr]["media"]:
                     media_id = media_source_lookup[attributes_attr]["media"]["sample_id"]
-                    #print(media_id)
                     reagents.append(create_media_component(media_name, media_id, lab, sbh_query))
                 else:
                     raise ValueError("No media id? {}".format(media_source_lookup))
@@ -224,20 +241,12 @@ def convert_biofab(schema_file, input_file, verbose=True, output=True, output_fi
 
         sample_doc[SampleConstants.CONTENTS] = reagents
 
-        # optical_density
-        if media_source_lookup is not None and attributes_attr in media_source_lookup and "od600" in media_source_lookup[attributes_attr]:
-            od = media_source_lookup[attributes_attr]["od600"]
-            sample_doc[SampleConstants.INOCULATION_DENSITY] = create_value_unit(od + ":od600")
+        add_od(media_source_lookup, sample_doc)
 
         # could use ID
-        #print(item)
         add_strain(item, sample_doc, lab, sbh_query)
 
-        # TODO replicate
-        # Compute this? Biofab knows the number of replicates, but does not individually tag...
-        # "name": "Biological Replicates",
-        #  "field_value_id": "451711",
-        #  "value": "6"
+        add_replicate(item, sample_doc)
 
         # skip controls for now
         # code from Ginkgo doc...
@@ -263,12 +272,8 @@ def convert_biofab(schema_file, input_file, verbose=True, output=True, output_fi
                 print("Unknown control for sample: {}".format(sample_doc[SampleConstants.SAMPLE_ID]))
         """
         measurement_doc = {}
-        #print(part_of):
-        try:
-            time_val = jq(".operations[] | select(.inputs[].item_id ==\"" + plate_source + "\").inputs[] | select (.name == \"Timepoint (hr)\").value").transform(biofab_doc)
-            measurement_doc[SampleConstants.TIMEPOINT] = create_value_unit(time_val + ":hour")
-        except StopIteration:
-            print("Warning: Could not find matching time value for {}".format(part_of))
+
+        add_timepoint(measurement_doc, plate_source, biofab_doc)
 
         measurement_doc[SampleConstants.FILES] = []
 
@@ -307,18 +312,45 @@ def convert_biofab(schema_file, input_file, verbose=True, output=True, output_fi
         for item in items:
 
             sample_doc = {}
-            sample_id = item["item_id"]
-            sample_doc[SampleConstants.SAMPLE_ID] = namespace_sample_id(sample_id, lab)
+            item_id = item[item_id_attr]
+            try:
+                item_source = jq(".items[] | select(.sources[]? | contains (\"" + item_id + "\"))").transform(biofab_doc)
+            except StopIteration:
+                # no source, use the original item
+                item_source = item
 
-            add_strain(item, sample_doc, lab, sbh_query)
+            if item_source is not None:
+
+                reagents = []
+
+                sample_doc[SampleConstants.SAMPLE_ID] = namespace_sample_id(item_source[item_id_attr], lab)
+
+                add_strain(item_source, sample_doc, lab, sbh_query)
+
+                add_od(item_source, sample_doc)
+
+                add_replicate(item_source, sample_doc)
+
+                if attributes_attr in item_source and "media" in item_source[attributes_attr]:
+                    if "sample_id" in item_source[attributes_attr]["media"]:
+                        media_id = item_source[attributes_attr]["media"]["sample_id"]
+                        reagents.append(create_media_component(media_id, media_id, lab, sbh_query))
+                    else:
+                        raise ValueError("No media id? {}".format(media_source_lookup))
+                else:
+                    print("Warning, could not find media for {}".format(item_source[item_id_attr]))
+
+                if len(reagents) > 0:
+                    sample_doc[SampleConstants.CONTENTS] = reagents
 
             if temp_value is not None:
                 sample_doc[SampleConstants.TEMPERATURE] = create_value_unit(str(temp_value) + ":celsius")
 
-            #TODO: media, time, do not appear in this format
-
-            #measurement
             measurement_doc = {}
+
+            if part_of_attr in item_source:
+                add_timepoint(measurement_doc, item_source[part_of_attr], biofab_doc)
+
             measurement_doc[SampleConstants.FILES] = []
 
             file = jq(".files[] | select(.sources[]? | contains (\"" + missing_part_of + "\"))").transform(biofab_doc)

@@ -4,13 +4,12 @@ import warnings
 import copy
 from attrdict import AttrDict
 from reactors.runtime import Reactor, agaveutils
+from pipelinesclient.reactors import ReactorsPipelineJobClient
 
 from utils import upload, download
 from datacatalog import FileMetadataStore, SampleStore, MeasurementStore, ExperimentStore, ChallengeStore
 from datacatalog import posixhelpers, data_merge, validate_file_to_schema
 from datacatalog.agavehelpers import from_agave_uri
-
-from pipelinesclient.reactors import ReactorsPipelineJobClient
 
 SCHEMA_FILE = '/schemas/samples-schema.json'
 LOCALFILENAME = 'downloaded.json'
@@ -25,18 +24,6 @@ def compute_prefix(uri, catalog_root='/', prefix=None):
         if new_prefix.startswith('/'):
             new_prefix = new_prefix[1:]
     return new_prefix
-
-def update_job(reactor, job_dict, event='update', data={}):
-    try:
-        actor_id = reactor.settings.pipelines.job_manager_id
-        event_msg = {'uuid': job_dict.get('uuid', None),
-                     'token': job_dict.get('token', None),
-                     'event': event,
-                     'data': data}
-        reactor.send_message(actor_id, event_msg, retryMaxAttempts=3)
-    except Exception as exc:
-        reactor.logger.warning('Unable to update PipelineJob: {}'.format(exc))
-    return True
 
 def main():
     # { "uri": "agave://storagesystem/uploads/path/to/target.txt"}
@@ -233,7 +220,7 @@ def main():
                 if max_samples == 0:
                     break
 
-    update_job(r, m['__options']['pipelinejob'], event='finish')
+    job.finish('Ingest completed')
     r.loggers.slack.info(
         ':mario_star: Ingested {} ({} usec)'.format(agave_uri, r.elapsed()))
     r.logger.info('INGESTED {} ({} usec)'.format(agave_uri, r.elapsed()))

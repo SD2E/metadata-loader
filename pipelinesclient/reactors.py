@@ -13,8 +13,12 @@ class ReactorsPipelineJobClient(PipelineJobClient):
         try:
             if 'pipelinejob' in reactor_msg:
                 pipejobconf = reactor_msg['pipelinejob']
-            else:
+            elif '__options' in reactor_msg:
                 pipejobconf = reactor_msg['__options']['pipelinejob']
+            elsif 'options' in reactor_msg:
+                pipejobconf = reactor_msg['options']['pipelinejob']
+            else:
+                raise KeyError('Message is missing required keys')
             jobconf = {
                 'uuid': pipejobconf['uuid'],
                 'token': pipejobconf['token'],
@@ -58,7 +62,7 @@ class ReactorsPipelineJobClient(PipelineJobClient):
     def fail(self, message='Unspecified', **kwargs):
         super(ReactorsPipelineJobClient, self).fail(**kwargs)
         data = self.render(message, 'cause')
-        data['elapsed'] = str(self.reactor.elapsed()) + ' usec'
+        data['elapsed'] = str(self.__reactor.elapsed()) + ' usec'
         job_message = kwargs.update({'data': data, 'event': 'fail'})
         return self._message(job_message)
 
@@ -68,11 +72,12 @@ class ReactorsPipelineJobClient(PipelineJobClient):
             data = message
         else:
             data = {'message': str(message)}
-        data['elapsed'] = str(self.reactor.elapsed()) + ' usec'
+        data['elapsed'] = str(self.__reactor.elapsed()) + ' usec'
         job_message = kwargs.update({'data': data, 'event': 'finish'})
         return self._message(job_message)
 
     def render(self, message, key='message'):
+        # TODO: Add a custom renderer for other types
         data = {}
         if isinstance(message, dict):
             data = message
