@@ -27,7 +27,8 @@ class PipelineJobClient(object):
               ('abaco_nonce', False, '__nonce', None),
               ('path', False, 'path', None),
               ('callback', False, 'callback', None),
-              ('status', False, 'status', None)]
+              ('status', False, 'status', None),
+              ('permissive', False, '_permissive', False)]
 
     def __init__(self, *args, **kwargs):
         for param, mandatory, attr, default in self.PARAMS:
@@ -68,7 +69,7 @@ class PipelineJobUpdateMessage(AttrDict):
               ('event', True, 'event', 'update')]
 
     def __init__(self, **kwargs):
-        super(PipelineJobUpdateMessage, self).__init__({})
+        super(PipelineJobUpdateMessage, self).__init__()
         for param, mandatory, attr, default in self.PARAMS:
             try:
                 value = (kwargs[param] if mandatory

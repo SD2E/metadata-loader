@@ -5,6 +5,8 @@ from builtins import *
 from future import standard_library
 standard_library.install_aliases()
 
+import copy
+from pprint import pprint
 from .client import PipelineJobClient, PipelineJobUpdateMessage, PipelineJobClientError
 
 
@@ -31,49 +33,54 @@ class ReactorsPipelineJobClient(PipelineJobClient):
         self.__reactor = reactor
         self.__manager = reactor.settings.pipelines.job_manager_id
 
-    def _message(self, message, permissive=True):
+    def _message(self, message):
         """Private wrapper for sending update message to the
         PipelineJobsManager Reactor. Failures are logged by default
         but can be set to raise an exception by setting permissive
         to False"""
-        abaco_message = PipelineJobUpdateMessage(**message).to_dict()
+        mes = copy.copy(message)
+        mes['uuid'] = self.uuid
+        mes['token'] = self.token
+        pprint(mes)
+        abaco_message = PipelineJobUpdateMessage(**mes).to_dict()
         try:
             self.__reactor.send_message(
                 self.__manager, abaco_message, retryMaxAttempts=3)
             return True
         except Exception as exc:
-            self.__reactor.logger.warning(
-                'Failed to update PipelineJob: {}'.format(exc))
-            if permissive:
+            try:
+                self.__reactor.logger.warning(
+                    'Failed to update PipelineJob: {}'.format(exc))
+            except Exception:
+                pass
+            if self._permissive:
                 return False
             else:
                 raise PipelineJobClientError(exc)
 
     def run(self, message={}, **kwargs):
-        super(ReactorsPipelineJobClient, self).run(**kwargs)
+        super(ReactorsPipelineJobClient, self).run()
         data = self.render(message)
-        job_message = kwargs.update({'data': data, 'event': 'run'})
-        return self._message(job_message)
+        extras = copy.copy(kwargs)
+        extras.update({'data': data, 'event': 'run'})
+        return self._message(extras)
 
     def update(self, message={}, **kwargs):
-        super(ReactorsPipelineJobClient, self).update(**kwargs)
+        super(ReactorsPipelineJobClient, self).update()
         data = self.render(message)
         job_message = kwargs.update({'data': data, 'event': 'update'})
         return self._message(job_message)
 
     def fail(self, message='Unspecified', **kwargs):
-        super(ReactorsPipelineJobClient, self).fail(**kwargs)
+        super(ReactorsPipelineJobClient, self).fail()
         data = self.render(message, 'cause')
         data['elapsed'] = str(self.__reactor.elapsed()) + ' usec'
         job_message = kwargs.update({'data': data, 'event': 'fail'})
         return self._message(job_message)
 
     def finish(self, message='Unspecified', **kwargs):
-        super(ReactorsPipelineJobClient, self).fail(**kwargs)
-        if isinstance(message, dict):
-            data = message
-        else:
-            data = {'message': str(message)}
+        super(ReactorsPipelineJobClient, self).fail()
+        data = self.render(message)
         data['elapsed'] = str(self.__reactor.elapsed()) + ' usec'
         job_message = kwargs.update({'data': data, 'event': 'finish'})
         return self._message(job_message)
