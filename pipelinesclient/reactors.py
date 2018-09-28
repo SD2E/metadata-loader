@@ -1,21 +1,23 @@
 from __future__ import print_function
 from __future__ import division
 from __future__ import absolute_import
+from builtins import *
 from future import standard_library
 standard_library.install_aliases()
-from builtins import *
 
 from .client import PipelineJobClient, PipelineJobUpdateMessage, PipelineJobClientError
 
+
 class ReactorsPipelineJobClient(PipelineJobClient):
     def __init__(self, reactor, reactor_msg, **kwargs):
+        super(ReactorsPipelineJobClient, self).__init__(**kwargs)
         jobconf = {}
         try:
             if 'pipelinejob' in reactor_msg:
                 pipejobconf = reactor_msg['pipelinejob']
             elif '__options' in reactor_msg:
                 pipejobconf = reactor_msg['__options']['pipelinejob']
-            elsif 'options' in reactor_msg:
+            elif 'options' in reactor_msg:
                 pipejobconf = reactor_msg['options']['pipelinejob']
             else:
                 raise KeyError('Message is missing required keys')
@@ -24,7 +26,8 @@ class ReactorsPipelineJobClient(PipelineJobClient):
                 'token': pipejobconf['token'],
                 'data': pipejobconf.get('data', {})}
         except KeyError as kexc:
-            raise PipelineJobClientError('Failed to find job details in message', kexc)
+            raise PipelineJobClientError(
+                'Failed to find job details in message', kexc)
         super(ReactorsPipelineJobClient, self).__init__(**jobconf)
         self.__reactor = reactor
         self.__manager = reactor.settings.pipelines.job_manager_id
