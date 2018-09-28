@@ -91,7 +91,7 @@ def main():
     filename_prefix = compute_prefix(
         agave_uri, r.settings.catalogstore.store, m.get('prefix', None))
 
-    job = ReactorsPipelineJobClient(r, **m)
+    job = ReactorsPipelineJobClient(r, m)
     job.setup().run(data={'processing': agave_uri})
 
     r.logger.info('INGESTING {}'.format(agave_uri))
