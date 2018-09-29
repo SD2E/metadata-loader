@@ -28,10 +28,11 @@ class ReactorsPipelineJobClient(PipelineJobClient):
                 'data': pipejobconf.get('data', {})}
         except KeyError as kexc:
             raise PipelineJobClientError(
-                'Failed to find job details in message', kexc)
+                'Failed to find job details in message {}'.format(reactor_msg), kexc)
         super(ReactorsPipelineJobClient, self).__init__(**jobconf)
         self.__reactor = reactor
         self.__manager = reactor.settings.pipelines.job_manager_id
+        self.setup()
 
     def _message(self, message):
         """Private wrapper for sending update message to the
@@ -39,15 +40,14 @@ class ReactorsPipelineJobClient(PipelineJobClient):
         but can be set to raise an exception by setting permissive
         to False"""
         mes = copy.copy(message)
-        mes['uuid'] = self.uuid
-        mes['token'] = self.token
-        pprint(mes)
+        mes['uuid'] = getattr(self, 'uuid')
+        mes['token'] = getattr(self, 'token')
         abaco_message = PipelineJobUpdateMessage(**mes).to_dict()
         try:
             self.__reactor.send_message(
                 self.__manager, abaco_message, retryMaxAttempts=3)
             return True
-        except Exception as exc:
+        except Exception:
             try:
                 self.__reactor.logger.warning(
                     'Failed to update PipelineJob: {}'.format(exc))
@@ -56,7 +56,7 @@ class ReactorsPipelineJobClient(PipelineJobClient):
             if self._permissive:
                 return False
             else:
-                raise PipelineJobClientError(exc)
+                raise PipelineJobClientError('Failed to send message')
 
     def run(self, message={}, **kwargs):
         super(ReactorsPipelineJobClient, self).run()

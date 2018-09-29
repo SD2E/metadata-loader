@@ -41,23 +41,50 @@ class PipelineJobClient(object):
             setattr(self, attr, value)
         self.create = None
         self.cancel = None
+        self._setup = False
 
     def setup(self, *args, **kwargs):
+        setattr(self, '_setup', True)
+        self._check_setup()
         return self
 
+    def _check_state(self):
+        try:
+            setup = self._check_setup()
+            term = self._check_term()
+            return (setup and term)
+        except PipelineJobClientError as perr:
+            raise PipelineJobClientError(perr)
+
+    def _check_setup(self):
+        if getattr(self, '_setup'):
+            return True
+        else:
+            raise PipelineJobClientError('Call setup() before doing any state management')
+
+    def _check_term(self):
+        if getattr(self, 'status') not in ('FAILED', 'FINISHED'):
+            return True
+        else:
+            raise PipelineJobClientError('Client has been set to terminal state. No further update events can be handled.')
+
     def run(self, *args, **kwargs):
+        self._check_state()
         setattr(self, 'status', 'RUNNING')
         return self
 
     def update(self, *args, **kwargs):
+        self._check_state()
         setattr(self, 'status', 'RUNNING')
         return self
 
     def finish(self, *args, **kwargs):
+        self._check_state()
         setattr(self, 'status', 'FINISHED')
         return self
 
     def fail(self, *args, **kwargs):
+        self._check_state()
         setattr(self, 'status', 'FAILED')
         return self
 
