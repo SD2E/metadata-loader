@@ -73,6 +73,14 @@
                 "XNOR"
             ]
         },
+        "library_prep": {
+            "description": "RNA-Seq library preparation method",
+            "type": "string",
+            "enum": [
+                "NORMAL",
+                "MINIATURIZED"
+            ]
+        },
         "od_unit": {
             "description": "unit of measurement for optical density",
             "type": "string",
@@ -323,6 +331,10 @@
                 "timepoint": {
                     "description": "timepoint condition",
                     "$ref": "#/definitions/time_point"
+                },
+                "library_prep": {
+                    "description": "rna_seq library preparation method",
+                    "$ref": "#/definitions/library_prep"
                 },
                 "measurement_type": {
                     "description": "enumerated measurement type",

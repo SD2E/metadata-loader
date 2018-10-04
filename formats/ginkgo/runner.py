@@ -125,8 +125,33 @@ def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_fi
         # determinstically derive measurement ids from sample_id + counter (local to sample)
         measurement_counter = 1
 
-        for measurement_key in ginkgo_sample["measurements"].keys():
+        ginkgo_measurements = ginkgo_sample["measurements"]
+        # pre-scan for library prep
+        # The larger measurement ID number corresponds to the miniaturized protocol
+        library_prep = []
+        for measurement_key in ginkgo_measurements.keys():
+            assay_type = ginkgo_measurements[measurement_key]["assay_type"]
+            if assay_type == "NGS (RNA)":
+                i_measurement_key = int(measurement_key)
+                library_prep.append(i_measurement_key)
+        prep_len = len(library_prep)
+        library_prep_dict = {}
+        if prep_len == 2:
+            library_prep = sorted(library_prep)
+            for index, library_prep_key in enumerate(library_prep):
+                s_library_prep_key = str(library_prep_key)
+                if index == 0:
+                    library_prep_dict[s_library_prep_key] = SampleConstants.MEASUREMENT_LIBRARY_PREP_NORMAL
+                elif index == 1:
+                    library_prep_dict[s_library_prep_key] = SampleConstants.MEASUREMENT_LIBRARY_PREP_MINIATURIZED
+        elif prep_len >= 2 or prep_len == 1:
+            raise ValueError("Library prep issue: 1 or more than 2 RNASeq runs?")
+
+        for measurement_key in ginkgo_measurements.keys():
             measurement_doc = {}
+
+            if measurement_key in library_prep_dict:
+                measurement_doc[SampleConstants.MEASUREMENT_LIBRARY_PREP] = library_prep_dict[measurement_key]
 
             time_prop = "SD2_timepoint"
             if time_prop in props:
@@ -145,7 +170,7 @@ def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_fi
 
             measurement_doc[SampleConstants.FILES] = []
 
-            measurement_props = ginkgo_sample["measurements"][measurement_key]
+            measurement_props = ginkgo_measurements[measurement_key]
 
             assay_type = measurement_props["assay_type"]
             if assay_type == "NGS (RNA)":
