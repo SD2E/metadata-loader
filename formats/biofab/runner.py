@@ -9,7 +9,7 @@ from jq import jq
 # Hack hack
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from common import SampleConstants
-from common import namespace_sample_id, namespace_file_id, namespace_measurement_id, namespace_experiment_id, create_media_component, create_value_unit, create_mapped_name
+from common import namespace_sample_id, namespace_file_id, namespace_measurement_id, namespace_experiment_id, create_media_component, create_value_unit, create_mapped_name, map_experiment_reference
 from synbiohub_adapter.query_synbiohub import *
 from synbiohub_adapter.SynBioHubUtil import *
 from sbol import *
@@ -26,6 +26,9 @@ type_of_media_attr = "type_of_media"
 part_of_attr = "part_of"
 source_attr = "sources"
 item_id_attr = "item_id"
+media_attr = "media"
+inducer_attr = "inducer"
+experimental_antibiotic_attr = "experimental_antibiotic"
 
 def add_timepoint(measurement_doc, input_item_id, biofab_doc):
     try:
@@ -165,6 +168,8 @@ def convert_biofab(schema_file, input_file, verbose=True, output=True, output_fi
     output_doc[SampleConstants.EXPERIMENT_REFERENCE] = biofab_doc.get(
         "attributes", {}).get("experiment_reference", "Unknown")
 
+    map_experiment_reference(config, output_doc)
+
     output_doc[SampleConstants.LAB] = biofab_doc.get("attributes", {}).get("lab", lab)
     output_doc[SampleConstants.SAMPLES] = []
 
@@ -208,40 +213,64 @@ def convert_biofab(schema_file, input_file, verbose=True, output=True, output_fi
         plate_source = None
         # one additional lookup
         if found_plate:
-            plate_source = plate["sources"][0]
+            plate_source = plate[source_attr][0]
             plate_source_lookup = plate
         else:
-            plate_source = plate["sources"][0]
+            plate_source = plate[source_attr][0]
             plate_source_lookup = jq(".items[] | select(.item_id==\"" + plate_source + "\")").transform(biofab_doc)
 
-        media_name = plate_source_lookup[attributes_attr][type_of_media_attr]
-
-        media_source_lookup = None
-
-        # need to follow *another* source chain to find the media_id
-        if "sources" not in item:
+        if type_of_media_attr in plate_source_lookup[attributes_attr] and source_attr not in item:
+            media_name = plate_source_lookup[attributes_attr][type_of_media_attr]
             # case for old files that do not have this.
             reagents.append(create_media_component(media_name, media_name, lab, sbh_query))
         else:
-            media_source_ = item["sources"][0]
-            media_source_lookup = jq(".items[] | select(.item_id==\"" + media_source_ + "\")").transform(biofab_doc)
-
-            if attributes_attr in media_source_lookup and "media" in media_source_lookup[attributes_attr]:
-                if "sample_id" in media_source_lookup[attributes_attr]["media"]:
-                    media_id = media_source_lookup[attributes_attr]["media"]["sample_id"]
-                    reagents.append(create_media_component(media_name, media_id, lab, sbh_query))
-                else:
-                    raise ValueError("No media id? {}".format(media_source_lookup))
+            if source_attr not in item:
+                print("Warning, item is missing a source {}".format(item))
             else:
-                # no ID, pass name through
-                reagents.append(create_media_component(media_name, media_name, lab, sbh_query))
+                # need to follow *another* source chain to find the media_id
+                media_source_lookup = None
+                media_source_ = item[source_attr][0]
+                media_source_lookup = jq(".items[] | select(.item_id==\"" + media_source_ + "\")").transform(biofab_doc)
 
-        temperature = plate_source_lookup["attributes"]["growth_temperature"]
-        sample_doc[SampleConstants.TEMPERATURE] = create_value_unit(str(temperature) + ":celsius")
+                if attributes_attr in media_source_lookup and media_attr in media_source_lookup[attributes_attr]:
+                    if sample_id_attr in media_source_lookup[attributes_attr][media_attr]:
+                        media_id = media_source_lookup[attributes_attr][media_attr][sample_id_attr]
+                        reagents.append(create_media_component(media_id, media_id, lab, sbh_query))
+                    else:
+                        raise ValueError("No media id? {}".format(media_source_lookup))
+                else:
+                    # no media attribute, try to look up through the last source 
+                    if source_attr in media_source_lookup:
+                        last_source_ = media_source_lookup[source_attr][0]
+                        last_source_lookup = jq(".items[] | select(.item_id==\"" + last_source_ + "\")").transform(biofab_doc)
+                        if attributes_attr in last_source_lookup:
+                            if inducer_attr in last_source_lookup[attributes_attr]:
+                                combined_inducer = last_source_lookup[attributes_attr][inducer_attr]
+                                if combined_inducer != "None":
+                                    #"IPTG_0.25|arab_25.0"
+                                    combined_inducer_split = combined_inducer.split("|")
+                                    for inducer in combined_inducer_split:
+                                        inducer_split = inducer.split("_")
+                                        reagents.append(create_media_component(inducer_split[0], inducer_split[0], lab, sbh_query, inducer_split[1]))
+                            if experimental_antibiotic_attr in last_source_lookup[attributes_attr]:
+                                experimental_antibiotic = last_source_lookup[attributes_attr][experimental_antibiotic_attr]
+                                reagents.append(create_media_component(experimental_antibiotic, experimental_antibiotic, lab, sbh_query))
 
-        sample_doc[SampleConstants.CONTENTS] = reagents
+                add_od(media_source_lookup, sample_doc)
+        if "growth_temperature" in plate_source_lookup:
+            temperature = plate_source_lookup["attributes"]["growth_temperature"]
+            sample_doc[SampleConstants.TEMPERATURE] = create_value_unit(str(temperature) + ":celsius")
+        else:
+            try:
+                temp_value = jq(".operations[].inputs[] | select (.name | contains (\"Growth Temperature\")).value").transform(biofab_doc)
+            except StopIteration:
+                print("Warning, could not find temperature for {}".format(original_experiment_id))
+                temp_value = None
+            if temp_value is not None:
+                sample_doc[SampleConstants.TEMPERATURE] = create_value_unit(str(temp_value) + ":celsius")
 
-        add_od(media_source_lookup, sample_doc)
+        if len(reagents) > 0:
+            sample_doc[SampleConstants.CONTENTS] = reagents
 
         # could use ID
         add_strain(item, sample_doc, lab, sbh_query)
@@ -336,7 +365,7 @@ def convert_biofab(schema_file, input_file, verbose=True, output=True, output_fi
                         media_id = item_source[attributes_attr]["media"]["sample_id"]
                         reagents.append(create_media_component(media_id, media_id, lab, sbh_query))
                     else:
-                        raise ValueError("No media id? {}".format(media_source_lookup))
+                        raise ValueError("No media id? {}".format(item_source))
                 else:
                     print("Warning, could not find media for {}".format(item_source[item_id_attr]))
 

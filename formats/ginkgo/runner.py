@@ -9,7 +9,7 @@ from jsonschema import ValidationError
 # Hack hack
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from common import SampleConstants
-from common import namespace_sample_id, namespace_measurement_id, namespace_lab_id, create_media_component, create_mapped_name, create_value_unit
+from common import namespace_sample_id, namespace_measurement_id, namespace_lab_id, create_media_component, create_mapped_name, create_value_unit, map_experiment_reference
 from synbiohub_adapter.query_synbiohub import *
 from synbiohub_adapter.SynBioHubUtil import *
 from sbol import *
@@ -21,7 +21,7 @@ def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_fi
     # default values for FCS support; replace with trace information as available
     DEFAULT_BEAD_MODEL = "SpheroTech URCP-38-2K"
     DEFAULT_BEAD_BATCH = "AJ02"
-    DEFAULT_CYTOMETER_CHANNEL = "YFP_A"
+    DEFAULT_CYTOMETER_CHANNEL = "YFP - Area"
     DEFAULT_CYTOMETER_CONFIGURATION = "/sd2e-community/ginkgo/instruments/SA3800-20180912.json"
 
     # for SBH Librarian Mapping
@@ -60,7 +60,10 @@ def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_fi
                 else:
                     contents.append(create_media_component(reagent_name, reagent_id, lab, sbh_query))
 
-        sample_doc[SampleConstants.CONTENTS] = contents
+        # It's possible to have no reagents if they're all skipped
+        # per the filter.
+        if len(contents) > 0:
+            sample_doc[SampleConstants.CONTENTS] = contents
 
         for strain in ginkgo_sample["content"]["strain"]:
             sample_doc[SampleConstants.STRAIN] = create_mapped_name(strain["name"], strain["id"], lab, sbh_query, strain=True)
@@ -144,8 +147,10 @@ def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_fi
                     library_prep_dict[s_library_prep_key] = SampleConstants.MEASUREMENT_LIBRARY_PREP_NORMAL
                 elif index == 1:
                     library_prep_dict[s_library_prep_key] = SampleConstants.MEASUREMENT_LIBRARY_PREP_MINIATURIZED
-        elif prep_len >= 2 or prep_len == 1:
-            raise ValueError("Library prep issue: 1 or more than 2 RNASeq runs?")
+        elif prep_len == 1:
+            library_prep_dict[str(library_prep[0])] = SampleConstants.MEASUREMENT_LIBRARY_PREP_NORMAL
+        elif prep_len > 2:
+            raise ValueError("Library prep issue: more than 2 RNASeq runs?")
 
         for measurement_key in ginkgo_measurements.keys():
             measurement_doc = {}
@@ -199,6 +204,8 @@ def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_fi
             # FIXME update this later
             if output_doc[SampleConstants.CHALLENGE_PROBLEM] == SampleConstants.CP_NOVEL_CHASSIS:
                 output_doc[SampleConstants.EXPERIMENT_REFERENCE] = SampleConstants.EXPT_DEFAULT_REFERENCE_GINKGO
+                # fill in URI
+                map_experiment_reference(config, output_doc)
 
             # generate a measurement id unique to this sample
             measurement_doc[SampleConstants.MEASUREMENT_ID] = namespace_measurement_id(".".join([sample_doc[SampleConstants.SAMPLE_ID], str(measurement_counter)]), output_doc[SampleConstants.LAB])

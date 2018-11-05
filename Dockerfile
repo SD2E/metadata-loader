@@ -1,5 +1,6 @@
 FROM sd2e/reactors:python3-edge
 
+COPY bacanora /bacanora
 COPY utils.py /utils.py
 COPY formats/targetschemas/samples-schema.json /schemas/samples-schema.json
 # COPY clients /pipelinesclient

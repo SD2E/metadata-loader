@@ -9,8 +9,7 @@ from jsonschema import ValidationError
 # Hack hack
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from common import SampleConstants
-from common import namespace_sample_id, namespace_measurement_id, create_media_component, create_mapped_name, create_value_unit
-from experiment_reference import ExperimentReferenceMapping, MappingNotFound
+from common import namespace_sample_id, namespace_measurement_id, create_media_component, create_mapped_name, create_value_unit, map_experiment_reference
 from synbiohub_adapter.query_synbiohub import *
 from synbiohub_adapter.SynBioHubUtil import *
 from sbol import *
@@ -25,9 +24,6 @@ as necessary
 def convert_transcriptic(schema_file, input_file, verbose=True, output=True, output_file=None, config={}, enforce_validation=True):
     # for SBH Librarian Mapping
     sbh_query = SynBioHubQuery(SD2Constants.SD2_SERVER)
-    expt_ref_mapper = ExperimentReferenceMapping(mapper_config=config['experiment_reference'],
-                                                 google_client=config['google_client'])
-    expt_ref_mapper.populate()
 
     schema = json.load(open(schema_file))
     transcriptic_doc = json.load(open(input_file))
@@ -42,17 +38,16 @@ def convert_transcriptic(schema_file, input_file, verbose=True, output=True, out
     #TX's name for YG...
     if cp == "YG":
         cp = SampleConstants.CP_YEAST_GATES
+    elif cp == "NC":
+        cp = SampleConstants.CP_NOVEL_CHASSIS
+    else:
+        raise ValueError("Unknown TX CP: {}".format(cp))
 
     output_doc[SampleConstants.CHALLENGE_PROBLEM] = cp
 
     output_doc[SampleConstants.EXPERIMENT_REFERENCE_URL] = transcriptic_doc[SampleConstants.EXPERIMENT_REFERENCE]
 
-    try:
-        output_doc[SampleConstants.EXPERIMENT_REFERENCE] = expt_ref_mapper.uri_to_id(
-            output_doc[SampleConstants.EXPERIMENT_REFERENCE_URL])
-    except Exception as exc:
-        raise Exception(exc)
-        output_doc[SampleConstants.EXPERIMENT_REFERENCE] = SampleConstants.CP_REF_UNKNOWN
+    map_experiment_reference(config, output_doc)
 
     output_doc[SampleConstants.LAB] = lab
     output_doc[SampleConstants.SAMPLES] = []
@@ -73,11 +68,18 @@ def convert_transcriptic(schema_file, input_file, verbose=True, output=True, out
 
         # media
         contents = []
-        for reagent in transcriptic_sample[SampleConstants.CONTENTS]:
-            if reagent is None or len(reagent) == 0:
-                print("Warning, reagent value is null or empty string {}".format(sample_doc[SampleConstants.SAMPLE_ID]))
-            else:
-                contents.append(create_media_component(reagent, reagent, lab, sbh_query))
+        if SampleConstants.CONTENTS in transcriptic_sample:
+            for reagent in transcriptic_sample[SampleConstants.CONTENTS]:
+                if reagent is None or len(reagent) == 0:
+                    print("Warning, reagent value is null or empty string {}".format(sample_doc[SampleConstants.SAMPLE_ID]))
+                else:
+                    contents.append(create_media_component(reagent, reagent, lab, sbh_query))
+
+        if SampleConstants.MEDIA in transcriptic_sample and SampleConstants.MEDIA_RS_ID in transcriptic_sample:
+            media = transcriptic_sample[SampleConstants.MEDIA]
+            media_id = transcriptic_sample[SampleConstants.MEDIA_RS_ID]
+            contents.append(create_media_component(media, media_id, lab, sbh_query))
+
         if len(contents) > 0:
             sample_doc[SampleConstants.CONTENTS] = contents
 
@@ -105,6 +107,10 @@ def convert_transcriptic(schema_file, input_file, verbose=True, output=True, out
         # time
         time_val = transcriptic_sample[SampleConstants.TIMEPOINT]
 
+        # enum fix
+        if time_val.endswith("hours"):
+            time_val = time_val.replace("hours", "hour")
+
         # determinstically derive measurement ids from sample_id + counter (local to sample)
         measurement_counter = 1
 
@@ -116,6 +122,11 @@ def convert_transcriptic(schema_file, input_file, verbose=True, output=True, out
             measurement_doc[SampleConstants.FILES] = []
 
             measurement_type = file[SampleConstants.M_TYPE]
+
+            # enum fix
+            if measurement_type == "RNASeq":
+                measurement_type = SampleConstants.MT_RNA_SEQ
+
             measurement_doc[SampleConstants.MEASUREMENT_TYPE] = measurement_type
 
             # TX can repeat measurement ids

@@ -2,9 +2,10 @@ import os
 import json
 import warnings
 import copy
+import bacanora
+
 from attrdict import AttrDict
 from reactors.runtime import Reactor, agaveutils
-# from pipelinesclient.reactors import ReactorsPipelineJobClient
 
 from utils import upload, download
 from datacatalog import FileMetadataStore, SampleStore, MeasurementStore, ExperimentStore, ChallengeStore
@@ -113,7 +114,7 @@ def main():
     r.logger.debug('downloading file')
     LOCALFILENAME = r.settings.downloaded
     try:
-        download(r, agave_full_path, LOCALFILENAME, agave_sys)
+        bacanora.download(r.client, agave_full_path, LOCALFILENAME, agave_sys)
     except Exception as exc:
         job.fail('Download failed')
         r.on_failure('download failed', exc)

@@ -1,5 +1,6 @@
 
 from synbiohub_adapter.SynBioHubUtil import SD2Constants
+from experiment_reference import ExperimentReferenceMapping, MappingNotFound
 
 """Some constants to populate samples-schema.json
    compliant outputs
@@ -56,6 +57,8 @@ class SampleConstants():
     SAMPLE_ID = "sample_id"
     STRAIN = "strain"
     CONTENTS = "contents"
+    MEDIA = "media"
+    MEDIA_RS_ID = "media_rs_id"
     REPLICATE = "replicate"
     INOCULATION_DENSITY = "inoculation_density"
     TEMPERATURE = "temperature"
@@ -63,6 +66,7 @@ class SampleConstants():
     NAME = "name"
     VALUE = "value"
     UNIT = "unit"
+    mM = "mM"
 
     LABEL = "label"
     CIRCUIT = "circuit"
@@ -125,6 +129,35 @@ class SampleConstants():
     F_TYPE_MZML = "MZML"
     F_TYPE_MSF = "MSF"
 
+expt_ref_mapper = None
+
+def map_experiment_reference(config, output_doc):
+    global expt_ref_mapper
+
+    if expt_ref_mapper is None:
+        expt_ref_mapper = ExperimentReferenceMapping(mapper_config=config['experiment_reference'],
+                                                 google_client=config['google_client'])
+        expt_ref_mapper.populate()
+
+    mapped = False
+    try:
+        # URI to id
+        if SampleConstants.EXPERIMENT_REFERENCE_URL in output_doc:
+            output_doc[SampleConstants.EXPERIMENT_REFERENCE] = expt_ref_mapper.uri_to_id(output_doc[SampleConstants.EXPERIMENT_REFERENCE_URL])
+            mapped = True
+    except Exception as exc:
+        output_doc[SampleConstants.EXPERIMENT_REFERENCE] = SampleConstants.CP_REF_UNKNOWN
+        raise Exception(exc)
+
+    if not mapped:
+        try:
+            # id to URI
+            if SampleConstants.EXPERIMENT_REFERENCE in output_doc:
+                output_doc[SampleConstants.EXPERIMENT_REFERENCE_URL] = expt_ref_mapper.id_to_uri(output_doc[SampleConstants.EXPERIMENT_REFERENCE])
+        except Exception as exc:
+            output_doc[SampleConstants.EXPERIMENT_REFERENCE] = SampleConstants.CP_REF_UNKNOWN
+            raise Exception(exc)
+
 def convert_value_unit(value_unit):
     value_unit_split = value_unit.split(":")
     value = value_unit_split[0]
@@ -143,7 +176,11 @@ def create_media_component(media_name, media_id, lab, sbh_query, value_unit=None
     if value_unit:
         value_unit_split = convert_value_unit(value_unit)
         m_c_object[SampleConstants.VALUE] = value_unit_split[0]
-        m_c_object[SampleConstants.UNIT] = value_unit_split[1]
+        if len(value_unit_split) == 1:
+            # no unit provided
+            m_c_object[SampleConstants.UNIT] = SampleConstants.mM
+        else:
+            m_c_object[SampleConstants.UNIT] = value_unit_split[1]
 
     return m_c_object
 
