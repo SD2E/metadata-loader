@@ -9,20 +9,32 @@ from jsonschema import ValidationError
 # Hack hack
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from common import SampleConstants
-from common import namespace_sample_id, namespace_measurement_id, namespace_lab_id, create_media_component, create_mapped_name, create_value_unit, map_experiment_reference
+from common import namespace_sample_id, namespace_measurement_id, namespace_lab_id, create_media_component, create_mapped_name, create_value_unit, map_experiment_reference, namespace_experiment_id
 from synbiohub_adapter.query_synbiohub import *
 from synbiohub_adapter.SynBioHubUtil import *
 from sbol import *
 from .mappings import SampleContentsFilter
+from datacatalog.agavehelpers import AgaveHelper
 
+def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_file=None, config={}, enforce_validation=True, reactor=None):
 
-def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_file=None, config={}, enforce_validation=True):
+    if reactor is not None:
+        helper = AgaveHelper(reactor.client)
+        print("Helper loaded")
+    else:
+        print("Helper not loaded")
 
     # default values for FCS support; replace with trace information as available
     DEFAULT_BEAD_MODEL = "SpheroTech URCP-38-2K"
     DEFAULT_BEAD_BATCH = "AJ02"
-    DEFAULT_CYTOMETER_CHANNEL = "YFP - Area"
+    DEFAULT_CYTOMETER_CHANNELS = ["SSC - Area", "FSC - Area", "YFP - Area"]
     DEFAULT_CYTOMETER_CONFIGURATION = "/sd2e-community/ginkgo/instruments/SA3800-20180912.json"
+
+    # For inference
+    #Novel Chassis Nand
+    NC_WF_ID = "13893_13904"
+    #YeastStates gRNA
+    YS_WF_ID = "15724"
 
     # for SBH Librarian Mapping
     sbh_query = SynBioHubQuery(SD2Constants.SD2_SERVER)
@@ -125,6 +137,12 @@ def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_fi
                 replicate_val = int(replicate_val)
             sample_doc[SampleConstants.REPLICATE] = replicate_val
 
+        tx_sample_prop = "SD2_TX_sample_id"
+        if tx_sample_prop in props:
+            # pull out the aliquot id and namespace it for TX
+            # e.g. aq1bszwpwmtqux/ct1bsxfcxdqw55
+            sample_doc[SampleConstants.REFERENCE_SAMPLE_ID] = namespace_sample_id(props[tx_sample_prop].split("/")[0], SampleConstants.LAB_TX)
+
         # determinstically derive measurement ids from sample_id + counter (local to sample)
         measurement_counter = 1
 
@@ -195,17 +213,33 @@ def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_fi
 
             # use measurement_name to do some inference if we have no challenge problem, yet
             # (could be superceded later)
+            # FIXME update this later; Ginkgo needs to provide this
             if output_doc[SampleConstants.CHALLENGE_PROBLEM] == SampleConstants.CP_UNKNOWN:
-                if measurement_doc[SampleConstants.MEASUREMENT_NAME].startswith("NC E. coli NAND") or measurement_doc[SampleConstants.MEASUREMENT_NAME].startswith("NC"):
+                measurement_name = measurement_doc[SampleConstants.MEASUREMENT_NAME]
+                if measurement_name == "NC E. coli NAND 37C (WF: 13893, SEQ_WF: 14853)" or \
+                   measurement_name == "NC E. coli NAND 30C (WF: 13904, SEQ_WF: 14853)" or \
+                   measurement_name == "s27 Global Proteomics with Relative Quantification for w14096 (QE HF-X)" or \
+                   measurement_name == "NC NAND Platereader re-upload" or \
+                   measurement_name == "NC NAND Platereader":
                     print("Setting Novel Chassis Challenge Problem by Inference")
                     output_doc[SampleConstants.CHALLENGE_PROBLEM] = SampleConstants.CP_NOVEL_CHASSIS
-
-            # use challenge_problem and lab to infer the experiment_reference
-            # FIXME update this later
-            if output_doc[SampleConstants.CHALLENGE_PROBLEM] == SampleConstants.CP_NOVEL_CHASSIS:
-                output_doc[SampleConstants.EXPERIMENT_REFERENCE] = SampleConstants.EXPT_DEFAULT_REFERENCE_GINKGO
-                # fill in URI
-                map_experiment_reference(config, output_doc)
+                    # workflow id from ginkgo
+                    output_doc[SampleConstants.EXPERIMENT_ID] = namespace_experiment_id(NC_WF_ID, lab)
+                    output_doc[SampleConstants.EXPERIMENT_REFERENCE] = "NovelChassis-NAND-Gate"
+                    # fill in URI
+                    map_experiment_reference(config, output_doc)
+                elif measurement_name == "P63 Received Aug 2018 (WF: 15724, SEQ_WF: 16402)":
+                    print("Setting Yeast Gates Challenge Problem by Inference")
+                    output_doc[SampleConstants.CHALLENGE_PROBLEM] = SampleConstants.CP_YEAST_GATES
+                    # workflow id from ginkgo
+                    output_doc[SampleConstants.EXPERIMENT_ID] = namespace_experiment_id(YS_WF_ID, lab)
+                    output_doc[SampleConstants.EXPERIMENT_REFERENCE] = "YeastSTATES-gRNA-Seq-Diagnosis"
+                    # fill in URI
+                    map_experiment_reference(config, output_doc)
+                else:
+                    # We should force a failure here. If we can't identify the challenge problem
+                    # or experiment id, this trace becomes very difficult to search for
+                    raise ValueError("Cannot identify challenge problem: {}".format(ginkgo_sample))
 
             # generate a measurement id unique to this sample
             measurement_doc[SampleConstants.MEASUREMENT_ID] = namespace_measurement_id(".".join([sample_doc[SampleConstants.SAMPLE_ID], str(measurement_counter)]), output_doc[SampleConstants.LAB])
@@ -226,18 +260,32 @@ def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_fi
 
             # apply defaults, if nothing mapped
             if measurement_type == SampleConstants.MT_FLOW:
-                if SampleConstants.M_CHANNEL not in measurement_doc:
-                    measurement_doc[SampleConstants.M_CHANNEL] = DEFAULT_CYTOMETER_CHANNEL
+                if SampleConstants.M_CHANNELS not in measurement_doc:
+                    measurement_doc[SampleConstants.M_CHANNELS] = DEFAULT_CYTOMETER_CHANNELS
                 if SampleConstants.M_INSTRUMENT_CONFIGURATION not in measurement_doc:
                     measurement_doc[SampleConstants.M_INSTRUMENT_CONFIGURATION] = DEFAULT_CYTOMETER_CONFIGURATION
 
             # Use default NC negative strain, if CP matches
             # Match on lab ID for now, as this is unambiguous given dictionary name changes
+            # do the same thing for positive control
             if SampleConstants.CONTROL_TYPE not in sample_doc and \
                 SampleConstants.STRAIN in sample_doc and \
-                    output_doc[SampleConstants.CHALLENGE_PROBLEM] == SampleConstants.CP_NOVEL_CHASSIS and \
-                        sample_doc[SampleConstants.STRAIN][SampleConstants.LAB_ID] == namespace_lab_id("194568", output_doc[SampleConstants.LAB]):
+                    output_doc[SampleConstants.CHALLENGE_PROBLEM] == SampleConstants.CP_NOVEL_CHASSIS:
+                        if sample_doc[SampleConstants.STRAIN][SampleConstants.LAB_ID] == namespace_lab_id("194568", output_doc[SampleConstants.LAB]):
                             sample_doc[SampleConstants.CONTROL_TYPE] = SampleConstants.CONTROL_EMPTY_VECTOR
+                        elif sample_doc[SampleConstants.STRAIN][SampleConstants.LAB_ID] == namespace_lab_id("194575", output_doc[SampleConstants.LAB]):
+                            #ON without IPTG, OFF with IPTG, plasmid (high level)
+                            if SampleConstants.CONTENTS not in sample_doc:
+                                sample_doc[SampleConstants.CONTROL_TYPE] = SampleConstants.CONTROL_HIGH_FITC
+                            else:
+                                found = False
+                                for content in sample_doc[SampleConstants.CONTENTS]:
+                                    if SampleConstants.NAME in content and SampleConstants.LABEL in content[SampleConstants.NAME]:
+                                        content_label = content[SampleConstants.NAME][SampleConstants.LABEL]
+                                        if content_label == "IPTG":
+                                            found = True
+                                if not found:
+                                    sample_doc[SampleConstants.CONTROL_TYPE] = SampleConstants.CONTROL_HIGH_FITC
 
             for key in measurement_props["dataset_files"].keys():
                 if key == "processed":

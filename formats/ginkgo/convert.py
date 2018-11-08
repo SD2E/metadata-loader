@@ -8,4 +8,4 @@ class Ginkgo(Converter):
         passed_config = self.options
         if config != {}:
             passed_config = config
-        return convert_ginkgo(self.targetschema, input_fp, verbose=verbose, config=passed_config, output_file=output_fp, enforce_validation=enforce_validation)
+        return convert_ginkgo(self.targetschema, input_fp, verbose=verbose, config=passed_config, output_file=output_fp, enforce_validation=enforce_validation, reactor=self.reactor)

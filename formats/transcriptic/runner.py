@@ -9,10 +9,11 @@ from jsonschema import ValidationError
 # Hack hack
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from common import SampleConstants
-from common import namespace_sample_id, namespace_measurement_id, create_media_component, create_mapped_name, create_value_unit, map_experiment_reference
+from common import namespace_sample_id, namespace_measurement_id, create_media_component, create_mapped_name, create_value_unit, map_experiment_reference, namespace_experiment_id
 from synbiohub_adapter.query_synbiohub import *
 from synbiohub_adapter.SynBioHubUtil import *
 from sbol import *
+from datacatalog.agavehelpers import AgaveHelper
 
 """
 Schema closely aligns with V1 target schema
@@ -21,7 +22,19 @@ as necessary
 """
 
 
-def convert_transcriptic(schema_file, input_file, verbose=True, output=True, output_file=None, config={}, enforce_validation=True):
+def convert_transcriptic(schema_file, input_file, verbose=True, output=True, output_file=None, config={}, enforce_validation=True, reactor=None):
+
+    if reactor is not None:
+        helper = AgaveHelper(reactor.client)
+        print("Helper loaded")
+    else:
+        print("Helper not loaded")
+
+    DEFAULT_BEAD_MODEL = "SpheroTech URCP-38-2K"
+    DEFAULT_BEAD_BATCH = "AJ02"
+    DEFAULT_CYTOMETER_CHANNELS = ["BL1-A", "FSC-A", "SSC-A", "RL1-A"]
+    DEFAULT_CYTOMETER_CONFIGURATION = "/sd2e-community/sample/transcriptic/instruments/flow/attune/1AAS220201014/12142017/cytometer_configuration.json"
+
     # for SBH Librarian Mapping
     sbh_query = SynBioHubQuery(SD2Constants.SD2_SERVER)
 
@@ -32,7 +45,7 @@ def convert_transcriptic(schema_file, input_file, verbose=True, output=True, out
 
     lab = SampleConstants.LAB_TX
 
-    output_doc[SampleConstants.EXPERIMENT_ID] = transcriptic_doc[SampleConstants.EXPERIMENT_ID]
+    output_doc[SampleConstants.EXPERIMENT_ID] = namespace_experiment_id(transcriptic_doc[SampleConstants.EXPERIMENT_ID], lab)
 
     cp = transcriptic_doc[SampleConstants.CHALLENGE_PROBLEM]
     #TX's name for YG...
@@ -73,7 +86,10 @@ def convert_transcriptic(schema_file, input_file, verbose=True, output=True, out
                 if reagent is None or len(reagent) == 0:
                     print("Warning, reagent value is null or empty string {}".format(sample_doc[SampleConstants.SAMPLE_ID]))
                 else:
-                    contents.append(create_media_component(reagent, reagent, lab, sbh_query))
+                    if len(transcriptic_sample[SampleConstants.CONTENTS]) == 1 and SampleConstants.CONCENTRATION in transcriptic_sample:
+                        contents.append(create_media_component(reagent, reagent, lab, sbh_query, transcriptic_sample[SampleConstants.CONCENTRATION]))
+                    else:
+                        contents.append(create_media_component(reagent, reagent, lab, sbh_query))
 
         if SampleConstants.MEDIA in transcriptic_sample and SampleConstants.MEDIA_RS_ID in transcriptic_sample:
             media = transcriptic_sample[SampleConstants.MEDIA]
@@ -111,6 +127,44 @@ def convert_transcriptic(schema_file, input_file, verbose=True, output=True, out
         if time_val.endswith("hours"):
             time_val = time_val.replace("hours", "hour")
 
+        # controls and standards
+        # map standard for, type,
+        if SampleConstants.STANDARD_TYPE in transcriptic_sample:
+            sample_doc[SampleConstants.STANDARD_TYPE] = transcriptic_sample[SampleConstants.STANDARD_TYPE]
+        if SampleConstants.STANDARD_FOR in transcriptic_sample:
+            sample_doc[SampleConstants.STANDARD_FOR] = transcriptic_sample[SampleConstants.STANDARD_FOR]
+
+        # map control for, type
+        if SampleConstants.CONTROL_TYPE in transcriptic_sample:
+            sample_doc[SampleConstants.CONTROL_TYPE] = transcriptic_sample[SampleConstants.CONTROL_TYPE]
+        if SampleConstants.CONTROL_FOR in transcriptic_sample:
+            sample_doc[SampleConstants.CONTROL_FOR] = transcriptic_sample[SampleConstants.CONTROL_FOR]
+
+        # fill in attributes if we have a bead standard
+        if SampleConstants.STANDARD_TYPE in sample_doc and \
+            sample_doc[SampleConstants.STANDARD_TYPE] == SampleConstants.STANDARD_BEAD_FLUORESCENCE and \
+                SampleConstants.STANDARD_ATTRIBUTES not in sample_doc:
+                    sample_doc[SampleConstants.STANDARD_ATTRIBUTES] = {}
+                    sample_doc[SampleConstants.STANDARD_ATTRIBUTES][SampleConstants.BEAD_MODEL] = DEFAULT_BEAD_MODEL
+                    sample_doc[SampleConstants.STANDARD_ATTRIBUTES][SampleConstants.BEAD_BATCH] = DEFAULT_BEAD_BATCH
+
+        # if control types are not available, infer based on sample ids
+        # this is brittle, but the best we can do right now with the output provided
+        # "wt-control-1" = precursor to "WT-Dead-Control" or "WT-Live-Control"
+        # "NOR 00 Control" = "HIGH_FITC"
+        # "WT-Dead-Control" = "CELL_DEATH_POS_CONTROL" - positive for the sytox stain
+        # "WT-Live-Control" = "CELL_DEATH_NEG_CONTROL" - negative for the sytox stain
+        original_sample_id = tx_sample_measure_id = transcriptic_sample[SampleConstants.SAMPLE_ID]
+        if SampleConstants.CONTROL_TYPE not in transcriptic_sample:
+            if original_sample_id == "wt-control-1":
+                sample_doc[SampleConstants.CONTROL_TYPE] = SampleConstants.CONTROL_EMPTY_VECTOR
+            elif original_sample_id == "NOR 00 Control":
+                sample_doc[SampleConstants.CONTROL_TYPE] = SampleConstants.CONTROL_HIGH_FITC
+            elif original_sample_id == "WT-Dead-Control":
+                sample_doc[SampleConstants.CONTROL_TYPE] = SampleConstants.CONTROL_CELL_DEATH_POS_CONTROL
+            elif original_sample_id == "WT-Live-Control":
+                sample_doc[SampleConstants.CONTROL_TYPE] = SampleConstants.CONTROL_CELL_DEATH_NEG_CONTROL
+
         # determinstically derive measurement ids from sample_id + counter (local to sample)
         measurement_counter = 1
 
@@ -128,6 +182,13 @@ def convert_transcriptic(schema_file, input_file, verbose=True, output=True, out
                 measurement_type = SampleConstants.MT_RNA_SEQ
 
             measurement_doc[SampleConstants.MEASUREMENT_TYPE] = measurement_type
+
+            # apply defaults, if nothing mapped
+            if measurement_type == SampleConstants.MT_FLOW:
+                if SampleConstants.M_CHANNELS not in measurement_doc:
+                    measurement_doc[SampleConstants.M_CHANNELS] = DEFAULT_CYTOMETER_CHANNELS
+                if SampleConstants.M_INSTRUMENT_CONFIGURATION not in measurement_doc:
+                    measurement_doc[SampleConstants.M_INSTRUMENT_CONFIGURATION] = DEFAULT_CYTOMETER_CONFIGURATION
 
             # TX can repeat measurement ids
             # across multiple measurement types, append
