@@ -338,6 +338,8 @@ def convert_ginkgo(schema_file, input_file, verbose=True, output=True, output_fi
         return True
     except ValidationError as err:
         if enforce_validation:
+            if verbose:
+                print("Schema Validation Error: {0}\n".format(err))
             raise ValidationError("Schema Validation Error", err)
         else:
             if verbose:
