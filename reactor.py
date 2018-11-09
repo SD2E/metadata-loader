@@ -93,8 +93,8 @@ def main():
     filename_prefix = compute_prefix(
         agave_uri, r.settings.catalogstore.store, m.get('prefix', None))
 
-    job = ReactorsPipelineJobClient(r, m)
-    job.setup().run({'processing': agave_uri})
+    # job = ReactorsPipelineJobClient(r, m)
+    # job.setup().run({'processing': agave_uri})
 
     r.logger.info('INGESTING {}'.format(agave_uri))
     r.logger.debug('computed filename prefix: {}'.format(filename_prefix))
@@ -116,7 +116,7 @@ def main():
     try:
         bacanora.download(r.client, agave_full_path, LOCALFILENAME, agave_sys)
     except Exception as exc:
-        job.fail('Download failed')
+        # job.fail('Download failed')
         r.on_failure('download failed', exc)
 
     # TODO Pull from schema at at URI
@@ -223,7 +223,7 @@ def main():
                 if max_samples == 0:
                     break
 
-    job.finish('Ingest completed')
+    # job.finish('Ingest completed')
     r.loggers.slack.info(
         ':mario_star: Ingested {} ({} usec)'.format(agave_uri, r.elapsed()))
     r.logger.info('INGESTED {} ({} usec)'.format(agave_uri, r.elapsed()))
