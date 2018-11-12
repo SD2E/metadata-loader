@@ -13,12 +13,14 @@ from common import namespace_sample_id, namespace_file_id, namespace_measurement
 from synbiohub_adapter.query_synbiohub import *
 from synbiohub_adapter.SynBioHubUtil import *
 from sbol import *
+from datacatalog.agavehelpers import AgaveHelper
 
 # common across methods
 attributes_attr = "attributes"
 replicate_attr = "replicate"
 sample_attr = "sample"
 sample_id_attr = "sample_id"
+sample_name_attr = "sample_name"
 op_id = "operation_id"
 job_id = "job_id"
 type_attr = "type"
@@ -29,6 +31,11 @@ item_id_attr = "item_id"
 media_attr = "media"
 inducer_attr = "inducer"
 experimental_antibiotic_attr = "experimental_antibiotic"
+concentration_attr = "concentration"
+volume_attr = "volume"
+od600_attr = "od600"
+control_attr = "control"
+negative_control = False
 
 def add_timepoint(measurement_doc, input_item_id, biofab_doc):
     try:
@@ -38,9 +45,25 @@ def add_timepoint(measurement_doc, input_item_id, biofab_doc):
         print("Warning: could not find matching time value for {}".format(input_item_id))
 
 def add_od(item, sample_doc):
-    if item is not None and attributes_attr in item and "od600" in item[attributes_attr]:
-        od = item[attributes_attr]["od600"]
-        sample_doc[SampleConstants.INOCULATION_DENSITY] = create_value_unit(od + ":od600")
+    if item is not None and attributes_attr in item and od600_attr in item[attributes_attr]:
+        od = item[attributes_attr][od600_attr]
+        sample_doc[SampleConstants.INOCULATION_DENSITY] = create_value_unit(od + ":" + od600_attr)
+
+def add_control(item, sample_doc):
+    global negative_control
+    if item is not None and attributes_attr in item and control_attr in item[attributes_attr]:
+        control_val = item[attributes_attr][control_attr]
+        if control_val == "negative_sytox":
+            # have we marked a negative control yet? we can re-use the negative_sytox, which is an unadulterated WT
+            if not negative_control:
+                sample_doc[SampleConstants.CONTROL_TYPE] = SampleConstants.CONTROL_EMPTY_VECTOR
+                negative_control = True
+            else:
+                sample_doc[SampleConstants.CONTROL_TYPE] = SampleConstants.CONTROL_CELL_DEATH_NEG_CONTROL
+        elif control_val == "positive_sytox":
+            sample_doc[SampleConstants.CONTROL_TYPE] = SampleConstants.CONTROL_CELL_DEATH_POS_CONTROL
+        elif control_val == "positive_gfp":
+            sample_doc[SampleConstants.CONTROL_TYPE] = SampleConstants.CONTROL_HIGH_FITC
 
 def add_replicate(item, sample_doc):
     if attributes_attr in item and replicate_attr in item[attributes_attr]:
@@ -55,7 +78,7 @@ def add_strain(item, sample_doc, lab, sbh_query):
             print("Warning, sample is missing a strain entry: {}".format(item))
         else:
             sample_id = item[sample_attr][sample_id_attr]
-            strain = item[sample_attr]["sample_name"]
+            strain = item[sample_attr][sample_name_attr]
             sample_doc[SampleConstants.STRAIN] = create_mapped_name(strain, sample_id, lab, sbh_query, strain=True)
 
 # operation id aggregates across files for a single measurement, e.g.
@@ -149,7 +172,13 @@ def extend_biofab_filename(file_name, plan_id, generated_by):
     return '/'.join([str(plan_id), gen_id, file_name])
 
 
-def convert_biofab(schema_file, input_file, verbose=True, output=True, output_file=None, config={}, enforce_validation=True):
+def convert_biofab(schema_file, input_file, verbose=True, output=True, output_file=None, config={}, enforce_validation=True, reactor=None):
+
+    if reactor is not None:
+        helper = AgaveHelper(reactor.client)
+        print("Helper loaded")
+    else:
+        print("Helper not loaded")
 
     print(input_file)
     # for SBH Librarian Mapping
@@ -257,6 +286,9 @@ def convert_biofab(schema_file, input_file, verbose=True, output=True, output_fi
                                 reagents.append(create_media_component(experimental_antibiotic, experimental_antibiotic, lab, sbh_query))
 
                 add_od(media_source_lookup, sample_doc)
+
+                add_control(media_source_lookup, sample_doc)
+
         if "growth_temperature" in plate_source_lookup:
             temperature = plate_source_lookup["attributes"]["growth_temperature"]
             sample_doc[SampleConstants.TEMPERATURE] = create_value_unit(str(temperature) + ":celsius")
@@ -274,6 +306,10 @@ def convert_biofab(schema_file, input_file, verbose=True, output=True, output_fi
 
         # could use ID
         add_strain(item, sample_doc, lab, sbh_query)
+
+        add_od(item, sample_doc)
+
+        add_control(item, sample_doc)
 
         add_replicate(item, sample_doc)
 
@@ -354,15 +390,35 @@ def convert_biofab(schema_file, input_file, verbose=True, output=True, output_fi
 
                 sample_doc[SampleConstants.SAMPLE_ID] = namespace_sample_id(item_source[item_id_attr], lab)
 
-                add_strain(item_source, sample_doc, lab, sbh_query)
+                if attributes_attr in item_source and (concentration_attr in item_source[attributes_attr] or volume_attr in item_source[attributes_attr]):
+                    # reagent
+                    media_id = item_source[sample_attr][sample_id_attr]
+                    media_name = item_source[sample_attr][sample_name_attr]
+                    reagent_obj = None
+                    if concentration_attr in item_source[attributes_attr]:
+                        reagent_obj = create_media_component(media_name, media_id, lab, sbh_query, item_source[attributes_attr][concentration_attr])
+                    else:
+                        reagent_obj = create_media_component(media_name, media_id, lab, sbh_query)
+
+                    if volume_attr in item_source[attributes_attr]:
+                        volume_value_unit = create_value_unit(item_source[attributes_attr][volume_attr])
+                        reagent_obj["volume"] = volume_value_unit
+
+                    reagents.append(reagent_obj)
+
+                else:
+                    # strain
+                    add_strain(item_source, sample_doc, lab, sbh_query)
 
                 add_od(item_source, sample_doc)
 
+                add_control(item_source, sample_doc)
+
                 add_replicate(item_source, sample_doc)
 
-                if attributes_attr in item_source and "media" in item_source[attributes_attr]:
-                    if "sample_id" in item_source[attributes_attr]["media"]:
-                        media_id = item_source[attributes_attr]["media"]["sample_id"]
+                if attributes_attr in item_source and media_attr in item_source[attributes_attr]:
+                    if sample_id_attr in item_source[attributes_attr][media_attr]:
+                        media_id = item_source[attributes_attr][media_attr][sample_id_attr]
                         reagents.append(create_media_component(media_id, media_id, lab, sbh_query))
                     else:
                         raise ValueError("No media id? {}".format(item_source))
@@ -382,9 +438,9 @@ def convert_biofab(schema_file, input_file, verbose=True, output=True, output_fi
 
             measurement_doc[SampleConstants.FILES] = []
 
-            file = jq(".files[] | select(.sources[]? | contains (\"" + missing_part_of + "\"))").transform(biofab_doc)
+            files = jq(".files[] | select(.sources[]? | contains (\"" + missing_part_of + "\"))").transform(biofab_doc, multiple_output=True)
 
-            if file is not None:
+            for file in files:
                 add_measurement_type(file, measurement_doc)
 
                 add_measurement_id(measurement_doc, sample_doc, output_doc)
@@ -408,6 +464,8 @@ def convert_biofab(schema_file, input_file, verbose=True, output=True, output_fi
         return True
     except ValidationError as err:
         if enforce_validation:
+            if verbose:
+                print("Schema Validation Error: {0}\n".format(err))
             raise ValidationError("Schema Validation Error", err)
         else:
             if verbose:

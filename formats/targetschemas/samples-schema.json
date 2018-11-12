@@ -33,7 +33,15 @@
                 "M",
                 "mM",
                 "g/L",
-                "X"
+                "X",
+                "micromole"
+            ]
+        },
+        "volume_unit": {
+            "description": "unit of volume measurement",
+            "type": "string",
+            "enum": [
+                "microliter"
             ]
         },
         "weight_unit": {
@@ -87,6 +95,24 @@
             "type": "string",
             "enum": [
                 "od600"
+            ]
+        },
+        "volume": {
+            "description": "a measurement of volume",
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "value": {
+                    "description": "numeric value",
+                    "type": "number"
+                },
+                "unit": {
+                    "$ref": "#/definitions/volume_unit"
+                }
+            },
+            "required": [
+                "value",
+                "unit"
             ]
         },
         "temperature": {
@@ -184,6 +210,10 @@
                 "unit": {
                     "description": "unit of fluid measure",
                     "$ref": "#/definitions/fluid_unit"
+                },
+                "volume": {
+                    "description": "volume reference for media",
+                    "$ref": "#/definitions/volume"
                 }
             },
             "additionalProperties": false,
@@ -220,6 +250,10 @@
             "properties": {
                 "sample_id": {
                     "description": "sample id, internal to lab",
+                    "type": "string"
+                },
+                "reference_sample_id": {
+                    "description": "a reference sample id, internal to lab, when referring to samples from another lab, e.g. Ginkgo processing samples from Transcriptic",
                     "type": "string"
                 },
                 "strain": {
@@ -262,7 +296,9 @@
                         "BASELINE",
                         "TREATMENT_1",
                         "TREATMENT_2",
-                        "BASELINE_MEDIA_PR"
+                        "BASELINE_MEDIA_PR",
+                        "CELL_DEATH_NEG_CONTROL",
+                        "CELL_DEATH_POS_CONTROL"
                     ]
                 },
                 "control_for": {
@@ -281,7 +317,8 @@
                         "BEAD_SIZE",
                         "WATER",
                         "LUDOX",
-                        "FLUORESCEIN"
+                        "FLUORESCEIN",
+                        "MEDIA_BLANK"
                     ]
                 },
                 "standard_attributes": {
@@ -347,9 +384,13 @@
                         "PROTEOMICS"
                     ]
                 },
-                "channel": {
-                    "description": "for flow, the name of the channel this measurement used",
-                    "type": "string"
+                "channels": {
+                    "description": "for flow, the name of the channels this measurement used",
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array"
                 },
                 "measurement_name": {
                     "description": "CP/protocol specific name suggested by the labs",

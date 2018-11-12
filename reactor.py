@@ -7,7 +7,6 @@ import bacanora
 from attrdict import AttrDict
 from reactors.runtime import Reactor, agaveutils
 
-from utils import upload, download
 from datacatalog import FileMetadataStore, SampleStore, MeasurementStore, ExperimentStore, ChallengeStore
 from datacatalog import posixhelpers, data_merge, validate_file_to_schema
 from datacatalog.agavehelpers import from_agave_uri

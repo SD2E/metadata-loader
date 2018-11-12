@@ -45,7 +45,6 @@ class SampleConstants():
 
     EXPERIMENT_REFERENCE = "experiment_reference"
     EXPERIMENT_REFERENCE_URL = "experiment_reference_url"
-    EXPT_DEFAULT_REFERENCE_GINKGO = "NovelChassis-NAND-Gate"
 
     LAB = "lab"
     LAB_GINKGO = "Ginkgo"
@@ -55,9 +54,11 @@ class SampleConstants():
     #samples
     SAMPLES = "samples"
     SAMPLE_ID = "sample_id"
+    REFERENCE_SAMPLE_ID = "reference_sample_id"
     STRAIN = "strain"
     CONTENTS = "contents"
     MEDIA = "media"
+    CONCENTRATION = "concentration"
     MEDIA_RS_ID = "media_rs_id"
     REPLICATE = "replicate"
     INOCULATION_DENSITY = "inoculation_density"
@@ -84,6 +85,9 @@ class SampleConstants():
     CONTROL_FOR = "control_for"
     CONTROL_BASELINE_MEDIA_PR = "BASELINE_MEDIA_PR"
     CONTROL_EMPTY_VECTOR = "EMPTY_VECTOR"
+    CONTROL_HIGH_FITC = "HIGH_FITC"
+    CONTROL_CELL_DEATH_POS_CONTROL = "CELL_DEATH_POS_CONTROL"
+    CONTROL_CELL_DEATH_NEG_CONTROL = "CELL_DEATH_NEG_CONTROL"
 
     # sample attributes
     STANDARD_ATTRIBUTES = "standard_attributes"
@@ -117,7 +121,7 @@ class SampleConstants():
     M_STATE = "state"
     M_STATE_RAW = "RAW"
     M_STATE_PROCESSED = "PROCESSED"
-    M_CHANNEL = "channel"
+    M_CHANNELS = "channels"
     M_INSTRUMENT_CONFIGURATION = "instrument_configuration"
 
     F_TYPE_SRAW = "SRAW"
@@ -181,6 +185,9 @@ def create_media_component(media_name, media_id, lab, sbh_query, value_unit=None
             m_c_object[SampleConstants.UNIT] = SampleConstants.mM
         else:
             m_c_object[SampleConstants.UNIT] = value_unit_split[1]
+            # apply some normalizations
+            if m_c_object[SampleConstants.UNIT] == "micromolar":
+                m_c_object[SampleConstants.UNIT] = "micromole"
 
     return m_c_object
 
