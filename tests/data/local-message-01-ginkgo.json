@@ -1,13 +1,16 @@
 {
-    "uri": "agave://data-sd2e-community/uploads/ginkgo/201808/Novelchassis-Nand-Gate/Novelchassis_Nand_gate_samples.json",
-    "options": {
+    "uri": "agave://data-sd2e-community/uploads/ginkgo/201809/Yeast-States/metadata-54497efb7f29-latest.json",
+    "__options": {
         "settings": {
-            "downloaded": "/data/samples-ginkgo.json",
             "mongodb": {
-                "database": "catalog_dev"
+                "database": "catalog_local",
+                "host": "127.0.0.1",
+                "port": "27017",
+                "username": "catalog",
+                "password": "catalog"
             },
             "catalogstore": {
-                "debug": true
+                "debug": false
             }
         }
     }

@@ -7,8 +7,8 @@ pipeline {
     }
     environment {
         CLIENT_PREFIX     = "ingest-samples-json"
-        ACTOR_ID_PROD     = 'w5ovLVR1PNgyE'
-        ACTOR_ID_STAGING  = 'D0bvrrM4qLwgr'
+        ACTOR_ID_PROD     = 'D0bvrrM4qLwgr'
+        ACTOR_ID_STAGING  = 'w5ovLVR1PNgyE'
         ACTOR_WORKERS = 2
         PYTEST_OPTS       = '-s -vvv'
         ABACO_DEPLOY_OPTS = ''

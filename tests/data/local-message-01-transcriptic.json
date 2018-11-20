@@ -1,13 +1,16 @@
 {
-    "uri": "agave://data-sd2e-community/uploads/transcriptic/201808/yeast-gates/r1bsmggea748b_r1bsun4yb67e7/samples.json",
-    "options": {
+    "uri": "agave://data-sd2e-community/uploads/transcriptic/201808/yeast_gates/r1bsmgdayg2yq_r1bsu7tb7bsuk/metadata-74d1ab18139c-latest.json",
+    "__options": {
         "settings": {
-            "downloaded": "/data/samples-transcriptic.json",
             "mongodb": {
-                "database": "catalog_dev"
+                "database": "catalog_local",
+                "host": "127.0.0.1",
+                "port": "27017",
+                "username": "catalog",
+                "password": "catalog"
             },
             "catalogstore": {
-                "debug": true
+                "debug": false
             }
         }
     }
