@@ -2,6 +2,7 @@ import os
 import json
 import warnings
 import copy
+import jsonschema
 
 from attrdict import AttrDict
 import bacanora
@@ -11,7 +12,11 @@ from reactors.runtime import Reactor, agaveutils
 
 SCHEMA_FILE = '/schemas/samples-schema.json'
 LOCALFILENAME = 'downloaded.json'
-SAMPLESET_SCHEMA = 'https://sd2e.github.io/python-datacatalog/schemas/sample_set.json'
+SCHEMA_URI = 'https://sd2e.github.io/python-datacatalog/schemas/sample_set.json'
+
+class formatChecker(jsonschema.FormatChecker):
+    def __init__(self):
+        jsonschema.FormatChecker.__init__(self)
 
 def main():
 
@@ -67,6 +72,16 @@ def main():
     except Exception as exc:
         # job.fail('Download failed')
         on_failure('Failed to download {}'.format(agave_file), exc)
+
+    # Validate the downloaded file (optional, controlled by config.yml#validate)
+    if r.settings.validate:
+        try:
+            resolver = jsonschema.RefResolver('', '').resolve_remote(SCHEMA_URI)
+            instance = json.load(open(LOCALFILENAME, 'r'))
+            assert jsonschema.validate(instance, resolver,
+                                       format_checker=formatChecker()) is None
+        except Exception as exc:
+            on_failure('Failed to validate downloaded file', exc)
 
     db = datacatalog.managers.sampleset.SampleSetProcessor(r.settings.mongodb,
                                                            samples_file=LOCALFILENAME,

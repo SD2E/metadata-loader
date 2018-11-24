@@ -22,7 +22,7 @@ datacatalog: formats
 	if [ -d ../python-datacatalog/datacatalog ]; then rm -rf datacatalog; cp -R ../python-datacatalog/datacatalog .; fi
 
 image: datacatalog
-	abaco deploy -R -t $(GITREF) $(ABACO_DEPLOY_OPTS)
+	abaco deploy -k -R -t $(GITREF) $(ABACO_DEPLOY_OPTS)
 
 shell:
 	bash $(SCRIPT_DIR)/run_container_process.sh bash

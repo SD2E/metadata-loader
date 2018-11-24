@@ -1,3 +1,5 @@
+ARG DATACATALOG_BRANCH=composed_schema
+
 FROM sd2e/reactors:python3-edge
 
 # reactor.py, config.yml, and message.jsonschema will be automatically

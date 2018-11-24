@@ -1,5 +1,6 @@
 ---
 debug: false
+validate: true
 logs:
   level: DEBUG
   token: ~
