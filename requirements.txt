@@ -1,2 +1,1 @@
 pyxdg>=0.2.6
-git+git://github.com/Julian/jsonschema@v3.0.0a3#egg=jsonschema
