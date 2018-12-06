@@ -1,0 +1,3 @@
+[submodule "python-datacatalog"]
+	path = python-datacatalog
+	url = git@gitlab.sd2e.org:sd2program/python-datacatalog.git
