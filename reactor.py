@@ -2,13 +2,15 @@ import os
 import json
 import warnings
 import copy
+import bacanora
+
 from attrdict import AttrDict
 from reactors.runtime import Reactor, agaveutils
 
-from utils import upload, download
 from datacatalog import FileMetadataStore, SampleStore, MeasurementStore, ExperimentStore, ChallengeStore
 from datacatalog import posixhelpers, data_merge, validate_file_to_schema
 from datacatalog.agavehelpers import from_agave_uri
+from datacatalog.pipelinejobs.clients.reactors import ReactorsPipelineJobClient
 
 SCHEMA_FILE = '/schemas/samples-schema.json'
 LOCALFILENAME = 'downloaded.json'
@@ -43,6 +45,7 @@ def main():
 
     # Process options. Eventually move this into a Reactor method.
     # May need to add a filter to prevent some things from being over-written
+    options_settings = {}
     if 'options' in m:
         # allow override of settings
         try:
@@ -80,7 +83,7 @@ def main():
                                     session=stores_session)
 
     r.logger.debug('collections: {}, {}, {}'.format(files_store.name,
-                   sample_store.name, meas_store.name))
+                                                    sample_store.name, meas_store.name))
 
     agave_uri = m.get('uri')
     agave_sys, agave_path, agave_file = from_agave_uri(agave_uri)
@@ -88,6 +91,9 @@ def main():
     # to_process = m.get('reprocess', [])
     filename_prefix = compute_prefix(
         agave_uri, r.settings.catalogstore.store, m.get('prefix', None))
+
+    job = ReactorsPipelineJobClient(r, m)
+    job.setup().run({'processing': agave_uri})
 
     r.logger.info('INGESTING {}'.format(agave_uri))
     r.logger.debug('computed filename prefix: {}'.format(filename_prefix))
@@ -107,15 +113,18 @@ def main():
     r.logger.debug('downloading file')
     LOCALFILENAME = r.settings.downloaded
     try:
-        download(r, agave_full_path, LOCALFILENAME, agave_sys)
+        bacanora.download(r.client, agave_full_path, LOCALFILENAME, agave_sys)
     except Exception as exc:
+        job.fail('Download failed')
         r.on_failure('download failed', exc)
 
-    r.logger.debug('validating file against samples schema')
-    try:
-        validate_file_to_schema(LOCALFILENAME, SCHEMA_FILE)
-    except Exception as exc:
-        r.on_failure('validation failed', exc)
+    # TODO Pull from schema at at URI
+    # r.logger.debug('validating file against samples schema')
+    # try:
+    #     validate_file_to_schema(LOCALFILENAME, SCHEMA_FILE)
+    # except Exception as exc:
+    #     job.fail('Schema validation failed')
+    #     r.on_failure('validation failed', exc)
 
     with open(LOCALFILENAME, 'r') as samplesfile:
         filedata = json.load(samplesfile)
@@ -213,6 +222,7 @@ def main():
                 if max_samples == 0:
                     break
 
+    job.finish('Ingest completed')
     r.loggers.slack.info(
         ':mario_star: Ingested {} ({} usec)'.format(agave_uri, r.elapsed()))
     r.logger.info('INGESTED {} ({} usec)'.format(agave_uri, r.elapsed()))

@@ -26,13 +26,13 @@ datacatalog: datacatalog-develop
 datacatalog-develop:
 	cd python-datacatalog && git checkout develop && git pull origin develop
 
-image: datacatalog
+image:
 	abaco deploy -R -t $(GITREF) $(ABACO_DEPLOY_OPTS)
 
 shell:
 	bash $(SCRIPT_DIR)/run_container_process.sh bash
 
-tests: tests-pytest tests-local
+tests: tests-local
 
 tests-pytest:
 	bash $(SCRIPT_DIR)/run_container_process.sh $(PYTHON) -m "pytest" $(PYTEST_DIR) $(PYTEST_OPTS)

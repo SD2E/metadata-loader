@@ -1,3 +1,4 @@
+.vscode/
 # Abaco and Reactors-specific
 .agave
 .agpy
@@ -5,7 +6,7 @@ secrets.json
 .ACTOR_ID*
 tests/config.yml
 .pytest_cache/
-datacatalog.1
+datacatalog/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
