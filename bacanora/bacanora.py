@@ -27,7 +27,7 @@ def download(agave_client, file_to_download, local_filename, system_id='data-sd2
         try:
             downloadFileName = os.path.join(PWD, local_filename)
             # Implements atomic download
-            f = tempfile.NamedTemporaryFile('wb', delete=False, dir=os.getcwd())
+            f = tempfile.NamedTemporaryFile('wb', delete=False, dir=PWD)
             # with open(downloadFileName, 'wb') as f:
             rsp = agave_client.files.download(systemId=system_id,
                                               filePath=file_to_download)
