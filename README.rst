@@ -4,20 +4,21 @@ Samples Metadata Loader
 Accepts
 -------
 
-- The deployed actor responds to a JSON message in this schema, where the URI points to a lab metadata file
+The deployed actor responds to a JSON message in this schema, where the URI
+points to a conversion output from ``metadata-converter``
 
 .. code-block:: json
 
     {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "$id": "https://schema.catalog.sd2e.org/schemas/agave-files-uri-message.json"
+        "$id": "https://schema.catalog.sd2e.org/schemas/agave-files-uri-message.json",
         "title": "AgaveFilesUriMessage",
         "description": "Request conversion of a lab samples file",
         "type": "object",
         "additionalProperties": false,
         "properties": {
             "uri": {
-                "$ref": "agave_files_uri.json"
+                "$ref": "agave_files_uri.json",
                 "description": "Agave-canonical path to a lab metadata file"
             },
             "options" : {
