@@ -21,8 +21,33 @@ formats:
 datacatalog: formats
 	if [ -d ../python-datacatalog/datacatalog ]; then rm -rf datacatalog; cp -R ../python-datacatalog/datacatalog .; fi
 
-image: datacatalog
-	abaco deploy -k -R -t $(GITREF) $(ABACO_DEPLOY_OPTS)
+image: config-prod image-prod
+
+config-init:
+	if [ -f config.yml ]; then cp config.yml config-prod.yml; fi
+	if [ -f config.yml ]; then cp config.yml config-staging.yml; fi
+
+config-prod:
+	cp config-prod.yml config.yml
+
+config-staging:
+	cp config-staging.yml config.yml
+
+secrets-init:
+	if [ -f secrets.json ]; then cp secrets.json secrets-prod.json; fi
+	if [ -f secrets.json ]; then cp secrets.json secrets-staging.json; fi
+
+secrets-prod:
+	cp secrets-prod.json secrets.json
+
+secrets-staging:
+	cp secrets-staging.json secrets.json
+
+image-prod: config-prod secrets-prod
+	abaco deploy -F Dockerfile -k -B reactor.rc -R -t $(GITREF) $(ABACO_DEPLOY_OPTS)
+
+image-staging: config-staging secrets-staging
+	abaco deploy -F Dockerfile.staging -k -B reactor-staging.rc -R -t $(GITREF) $(ABACO_DEPLOY_OPTS)
 
 shell:
 	bash $(SCRIPT_DIR)/run_container_process.sh bash
@@ -54,8 +79,13 @@ clean-image:
 clean-tests:
 	rm -rf .hypothesis .pytest_cache __pycache__ */__pycache__ tmp.* *junit.xml
 
-deploy:
-	abaco deploy -t $(GITREF) $(ABACO_DEPLOY_OPTS) -U $(ACTOR_ID)
+deploy: deploy-prod
+
+deploy-prod: secrets-prod config-prod
+	abaco deploy -F Dockerfile -B reactor.rc -t $(GITREF) $(ABACO_DEPLOY_OPTS) -U $(ACTOR_ID)
+
+deploy-staging: secrets-staging config-staging
+	abaco deploy -F Dockerfile.staging -k -B reactor-staging.rc -t $(GITREF) $(ABACO_DEPLOY_OPTS) -U $(ACTOR_ID)
 
 postdeploy:
 	bash tests/run_after_deploy.sh

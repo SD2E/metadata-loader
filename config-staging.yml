@@ -1,0 +1,34 @@
+---
+debug: false
+validate: true
+only_extant_files: False
+downloaded: downloaded.json
+
+logs:
+  level: DEBUG
+  token: ~
+
+catalogstore:
+  debug: false
+  uuid5_namespace: sd2e.org
+  storage_system: data-sd2e-community
+  base: /work/projects/SD2E-Community/prod/data
+  store: uploads/
+  root: uploads/
+  batch: 1000
+  collections:
+
+storagesystems:
+  data-sd2e-community:
+    posix_path: /work/projects/SD2E-Community/prod/data
+
+mongodb:
+  port: 27020
+  database: catalog_test
+  host: catalog.sd2e.org
+  username: catalog
+  password: ~
+
+pipelines:
+  active: False
+  job_manager_id: G56vjoAVzGkkq
