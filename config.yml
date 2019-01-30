@@ -1,9 +1,14 @@
 ---
 debug: false
+only_extant_files: False
+downloaded: downloaded.json
 validate: true
+schema: https://schema.catalog.sd2e.org/schemas/sample_set.json
+
 logs:
-  level: DEBUG
+  level: INFO
   token: ~
+
 catalogstore:
   debug: false
   uuid5_namespace: sd2e.org
@@ -14,20 +19,17 @@ catalogstore:
   batch: 1000
   collections:
 
-mongodb:
-  # host: 127.0.0.1
-  # username: catalog
-  # password: catalog
-  port: 27020
-  database: catalog_test
-  host: catalog.sd2e.org
-  username: catalog
-  password: ~
 storagesystems:
   data-sd2e-community:
     posix_path: /work/projects/SD2E-Community/prod/data
-only_extant_files: False
-downloaded: downloaded.json
+
+mongodb:
+  port: 27020
+  database: catalog
+  host: catalog.sd2e.org
+  username: catalog
+  password: ~
+
 pipelines:
   active: False
   job_manager_id: G56vjoAVzGkkq

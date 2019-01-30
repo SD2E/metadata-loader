@@ -12,7 +12,7 @@ from reactors.runtime import Reactor, agaveutils
 
 SCHEMA_FILE = '/schemas/samples-schema.json'
 LOCALFILENAME = 'downloaded.json'
-SCHEMA_URI = 'https://sd2e.github.io/python-datacatalog/schemas/sample_set.json'
+SCHEMA_URI = 'https://schema.catalog.sd2e.org/schemas/sample_set.json'
 
 class formatChecker(jsonschema.FormatChecker):
     def __init__(self):
@@ -62,7 +62,12 @@ def main():
     agave_full_path = os.path.join(agave_path, agave_file)
 
     if r.settings.pipelines.active:
-        job = datacatalog.managers.pipelinejobs.clients.ReactorsPipelineJobClient(r, m)
+        job = datacatalog.managers.pipelinejobs.ManagedPipelineJob(
+            r.settings.mongodb,
+            r.settings.pipelines,
+            instanced=False,
+            archive_path=agave_path
+        )
         job.setup().run({'Processing': agave_uri})
 
     r.logger.debug('Downloading file')
@@ -73,7 +78,8 @@ def main():
         # job.fail('Download failed')
         on_failure('Failed to download {}'.format(agave_file), exc)
 
-    # Validate the downloaded file (optional, controlled by config.yml#validate)
+    # Validate the downloaded file
+    # (optional, controlled by config.yml#validate)
     if r.settings.validate:
         try:
             resolver = jsonschema.RefResolver('', '').resolve_remote(SCHEMA_URI)
@@ -83,17 +89,21 @@ def main():
         except Exception as exc:
             on_failure('Failed to validate downloaded file', exc)
 
-    db = datacatalog.managers.sampleset.SampleSetProcessor(r.settings.mongodb,
-                                                           samples_file=LOCALFILENAME,
-                                                           path_prefix=agave_path)
+    # TODO - Add optional validation of file references before loading data
+
     try:
+        db = datacatalog.managers.sampleset.SampleSetProcessor(
+            r.settings.mongodb,
+            samples_file=LOCALFILENAME,
+            path_prefix=agave_path)
         dbp = db.process()
         assert dbp is True
     except Exception as exc:
         on_failure('Ingest failed for {}'.format(agave_file), exc)
 
-    r.loggers.slack.info(
-        ':mario_star: Ingested {} ({} usec)'.format(agave_uri, r.elapsed()))
+    if not r.local:
+        r.loggers.slack.info(
+            ':mario_star: Ingested {} ({} usec)'.format(agave_uri, r.elapsed()))
 
     on_success('Ingest complete for {} ({} usec)'.format(agave_uri, r.elapsed()))
 
