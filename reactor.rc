@@ -1,5 +1,5 @@
 # Reactor mandatory settings
-REACTOR_NAME=ingest-samples-json
+REACTOR_NAME=ingest-samples-json:staging
 # REACTOR_DESCRIPTION=
 # REACTOR_ALIAS=ingest_samples_json
 

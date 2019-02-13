@@ -3,9 +3,10 @@ debug: false
 only_extant_files: False
 downloaded: downloaded.json
 validate: true
+schema: https://schema.catalog.sd2e.org/schemas/sample_set.json
 
 logs:
-  level: DEBUG
+  level: INFO
   token: ~
 
 catalogstore:
@@ -24,7 +25,7 @@ storagesystems:
 
 mongodb:
   port: 27020
-  database: catalog
+  database: catalog_test
   host: catalog.sd2e.org
   username: catalog
   password: ~

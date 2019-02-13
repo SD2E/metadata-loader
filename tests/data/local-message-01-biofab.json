@@ -1,17 +1,3 @@
 {
-    "uri": "agave://data-sd2e-community/uploads/biofab/201809/17987/op_92240/metadata-eb79106a10e4-latest.json",
-    "__options": {
-        "settings": {
-            "mongodb": {
-                "database": "catalog_local",
-                "host": "127.0.0.1",
-                "port": "27017",
-                "username": "catalog",
-                "password": "catalog"
-            },
-            "catalogstore": {
-                "debug": false
-            }
-        }
-    }
+    "uri": "agave://data-sd2e-community/uploads/biofab/201809/17987/op_92240/metadata-eb79106a10e4-latest.json"
 }

@@ -27,6 +27,9 @@ config-init:
 	if [ -f config.yml ]; then cp config.yml config-prod.yml; fi
 	if [ -f config.yml ]; then cp config.yml config-staging.yml; fi
 
+config-dev:
+	cp config-dev.yml config.yml
+
 config-prod:
 	cp config-prod.yml config.yml
 
@@ -43,11 +46,14 @@ secrets-prod:
 secrets-staging:
 	cp secrets-staging.json secrets.json
 
+image-dev: config-dev secrets-prod
+	abaco deploy -R -F Dockerfile -k -B reactor.rc -R -t $(GITREF) $(ABACO_DEPLOY_OPTS)
+
 image-prod: config-prod secrets-prod
-	abaco deploy -F Dockerfile -k -B reactor.rc -R -t $(GITREF) $(ABACO_DEPLOY_OPTS)
+	abaco deploy -R -F Dockerfile -k -B reactor.rc -R -t $(GITREF) $(ABACO_DEPLOY_OPTS)
 
 image-staging: config-staging secrets-staging
-	abaco deploy -F Dockerfile.staging -k -B reactor-staging.rc -R -t $(GITREF) $(ABACO_DEPLOY_OPTS)
+	abaco deploy -R -F Dockerfile.staging -k -B reactor-staging.rc -R -t $(GITREF) $(ABACO_DEPLOY_OPTS)
 
 shell:
 	bash $(SCRIPT_DIR)/run_container_process.sh bash

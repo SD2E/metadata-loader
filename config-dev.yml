@@ -1,8 +1,8 @@
 ---
 debug: false
-validate: true
 only_extant_files: False
 downloaded: downloaded.json
+validate: true
 schema: https://schema.catalog.sd2e.org/schemas/sample_set.json
 
 logs:
@@ -31,5 +31,5 @@ mongodb:
   password: ~
 
 pipelines:
-  active: False
+  active: True
   job_manager_id: G56vjoAVzGkkq

@@ -1,17 +1,3 @@
 {
-    "uri": "agave://data-sd2e-community/uploads/transcriptic/201808/yeast_gates/r1bsmgdayg2yq_r1bsu7tb7bsuk/metadata-74d1ab18139c-latest.json",
-    "__options": {
-        "settings": {
-            "mongodb": {
-                "database": "catalog_local",
-                "host": "127.0.0.1",
-                "port": "27017",
-                "username": "catalog",
-                "password": "catalog"
-            },
-            "catalogstore": {
-                "debug": false
-            }
-        }
-    }
+    "uri": "agave://data-sd2e-community/uploads/transcriptic/201812/r1bbktv6x4xke/metadata-e96f9397bdb6-latest.json"
 }

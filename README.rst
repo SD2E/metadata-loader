@@ -1,6 +1,15 @@
 Samples Metadata Loader
 =======================
 
+Key Facts
+---------
+
+# Loads a file in _samples-schema_ format into the Data Catalog
+# Only loads if file validates and file references can be resolved
+# Relies on ``datacatalog.managers.sampleset`` for loading
+# Records its progress as a PipelineJjob
+# Supports V2 schema
+
 Accepts
 -------
 
@@ -20,10 +29,6 @@ points to a conversion output from ``metadata-converter``
             "uri": {
                 "$ref": "agave_files_uri.json",
                 "description": "Agave-canonical path to a lab metadata file"
-            },
-            "options" : {
-                "type": "object",
-                "description": "Optional kwargs-style options dictionary"
             }
         },
         "required": ["uri"]
