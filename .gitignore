@@ -1,7 +1,7 @@
 # Abaco and Reactors-specific
 .agave
 .agpy
-secrets.json
+secrets*.json
 .ACTOR_ID*
 tests/config.yml
 .pytest_cache/
@@ -111,3 +111,4 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+.vscode/

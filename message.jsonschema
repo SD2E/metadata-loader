@@ -28,5 +28,5 @@
       }
     }
   },
-  "required": ["uri", "__options"]
+  "required": ["uri"]
 }

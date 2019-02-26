@@ -1,14 +1,3 @@
 {
-    "uri": "agave://data-sd2e-community/uploads/ginkgo/201808/Novelchassis-Nand-Gate/Novelchassis_Nand_gate_samples.json",
-    "options": {
-        "settings": {
-            "downloaded": "/data/samples-ginkgo.json",
-            "mongodb": {
-                "database": "catalog_dev"
-            },
-            "catalogstore": {
-                "debug": true
-            }
-        }
-    }
+    "uri": "agave://data-sd2e-community/uploads/ginkgo/201809/Yeast-States/metadata-54497efb7f29-latest.json"
 }

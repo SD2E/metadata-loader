@@ -1,0 +1,10 @@
+FROM sd2e/reactors:python3-edge
+
+RUN pip uninstall --yes datacatalog || true
+
+COPY python-datacatalog /tmp/python-datacatalog
+WORKDIR /tmp/python-datacatalog
+RUN python3 setup.py install
+WORKDIR /mnt/ephemeral-01
+
+COPY bacanora /bacanora
