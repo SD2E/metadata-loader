@@ -94,9 +94,11 @@ def main():
     try:
         db = datacatalog.managers.sampleset.SampleSetProcessor(
             r.settings.mongodb,
-            samples_file=LOCALFILENAME,
+            agave=r.client,
+            samples_file=agave_uri,
+            samples_uri=LOCALFILENAME,
             path_prefix=agave_path)
-        dbp = db.process()
+        dbp = db.setup().process()
         assert dbp is True
     except Exception as exc:
         on_failure('Ingest failed for {}'.format(agave_file), exc)

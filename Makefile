@@ -10,6 +10,10 @@ NOCLEANUP ?= 0
 
 GITREF=$(shell git rev-parse --short HEAD)
 
+SD2_ACTOR_ID ?= YVqpm0zYz6YYD
+BIOCON_ACTOR_ID ?= 3JyWwYAzNOlXP
+SAFEGENES_ACTOR_ID ?= RyZO30A607gV
+
 .PHONY: tests container tests-local tests-reactor tests-deployed datacatalog formats
 .SILENT: tests container tests-local tests-reactor tests-deployed datacatalog formats shell
 
@@ -50,14 +54,30 @@ tests-deployed:
 
 clean: clean-image clean-tests
 
-clean-image:
-	docker rmi -f $(CONTAINER_IMAGE)
+clean-image: clean-sd2 clean-biocon clean-safegenes
+
+clean-sd2:
+	docker rmi -f sd2e/sd2_metadata_loader:$(GITREF)
+
+clean-biocon:
+	docker rmi -f sd2e/biocon_metadata_loader:$(GITREF)
+
+clean-safegenes:
+	docker rmi -f sd2e/safegenes_metadata_loader:$(GITREF)
 
 clean-tests:
 	rm -rf .hypothesis .pytest_cache __pycache__ */__pycache__ tmp.* *junit.xml
 
-deploy:
-	abaco deploy -F Dockerfile -B reactor.rc -t $(GITREF) $(ABACO_DEPLOY_OPTS) -U $(ACTOR_ID)
+deploy: deploy-sd2 deploy-biocon deploy-safegenes
+
+deploy-sd2:
+	abaco deploy -F Dockerfile.sd2 -c sd2_metadata_loader -t $(GITREF) $(ABACO_DEPLOY_OPTS) -U $(SD2_ACTOR_ID)
+
+deploy-biocon:
+	abaco deploy -F Dockerfile.biocon -c biocon_metadata_loader -t $(GITREF) $(ABACO_DEPLOY_OPTS) -U $(BIOCON_ACTOR_ID)
+
+deploy-safegenes:
+	abaco deploy -F Dockerfile.safegenes -c safegenes_metadata_loader -t $(GITREF) $(ABACO_DEPLOY_OPTS) -U $(SAFEGENES_ACTOR_ID)
 
 postdeploy:
 	bash tests/run_after_deploy.sh
