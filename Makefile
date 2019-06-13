@@ -11,7 +11,7 @@ NOCLEANUP ?= 0
 GITREF=$(shell git rev-parse --short HEAD)
 
 SD2_ACTOR_ID ?= YVqpm0zYz6YYD
-BIOCON_ACTOR_ID ?= 3JyWwYAzNOlXP
+BIOCON_ACTOR_ID ?= z4Y60VepgqaOJ
 SAFEGENES_ACTOR_ID ?= RyZO30A607gV
 
 .PHONY: tests container tests-local tests-reactor tests-deployed datacatalog formats
