@@ -58,7 +58,7 @@ def main():
             on_failure('Failed to handle options', exc)
 
     agave_uri = m.get('uri')
-    agave_sys, agave_path, agave_file = datacatalog.agavehelpers.from_agave_uri.from_agave_uri(agave_uri)
+    agave_sys, agave_path, agave_file = datacatalog.agavehelpers.from_agave_uri(agave_uri)
     agave_full_path = os.path.join(agave_path, agave_file)
 
     # if r.settings.pipelines.active:
