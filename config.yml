@@ -22,6 +22,10 @@ catalogstore:
 storagesystems:
   data-sd2e-community:
     posix_path: /work/projects/SD2E-Community/prod/data
+  data-sd2e-projects.sd2e-project-21:
+    posix_path: /work/projects/SD2E-Community/prod/projects/sd2e-project-21
+  data-projects-safegenes:
+    posix_path: /work/projects/DARPA-SD2-Partners/safegenes
 
 mongodb:
   port: 27020
