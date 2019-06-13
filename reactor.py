@@ -78,18 +78,6 @@ def main():
     #     # job.fail('Download failed')
     #     on_failure('Failed to download {}'.format(agave_file), exc)
 
-    # Validate the downloaded file
-    # (optional, controlled by config.yml#validate)
-    if r.settings.validate:
-        try:
-            resolver = jsonschema.RefResolver('', '').resolve_remote(SCHEMA_URI)
-            instance = json.load(open(agave_file, 'r'))
-            assert jsonschema.validate(instance, resolver,
-                                       format_checker=formatChecker()) is None
-        except Exception as exc:
-            on_failure(
-                'Failed to validate metadata file {}'.format(agave_file), exc)
-
     # TODO - Add optional validation of file references before loading data
 
     try:
@@ -100,6 +88,19 @@ def main():
             agave=r.client,
             samples_uri=agave_uri,
             path_prefix=agave_path).setup()
+
+        # Validate the downloaded file
+        # (optional, controlled by config.yml#validate)
+        if r.settings.validate:
+            r.logger.debug('Validating {}'.format('agave_file'))
+            try:
+                resolver = jsonschema.RefResolver('', '').resolve_remote(SCHEMA_URI)
+                instance = json.load(open(agave_file, 'r'))
+                assert jsonschema.validate(instance, resolver, format_checker=formatChecker()) is None
+            except Exception as exc:
+                on_failure(
+                    'Failed to validate metadata file {}'.format(agave_file), exc)
+
         r.logger.debug('Now calling SampleSetProcessor.process()')
         dbp = db.process()
         assert dbp is True
