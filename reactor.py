@@ -97,11 +97,9 @@ def main():
         db = datacatalog.managers.sampleset.SampleSetProcessor(
             r.settings.mongodb,
             agave=r.client,
-            samples_file=agave_uri,
-            samples_uri=LOCALFILENAME,
-            path_prefix=agave_path)
-        r.logger.debug('Now calling SampleSetProcessor.setup()')
-        db.setup()
+            samples_uri=agave_uri,
+            samples_file=LOCALFILENAME,
+            path_prefix=agave_path).setup()
         r.logger.debug('Now calling SampleSetProcessor.process()')
         dbp = db.process()
         assert dbp is True
