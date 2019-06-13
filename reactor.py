@@ -21,13 +21,13 @@ class formatChecker(jsonschema.FormatChecker):
 def main():
 
     def on_failure(message, exception):
-        if r.settings.pipelines.active:
-            job.fail(message)
+        # if r.settings.pipelines.active:
+        #     job.fail(message)
         r.on_failure(message, exception)
 
     def on_success(message):
-        if r.settings.pipelines.active:
-            job.finish(message)
+        # if r.settings.pipelines.active:
+        #     job.finish(message)
         r.on_success(message)
 
     r = Reactor()
@@ -58,36 +58,37 @@ def main():
             on_failure('Failed to handle options', exc)
 
     agave_uri = m.get('uri')
-    agave_sys, agave_path, agave_file = agaveutils.from_agave_uri(agave_uri)
+    agave_sys, agave_path, agave_file = datacatalog.agavehelpers.from_agave_uri.from_agave_uri(agave_uri)
     agave_full_path = os.path.join(agave_path, agave_file)
 
-    if r.settings.pipelines.active:
-        job = datacatalog.managers.pipelinejobs.ManagedPipelineJob(
-            r.settings.mongodb,
-            r.settings.pipelines,
-            instanced=False,
-            archive_path=agave_path
-        )
-        job.setup().run({'Processing': agave_uri})
+    # if r.settings.pipelines.active:
+    #     job = datacatalog.managers.pipelinejobs.ManagedPipelineJob(
+    #         r.settings.mongodb,
+    #         r.settings.pipelines,
+    #         instanced=False,
+    #         archive_path=agave_path
+    #     )
+    #     job.setup().run({'Processing': agave_uri})
 
-    r.logger.debug('Downloading file')
-    LOCALFILENAME = r.settings.downloaded
-    try:
-        bacanora.download(r.client, agave_full_path, LOCALFILENAME, agave_sys)
-    except Exception as exc:
-        # job.fail('Download failed')
-        on_failure('Failed to download {}'.format(agave_file), exc)
+    # r.logger.debug('Downloading file')
+    # LOCALFILENAME = r.settings.downloaded
+    # try:
+    #     bacanora.download(r.client, agave_full_path, LOCALFILENAME, agave_sys)
+    # except Exception as exc:
+    #     # job.fail('Download failed')
+    #     on_failure('Failed to download {}'.format(agave_file), exc)
 
     # Validate the downloaded file
     # (optional, controlled by config.yml#validate)
     if r.settings.validate:
         try:
             resolver = jsonschema.RefResolver('', '').resolve_remote(SCHEMA_URI)
-            instance = json.load(open(LOCALFILENAME, 'r'))
+            instance = json.load(open(agave_file, 'r'))
             assert jsonschema.validate(instance, resolver,
                                        format_checker=formatChecker()) is None
         except Exception as exc:
-            on_failure('Failed to validate downloaded file', exc)
+            on_failure(
+                'Failed to validate metadata file {}'.format(agave_file), exc)
 
     # TODO - Add optional validation of file references before loading data
 
@@ -98,7 +99,6 @@ def main():
             r.settings.mongodb,
             agave=r.client,
             samples_uri=agave_uri,
-            samples_file=LOCALFILENAME,
             path_prefix=agave_path).setup()
         r.logger.debug('Now calling SampleSetProcessor.process()')
         dbp = db.process()
