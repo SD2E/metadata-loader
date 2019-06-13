@@ -6,7 +6,7 @@ validate: true
 schema: https://schema.catalog.sd2e.org/schemas/sample_set.json
 
 logs:
-  level: INFO
+  level: DEBUG
   token: ~
 
 catalogstore:

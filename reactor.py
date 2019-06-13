@@ -92,13 +92,18 @@ def main():
     # TODO - Add optional validation of file references before loading data
 
     try:
+        r.logger.debug(
+            'Initializing SampleSetProcessor with {}'.format(r.client))
         db = datacatalog.managers.sampleset.SampleSetProcessor(
             r.settings.mongodb,
             agave=r.client,
             samples_file=agave_uri,
             samples_uri=LOCALFILENAME,
             path_prefix=agave_path)
-        dbp = db.setup().process()
+        r.logger.debug('Now calling SampleSetProcessor.setup()')
+        db.setup()
+        r.logger.debug('Now calling SampleSetProcessor.process()')
+        dbp = db.process()
         assert dbp is True
     except Exception as exc:
         on_failure('Ingest failed for {}'.format(agave_file), exc)
