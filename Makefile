@@ -22,7 +22,7 @@ all: image
 image: image-sd2 image-biocon image-safegenes
 
 image-sd2:
-	abaco deploy -k -R -F Dockerfile -c sd2_metadata_loader -t $(GITREF) $(ABACO_DEPLOY_OPTS)
+	abaco deploy -k -R -F Dockerfile.sd2 -c sd2_metadata_loader -t $(GITREF) $(ABACO_DEPLOY_OPTS)
 
 image-biocon:
 	abaco deploy -k -R -F Dockerfile.biocon -c biocon_metadata_loader -t $(GITREF) $(ABACO_DEPLOY_OPTS)
